@@ -130,6 +130,8 @@
       .hero-sub{color:var(--muted);font-size:clamp(1.05rem,2.4vw,1.22rem);margin:0 0 30px;max-width:34rem}
       .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:26px}
       .hero-points{display:flex;flex-wrap:wrap;gap:8px 20px;color:var(--muted);font-size:.93rem;font-weight:600}
+      .muestra-strip{display:inline-flex;gap:6px;align-items:center;margin:0 0 22px;padding:9px 16px;border:1px solid rgba(139,92,246,.45);border-radius:999px;color:#c4b5fd;font-size:.92rem;text-decoration:none;background:rgba(139,92,246,.10)}
+      .muestra-strip:hover{background:rgba(139,92,246,.20);color:#e9e4ff}
       .hero-points span{display:inline-flex;align-items:center;gap:7px}
       .hero-points svg{width:16px;height:16px;color:#34d399;flex:none}
       .real-chip{
@@ -730,6 +732,7 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
               </a>
             </div>
+            <a class="muestra-strip" href="#muestra10"><span data-es="¿Quieres verla antes de pagar el plan? Tu muestra personalizada por $10" data-en="Want to see it before paying for the plan? Your personalized preview for $10">¿Quieres verla antes de pagar el plan? Tu muestra personalizada por $10</span><span aria-hidden="true">→</span></a>
             <div class="hero-points">
               <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-es="Pago único" data-en="One-time payment">Pago único</span></span>
               <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-es="Sin mensualidades de hosting" data-en="No monthly hosting fees">Sin mensualidades de hosting</span></span>
@@ -880,6 +883,18 @@
             <h3 class="cmp-title" data-es="Compara los planes" data-en="Compare the plans">Compara los planes</h3>
             <p class="cmp-sub" data-es="Así ves exactamente qué incluye cada plan y qué no. ✓ = incluido · — = no incluido." data-en="See exactly what each plan includes and what it doesn't. ✓ = included · — = not included.">Así ves exactamente qué incluye cada plan y qué no. ✓ = incluido · — = no incluido.</p>
             <div class="cmp-wrap" id="compareTable"></div>
+          </div>
+
+          <div class="finance rv" id="muestra10">
+            <h3 class="fin-title" data-es="👀 Mira tu página antes de pagarla — Muestra por $10" data-en="👀 See your page before you pay for it — $10 preview">👀 Mira tu página antes de pagarla — Muestra por $10</h3>
+            <p class="fin-text" data-es="Sin arriesgar los $199: primero ves tu página hecha con tu negocio, tus colores y tus servicios. Incluye 1 ronda de ajustes." data-en="No need to risk the $199: first you see your page built with your business, your colors and your services. Includes 1 round of adjustments.">Sin arriesgar los $199: primero ves tu página hecha con tu negocio, tus colores y tus servicios. Incluye 1 ronda de ajustes.</p>
+            <ul class="fin-list">
+              <li><b>1</b><span class="fin-arrow" aria-hidden="true">→</span><span data-es="Llena el cuestionario y paga $10 por Zelle." data-en="Fill out the questionnaire and pay $10 by Zelle.">Llena el cuestionario y paga $10 por Zelle.</span></li>
+              <li><b>2</b><span class="fin-arrow" aria-hidden="true">→</span><span data-es="En 24–48 h recibes tu enlace privado con la portada de TU página ya diseñada." data-en="Within 24–48 hours you receive your private link with YOUR page's homepage already designed.">En 24–48 h recibes tu enlace privado con la portada de TU página ya diseñada.</span></li>
+              <li><b>3</b><span class="fin-arrow" aria-hidden="true">→</span><span data-es="Si te gusta, eliges tu plan y los $10 se descuentan de tu primer pago." data-en="If you love it, pick your plan and the $10 is credited toward your first payment.">Si te gusta, eliges tu plan y los $10 se descuentan de tu primer pago.</span></li>
+            </ul>
+            <p class="fin-rule"><b data-es="Los $10 no son reembolsables; se descuentan si compras tu plan dentro de 15 días. La muestra es una vista previa: los botones se activan al entregar tu página." data-en="The $10 is non-refundable; it is credited if you buy your plan within 15 days. The preview is a look-only version: the buttons are activated when your page is delivered.">Los $10 no son reembolsables; se descuentan si compras tu plan dentro de 15 días. La muestra es una vista previa: los botones se activan al entregar tu página.</b></p>
+            <a class="btn btn-grad" href="#cuestionario" data-open-quiz data-pkg="Muestra personalizada $10"><span data-es="Quiero mi muestra por $10" data-en="I want my $10 preview">Quiero mi muestra por $10</span></a>
           </div>
 
           <div class="finance rv">
@@ -1276,6 +1291,7 @@
                 <label class="q-label" for="qPackage" data-es="15. Paquete que te interesa" data-en="15. Package you're interested in">15. Paquete que te interesa</label>
                 <select class="q-select" id="qPackage">
                   <option value="No sé, quiero asesoría" data-es="No sé, quiero asesoría" data-en="Not sure, I want advice">No sé, quiero asesoría</option>
+                  <option value="Muestra personalizada $10" data-es="Muestra personalizada — $10 (se descuenta de mi plan)" data-en="Personalized preview — $10 (credited toward my plan)">Muestra personalizada — $10 (se descuenta de mi plan)</option>
                   <option value="Básico $199" data-es="Básico $199" data-en="Basic $199">Básico $199</option>
                   <option value="Completo $299" data-es="Completo $299" data-en="Complete $299">Completo $299</option>
                   <option value="Premium $599" data-es="Premium $599" data-en="Premium $599">Premium $599</option>
