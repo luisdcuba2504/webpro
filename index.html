@@ -1346,6 +1346,28 @@
               <label class="q-label" for="qExisting"><span data-es="14. ¿Ya tienes dominio, página web o Facebook?" data-en="14. Do you already have a domain, website or Facebook page?">14. ¿Ya tienes dominio, página web o Facebook?</span> <span class="opt" data-es="(opcional — pega los enlaces que tengas)" data-en="(optional — paste any links you have)">(opcional — pega los enlaces que tengas)</span></label>
               <input class="q-input" id="qExisting" type="text" data-es-ph="Ej.: facebook.com/minegocio, minegocio.com…" data-en-ph="E.g.: facebook.com/mybusiness, mybusiness.com…" placeholder="Ej.: facebook.com/minegocio, minegocio.com…" />
             </div>
+            <div class="q-grid2">
+              <div class="q-field">
+                <label class="q-label" for="qUpdates" data-es="17. ¿Qué tan seguido cambian tus precios o se te acaban los productos?" data-en="17. How often do your prices change or products run out?">17. ¿Qué tan seguido cambian tus precios o se te acaban los productos?</label>
+                <select class="q-select" id="qUpdates">
+                  <option value="Casi nunca" data-es="Casi nunca" data-en="Hardly ever">Casi nunca</option>
+                  <option value="Cada mes" data-es="Cada mes" data-en="Every month">Cada mes</option>
+                  <option value="Cada semana" data-es="Cada semana" data-en="Every week">Cada semana</option>
+                  <option value="A diario / muy seguido" data-es="A diario / muy seguido" data-en="Daily / very often">A diario / muy seguido</option>
+                  <option value="No vendo productos, es un servicio" data-es="No vendo productos, es un servicio" data-en="I don't sell products, it's a service">No vendo productos, es un servicio</option>
+                </select>
+              </div>
+              <div class="q-field">
+                <label class="q-label" for="qSelfControl" data-es="18. ¿Quieres poder cambiar precios, productos y disponibilidad tú mismo, desde tu teléfono?" data-en="18. Do you want to change prices, products and availability yourself, from your phone?">18. ¿Quieres poder cambiar precios, productos y disponibilidad tú mismo, desde tu teléfono?</label>
+                <select class="q-select" id="qSelfControl">
+                  <option value="Sí, quiero ese control (servicio aparte, con su precio)" data-es="Sí, quiero ese control" data-en="Yes, I want that control">Sí, quiero ese control</option>
+                  <option value="No, prefiero que lo hagan ustedes" data-es="No, prefiero que lo hagan ustedes" data-en="No, I'd rather you do it">No, prefiero que lo hagan ustedes</option>
+                  <option value="No sé, quiero que me lo expliquen" data-es="No sé, quiero que me lo expliquen" data-en="Not sure, explain it to me">No sé, quiero que me lo expliquen</option>
+                </select>
+                <p class="q-hint" data-es="Ese control es un panel sencillo para tu tienda o negocio. Es un servicio aparte, con su propio precio: en tu propuesta te lo cotizamos." data-en="That control is a simple panel for your store or business. It's a separate service with its own price: we'll quote it in your proposal.">Ese control es un panel sencillo para tu tienda o negocio. Es un servicio aparte, con su propio precio: en tu propuesta te lo cotizamos.</p>
+              </div>
+            </div>
+
           </div>
 
           <!-- Detalles específicos -->
@@ -1920,6 +1942,8 @@
         payload['14. Dominio, web o Facebook que ya tiene'] = qVal('qExisting') || dash;
         payload['15. Paquete que le interesa'] = qSelectText('qPackage') || qVal('qPackage') || dash;
         payload['16. Detalles específicos del proyecto'] = qVal('qDetails') || dash;
+        payload['17. Frecuencia de cambios de precios/productos'] = qSelectText('qUpdates') || dash;
+        payload['18. ¿Quiere control propio? (panel, precio aparte)'] = qSelectText('qSelfControl') || dash;
         payload['_subject'] = 'Nuevo cuestionario BuilderWeb Pro — ' + nameEl.value.trim();
         payload['_template'] = 'table';
         payload['_replyto'] = emailVal;
