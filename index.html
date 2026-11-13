@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="color-scheme" content="dark" />
-    <meta name="description" content="WebPro — Páginas web profesionales para negocios en cualquier lugar. Paquetes en oferta desde $199, pago único, sin mensualidades de hosting." />
+    <meta name="description" content="BuilderWeb Pro — Construimos tu página web profesional para tu negocio, en cualquier lugar. Paquetes en oferta desde $199, pago único, sin mensualidades de hosting." />
     <link rel="icon" href="data:," />
-    <title>WebPro — Páginas Web para Negocios</title>
+    <title>BuilderWeb Pro — Páginas Web para Negocios | builderwebpro.com</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,700&family=Manrope:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet" />
@@ -63,7 +63,11 @@
         border-bottom:1px solid var(--line);
       }
       .header-in{display:flex;align-items:center;gap:14px;padding-top:12px;padding-bottom:12px}
-      .logo{font-family:var(--font-d);font-weight:800;font-size:1.55rem;letter-spacing:-.02em;text-decoration:none;line-height:1;display:flex;align-items:center;gap:2px}
+      .logo{font-family:var(--font-d);font-weight:800;font-size:1.32rem;letter-spacing:-.02em;text-decoration:none;line-height:1;display:flex;align-items:center;gap:9px;flex:none;white-space:nowrap}
+      .logo .w{font-size:2rem;line-height:.9}
+      .logo .web{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+      .logo .pro{color:var(--cyan)}
+      @media(max-width:480px){.logo{font-size:1.12rem;gap:7px}.logo .w{font-size:1.7rem}}
       .logo .w{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
       .logo .dot{color:var(--cyan)}
       nav.main{margin-left:auto;display:none;gap:6px}
@@ -433,7 +437,9 @@
       .final .row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
       footer.site{padding:40px 0 110px;text-align:center;color:var(--muted-2);font-size:.92rem}
       footer.site .f-logo{font-family:var(--font-d);font-weight:800;font-size:1.3rem;color:var(--text);margin-bottom:8px}
-      footer.site .f-logo .w{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+      footer.site .f-logo .w{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.7rem}
+      footer.site .f-logo .web{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+      footer.site .f-logo .pro{color:var(--cyan)}
       footer.site a{color:var(--muted);font-weight:700;text-decoration:none}
       footer.site a:hover{color:var(--text)}
 
@@ -672,7 +678,7 @@
 
     <header class="site">
       <div class="wrap header-in">
-        <a class="logo" href="#top" aria-label="WebPro"><span class="w">W</span>ebPro<span class="dot">.</span></a>
+        <a class="logo" href="#top" aria-label="BuilderWeb Pro"><span class="w" aria-hidden="true">W</span><span class="logo-name">Builder<span class="web">Web</span> <span class="pro">Pro</span></span></a>
         <nav class="main" aria-label="Principal">
           <a href="#servicios" data-es="Servicios" data-en="Services">Servicios</a>
           <a href="#paquetes" data-es="Paquetes" data-en="Packages">Paquetes</a>
@@ -1105,9 +1111,9 @@
 
     <footer class="site">
       <div class="wrap">
-        <div class="f-logo"><span class="w">W</span>ebPro.</div>
-        <p data-es="WebPro — Trabajamos con clientes en todas partes · También hacemos páginas ligeras para negocios en Cuba" data-en="WebPro — We work with clients everywhere · We also build lightweight sites for businesses in Cuba">WebPro — Trabajamos con clientes en todas partes · También hacemos páginas ligeras para negocios en Cuba</p>
-        <p><a href="tel:+13464793662">(346) 479-3662</a> · <a href="https://buildermaxtexas.com" target="_blank" rel="noopener">buildermaxtexas.com</a></p>
+        <div class="f-logo"><span class="w" aria-hidden="true">W</span> Builder<span class="web">Web</span> <span class="pro">Pro</span></div>
+        <p data-es="BuilderWeb Pro — Construimos tu página web · Trabajamos con clientes en todas partes · También hacemos páginas ligeras para negocios en Cuba" data-en="BuilderWeb Pro — We build your website · We work with clients everywhere · We also build lightweight sites for businesses in Cuba">BuilderWeb Pro — Construimos tu página web · Trabajamos con clientes en todas partes · También hacemos páginas ligeras para negocios en Cuba</p>
+        <p>builderwebpro.com · <a href="tel:+13464793662">(346) 479-3662</a> · <a href="https://buildermaxtexas.com" target="_blank" rel="noopener">buildermaxtexas.com</a></p>
       </div>
     </footer>
 
@@ -1122,7 +1128,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
           <span data-es="Volver" data-en="Back">Volver</span>
         </button>
-        <span class="qt-label" data-es="Cuestionario · WebPro" data-en="Questionnaire · WebPro">Cuestionario · WebPro</span>
+        <span class="qt-label" data-es="Cuestionario · BuilderWeb Pro" data-en="Questionnaire · BuilderWeb Pro">Cuestionario · BuilderWeb Pro</span>
       </div>
       <div class="quiz-wrap" id="cuestionario">
         <div class="quiz-head">
@@ -1317,7 +1323,7 @@
       <div class="demo-topbar">
         <button type="button" class="demo-back" id="demoBack">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
-          <span data-es="Volver a WebPro" data-en="Back to WebPro">Volver a WebPro</span>
+          <span data-es="Volver a BuilderWeb Pro" data-en="Back to BuilderWeb Pro">Volver a BuilderWeb Pro</span>
         </button>
         <span class="dt-label" data-es="Estás viendo una página de muestra" data-en="You are viewing a sample page">Estás viendo una página de muestra</span>
         <span class="dt-name" id="demoTopName"></span>
@@ -1706,7 +1712,7 @@
             '<a class="d-btn d-btn-outline-w" href="' + telHref + '">' + TEL_SVG + callLbl + ' · ' + d.phone + '</a></div></div></div>';
         }
 
-        var foot = '<div class="d-foot"><span class="d-logo">' + d.logo + '</span><p class="fs">' + L(d.slogan) + '</p><p>' + footNote + ' <b>WebPro</b></p></div>';
+        var foot = '<div class="d-foot"><span class="d-logo">' + d.logo + '</span><p class="fs">' + L(d.slogan) + '</p><p>' + footNote + ' <b>BuilderWeb Pro</b></p></div>';
 
         demoContent.innerHTML =
           '<div class="demo-site' + (d.caps ? ' caps' : '') + '" style="' + styleVars + '">' +
@@ -1840,10 +1846,10 @@
         payload['14. Dominio, web o Facebook que ya tiene'] = qVal('qExisting') || dash;
         payload['15. Paquete que le interesa'] = qSelectText('qPackage') || qVal('qPackage') || dash;
         payload['16. Detalles específicos del proyecto'] = qVal('qDetails') || dash;
-        payload['_subject'] = 'Nuevo cuestionario WebPro — ' + nameEl.value.trim();
+        payload['_subject'] = 'Nuevo cuestionario BuilderWeb Pro — ' + nameEl.value.trim();
         payload['_template'] = 'table';
         payload['_replyto'] = emailVal;
-        payload['_autoresponse'] = '¡Gracias por tu solicitud a WebPro! Recibimos tu cuestionario y nuestro equipo ya lo está revisando. En menos de 24 horas te escribiremos a este correo con la propuesta de tu página: qué construiremos, el precio final y los próximos pasos. — Equipo WebPro';
+        payload['_autoresponse'] = '¡Gracias por tu solicitud a BuilderWeb Pro! Recibimos tu cuestionario y nuestro equipo ya lo está revisando. En menos de 24 horas te escribiremos a este correo con la propuesta de tu página: qué construiremos para ti, el precio final y los próximos pasos. — Equipo BuilderWeb Pro';
         payload['_captcha'] = 'true';
 
         var submitBtn = document.getElementById('quizSubmitBtn');
