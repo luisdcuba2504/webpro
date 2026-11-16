@@ -1380,6 +1380,11 @@
             </div>
           </div>
 
+          <!-- BWP_INTEGRACION_N8N_V1: Turnstile se activa solo al habilitar y verificar el Worker. -->
+          <div id="bwpTurnstileWrap" style="display:none;margin:18px 0;">
+            <div id="bwpTurnstile"></div>
+          </div>
+
           <div class="quiz-error" id="quizError" role="alert"></div>
 
           <div class="quiz-notice">
@@ -1847,6 +1852,55 @@
       var quizForm = document.getElementById('quizForm');
       var quizError = document.getElementById('quizError');
 
+      /* BWP_INTEGRACION_N8N_V1: solo configuración PÚBLICA; no poner secretos aquí. */
+      var BWP_WORKER_ENABLED = false; // Cambiar a true SOLO tras verificar Worker+n8n desde el sitio real.
+      var BWP_WORKER_URL = 'https://builderwebpro-contacto.builderwebpro-tx-a50.workers.dev/';
+      var BWP_TURNSTILE_SITE_KEY = '0x4AAAAAAGCaPJ8EI69Z1fnQ';
+      var bwpWidgetId = null;
+      var bwpScriptLoading = false;
+      function bwpUseWorker() {
+        return BWP_WORKER_ENABLED === true &&
+          /^https:\/\/[^\s]+$/.test(BWP_WORKER_URL) && !!BWP_TURNSTILE_SITE_KEY;
+      }
+      function bwpSecurityError() {
+        quizError.textContent = currentLang === 'en'
+          ? 'Security verification is unavailable. Please try again later or contact us directly.'
+          : 'La verificación de seguridad no está disponible. Inténtalo más tarde o contáctanos directamente.';
+        quizError.classList.add('show');
+      }
+      function bwpRenderTurnstile() {
+        if (!bwpUseWorker() || !window.turnstile || !quizOverlay.classList.contains('open')) return;
+        try {
+          if (bwpWidgetId === null) {
+            bwpWidgetId = window.turnstile.render('#bwpTurnstile', {
+              sitekey: BWP_TURNSTILE_SITE_KEY, theme: 'dark', appearance: 'always',
+              'expired-callback': function () {
+                quizError.textContent = currentLang === 'en'
+                  ? 'Verification expired. Please complete it again.'
+                  : 'La verificación caducó. Complétala nuevamente.';
+                quizError.classList.add('show');
+              },
+              'error-callback': function () { bwpSecurityError(); }
+            });
+          } else {
+            window.turnstile.reset(bwpWidgetId);
+          }
+        } catch (_) { bwpSecurityError(); }
+      }
+      function bwpPrepareTurnstile() {
+        if (!bwpUseWorker()) return;
+        document.getElementById('bwpTurnstileWrap').style.display = 'block';
+        if (window.turnstile) { bwpRenderTurnstile(); return; }
+        if (bwpScriptLoading) return;
+        bwpScriptLoading = true;
+        var script = document.createElement('script');
+        script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+        script.async = true;
+        script.onload = function () { bwpScriptLoading = false; bwpRenderTurnstile(); };
+        script.onerror = function () { bwpScriptLoading = false; bwpSecurityError(); };
+        document.head.appendChild(script);
+      }
+
       function openQuiz(pkg) {
         if (pkg) {
           var sel = document.getElementById('qPackage');
@@ -1859,6 +1913,7 @@
         quizOverlay.classList.add('open');
         document.body.classList.add('locked');
         quizOverlay.scrollTop = 0;
+        bwpPrepareTurnstile();
         document.getElementById('quizBack').focus();
       }
       function closeQuiz() {
@@ -1950,6 +2005,36 @@
         payload['_autoresponse'] = '¡Gracias por tu solicitud a BuilderWeb Pro! Recibimos tu cuestionario y nuestro equipo ya lo está revisando. En menos de 24 horas te escribiremos a este correo con la propuesta de tu página: qué construiremos para ti, el precio final y los próximos pasos. — Equipo BuilderWeb Pro';
         payload['_captcha'] = 'true';
 
+        // Adaptar el cuestionario de 18 respuestas a los campos del flujo n8n.
+        // Conservamos íntegro el contenido numerado como mensaje para el equipo comercial.
+        if (bwpUseWorker()) {
+          payload.nombre = nameEl.value.trim();
+          payload.telefono = phoneEl.value.trim();
+          payload.correo = emailVal;
+          payload.servicio = qSelectText('qPackage') || qVal('qPackage') || 'Página web';
+          payload.mensaje = Object.keys(payload).filter(function (k) { return /^\d{1,2}\. /.test(k); })
+            .map(function (k) { return k + ': ' + payload[k]; }).join('\n');
+          payload.name = payload.nombre;
+          payload.phone = payload.telefono;
+          payload.email = payload.correo;
+          payload.language = currentLang;
+          payload.source = 'builderwebpro.com';
+          payload.submittedAt = new Date().toISOString();
+          payload.website = ''; // Honeypot de n8n: vacío para clientes reales.
+          var token = window.turnstile && bwpWidgetId !== null
+            ? window.turnstile.getResponse(bwpWidgetId) : '';
+          if (!token) {
+            quizError.textContent = en
+              ? 'Please complete the security verification before submitting.'
+              : 'Completa la verificación de seguridad antes de enviar.';
+            quizError.classList.add('show');
+            quizError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            bwpPrepareTurnstile();
+            return;
+          }
+          payload['cf-turnstile-response'] = token;
+        }
+
         var submitBtn = document.getElementById('quizSubmitBtn');
         var submitLabel = submitBtn.querySelector('span');
         var labelWas = submitLabel.textContent;
@@ -1957,26 +2042,39 @@
         submitBtn.style.opacity = '.65';
         submitLabel.textContent = en ? 'Sending…' : 'Enviando…';
 
-        fetch('https://formsubmit.co/ajax/e00ca9d6043fc13354ccda2653e5954d', {
+        var useWorker = bwpUseWorker();
+        var endpoint = useWorker ? BWP_WORKER_URL
+          : 'https://formsubmit.co/ajax/e00ca9d6043fc13354ccda2653e5954d';
+        var controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+        var timeoutId = controller ? setTimeout(function () { controller.abort(); }, 25000) : null;
+        fetch(endpoint, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify(payload)
+          body: JSON.stringify(payload),
+          signal: controller ? controller.signal : undefined
         }).then(function (resp) {
-          if (!resp.ok) throw new Error('send failed');
+          if (!resp.ok) throw new Error('send failed: HTTP ' + resp.status);
           return resp.json().catch(function () { return {}; });
-        }).then(function () {
+        }).then(function (result) {
+          if (useWorker && result.ok !== true) throw new Error('Worker did not confirm delivery');
+          if (!useWorker && (result.success === false || result.success === 'false')) throw new Error('FormSubmit failed');
           quizForm.style.display = 'none';
           document.getElementById('quizSuccess').style.display = 'block';
           quizOverlay.scrollTop = 0;
         }).catch(function () {
-          submitBtn.disabled = false;
-          submitBtn.style.opacity = '';
-          submitLabel.textContent = labelWas;
+          if (useWorker && window.turnstile && bwpWidgetId !== null) {
+            window.turnstile.reset(bwpWidgetId);
+          }
           quizError.textContent = en
             ? 'We could not send it. Please email us at builderwebpro.tx@gmail.com'
             : 'No se pudo enviar. Escríbenos a builderwebpro.tx@gmail.com';
           quizError.classList.add('show');
           quizError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }).finally(function () {
+          if (timeoutId !== null) clearTimeout(timeoutId);
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = '';
+          submitLabel.textContent = labelWas;
         });
       });
 
