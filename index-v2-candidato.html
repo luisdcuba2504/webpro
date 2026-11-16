@@ -1,0 +1,2213 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="description" content="BuilderWeb Pro — Construimos tu página web profesional para tu negocio, en cualquier lugar. Paquetes en oferta desde $199, pago único, sin mensualidades de hosting." />
+    <link rel="icon" href="data:," />
+    <title>BuilderWeb Pro — Páginas Web para Negocios | builderwebpro.com</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,700&family=Manrope:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root{
+        --bg:#05070f;
+        --bg-2:#090d1a;
+        --panel:rgba(255,255,255,.045);
+        --panel-strong:rgba(255,255,255,.07);
+        --line:rgba(255,255,255,.10);
+        --text:#eef1fb;
+        --muted:#a3adc9;
+        --muted-2:#7c86a5;
+        --violet:#8b5cf6;
+        --cyan:#22d3ee;
+        --grad:linear-gradient(120deg,#a78bfa 0%,#818cf8 45%,#22d3ee 100%);
+        --grad-btn:linear-gradient(120deg,#7c3aed,#4f46e5 55%,#0891b2);
+        --wa:#22c55e;
+        --wa-dark:#16a34a;
+        --radius:20px;
+        --font-d:'Sora',system-ui,sans-serif;
+        --font-b:'Manrope',system-ui,sans-serif;
+      }
+      *{box-sizing:border-box}
+      html{scroll-behavior:smooth}
+      body{
+        margin:0;background:var(--bg);color:var(--text);
+        font-family:var(--font-b);font-size:16.5px;line-height:1.6;
+        -webkit-font-smoothing:antialiased;overflow-x:hidden;
+      }
+      ::selection{background:rgba(139,92,246,.45)}
+      img{display:block;max-width:100%}
+      a{color:inherit}
+      button{font-family:inherit;cursor:pointer}
+      button,[role="button"],a.btn,a.chip-link{min-height:2.75rem}
+      .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+      /* ambient background */
+      .ambient{position:fixed;inset:0;z-index:-2;overflow:hidden;background:
+        radial-gradient(900px 480px at 85% -5%,rgba(124,58,237,.28),transparent 60%),
+        radial-gradient(800px 500px at -10% 30%,rgba(34,211,238,.14),transparent 60%),
+        radial-gradient(700px 600px at 110% 75%,rgba(79,70,229,.16),transparent 60%),
+        linear-gradient(180deg,#05070f,#070b18 40%,#05070f)}
+      .ambient::after{content:"";position:absolute;inset:0;
+        background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+        background-size:56px 56px;
+        -webkit-mask-image:radial-gradient(ellipse 90% 55% at 50% 0%,#000 30%,transparent 75%);
+                mask-image:radial-gradient(ellipse 90% 55% at 50% 0%,#000 30%,transparent 75%)}
+
+      /* ---------- header ---------- */
+      header.site{
+        position:sticky;top:0;z-index:60;
+        background:rgba(5,7,15,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+        border-bottom:1px solid var(--line);
+      }
+      .header-in{display:flex;align-items:center;gap:14px;padding-top:12px;padding-bottom:12px}
+      .logo{font-family:var(--font-d);font-weight:800;font-size:1.32rem;letter-spacing:-.02em;text-decoration:none;line-height:1;display:flex;align-items:center;gap:9px;flex:none;white-space:nowrap}
+      .logo .w{font-size:2rem;line-height:.9}
+      .logo .web{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+      .logo .pro{color:var(--cyan)}
+      @media(max-width:480px){.logo{font-size:1.12rem;gap:7px}.logo .w{font-size:1.7rem}}
+      .logo .w{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+      .logo .dot{color:var(--cyan)}
+      nav.main{margin-left:auto;display:none;gap:6px}
+      nav.main a{
+        text-decoration:none;color:var(--muted);font-weight:600;font-size:.95rem;
+        padding:10px 14px;border-radius:999px;transition:color .2s,background .2s;
+        display:inline-flex;align-items:center;min-height:2.75rem;
+      }
+      nav.main a:hover{color:var(--text);background:rgba(255,255,255,.06)}
+      .lang-toggle{
+        margin-left:auto;display:inline-flex;background:rgba(255,255,255,.06);
+        border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px;flex:none;
+      }
+      nav.main + .lang-toggle{margin-left:8px}
+      .lang-toggle button{
+        border:0;background:transparent;color:var(--muted);font-weight:800;font-size:.82rem;
+        padding:7px 13px;border-radius:999px;min-height:2.25rem;transition:all .2s;letter-spacing:.04em;
+      }
+      .lang-toggle button[aria-pressed="true"]{background:var(--grad-btn);color:#fff;box-shadow:0 4px 14px rgba(99,102,241,.45)}
+      .header-in .header-cta{display:none}
+      @media(min-width:900px){
+        nav.main{display:flex}
+        .lang-toggle{margin-left:8px}
+        .header-in .header-cta{display:inline-flex;margin-left:10px}
+      }
+
+      /* ---------- buttons ---------- */
+      .btn{
+        display:inline-flex;align-items:center;justify-content:center;gap:9px;
+        font-family:var(--font-d);font-weight:700;font-size:1rem;text-decoration:none;
+        padding:13px 24px;border-radius:14px;border:1px solid transparent;
+        transition:transform .18s,box-shadow .18s,background .18s;min-height:3.25rem;
+      }
+      .btn:active{transform:scale(.97)}
+      .btn svg{width:20px;height:20px;flex:none}
+      .btn-wa{background:linear-gradient(135deg,#25d366,#128c4b);color:#fff;box-shadow:0 10px 28px rgba(34,197,94,.35)}
+      .btn-wa:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(34,197,94,.42)}
+      .btn-grad{background:var(--grad-btn);color:#fff;box-shadow:0 10px 28px rgba(99,102,241,.4)}
+      .btn-grad:hover{transform:translateY(-2px)}
+      .btn-ghost{background:rgba(255,255,255,.05);border-color:var(--line);color:var(--text)}
+      .btn-ghost:hover{background:rgba(255,255,255,.1);transform:translateY(-2px)}
+      .btn-sm{padding:9px 18px;font-size:.9rem;min-height:2.75rem;border-radius:11px}
+
+      /* ---------- hero ---------- */
+      .hero{padding:64px 0 30px;position:relative}
+      .hero-grid{display:grid;gap:44px;align-items:center}
+      @media(min-width:960px){.hero-grid{grid-template-columns:1.05fr .95fr}}
+      .hero-badge{
+        display:inline-flex;align-items:center;gap:8px;font-size:.83rem;font-weight:700;
+        color:#c4b5fd;background:rgba(139,92,246,.13);border:1px solid rgba(167,139,250,.35);
+        padding:7px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.02em;
+      }
+      .hero-badge .pulse{width:8px;height:8px;border-radius:50%;background:#34d399;box-shadow:0 0 0 0 rgba(52,211,153,.6);animation:pulse 2.2s infinite}
+      @keyframes pulse{70%{box-shadow:0 0 0 8px rgba(52,211,153,0)}100%{box-shadow:0 0 0 0 rgba(52,211,153,0)}}
+      h1{
+        font-family:var(--font-d);font-weight:800;letter-spacing:-.025em;
+        font-size:clamp(2.35rem,6.2vw,3.9rem);line-height:1.08;margin:0 0 20px;
+      }
+      h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+      .hero-sub{color:var(--muted);font-size:clamp(1.05rem,2.4vw,1.22rem);margin:0 0 30px;max-width:34rem}
+      .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:26px}
+      .hero-points{display:flex;flex-wrap:wrap;gap:8px 20px;color:var(--muted);font-size:.93rem;font-weight:600}
+      .muestra-strip{display:inline-flex;gap:6px;align-items:center;margin:0 0 22px;padding:9px 16px;border:1px solid rgba(139,92,246,.45);border-radius:999px;color:#c4b5fd;font-size:.92rem;text-decoration:none;background:rgba(139,92,246,.10)}
+      .muestra-strip:hover{background:rgba(139,92,246,.20);color:#e9e4ff}
+      .hero-points span{display:inline-flex;align-items:center;gap:7px}
+      .hero-points svg{width:16px;height:16px;color:#34d399;flex:none}
+      .real-chip{
+        display:inline-flex;align-items:center;gap:9px;margin-top:24px;text-decoration:none;
+        background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 16px;
+        font-size:.92rem;font-weight:600;color:var(--muted);transition:border-color .2s,background .2s;min-height:2.75rem;
+      }
+      .real-chip:hover{border-color:rgba(34,211,238,.5);background:var(--panel-strong)}
+      .real-chip b{color:var(--text)}
+      .real-chip .live{width:8px;height:8px;border-radius:50%;background:#22c55e;flex:none}
+      .real-chip svg{width:15px;height:15px;color:var(--cyan)}
+
+      /* browser mockup */
+      .mock{
+        background:rgba(13,18,36,.85);border:1px solid var(--line);border-radius:18px;
+        box-shadow:0 40px 80px rgba(0,0,0,.55),0 0 0 1px rgba(139,92,246,.08),0 0 90px rgba(99,102,241,.16);
+        overflow:hidden;transform:perspective(1400px) rotateY(-5deg) rotateX(1.5deg);
+      }
+      .mock-bar{display:flex;align-items:center;gap:7px;padding:11px 14px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.03)}
+      .mock-bar i{width:11px;height:11px;border-radius:50%;display:block}
+      .mock-url{margin-left:8px;flex:1;background:rgba(255,255,255,.06);border-radius:8px;font-size:.74rem;color:var(--muted);padding:5px 12px;font-weight:600;white-space:nowrap;overflow:hidden}
+      .mock-body{position:relative}
+      .mock-body img{width:100%;height:300px;object-fit:cover}
+      .mock-body::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(5,7,15,.88))}
+      .mock-caption{position:absolute;left:18px;right:18px;bottom:16px;z-index:2}
+      .mock-caption .mc-name{font-family:var(--font-d);font-weight:800;font-size:1.25rem}
+      .mock-caption .mc-sub{color:#d6dcf2;font-size:.88rem}
+      .mock-float{
+        position:absolute;top:14px;right:14px;z-index:2;display:inline-flex;align-items:center;gap:7px;
+        background:rgba(18,140,75,.92);color:#fff;font-weight:700;font-size:.78rem;
+        padding:8px 13px;border-radius:999px;box-shadow:0 8px 20px rgba(0,0,0,.4);
+      }
+      .mock-float svg{width:14px;height:14px}
+      @media(max-width:959px){.mock{transform:none}.mock-body img{height:230px}}
+
+      /* ---------- sections ---------- */
+      section.block{padding:72px 0 8px}
+      .sec-head{max-width:44rem;margin-bottom:38px}
+      .sec-head h2{font-family:var(--font-d);font-weight:800;letter-spacing:-.02em;font-size:clamp(1.8rem,4.4vw,2.6rem);line-height:1.15;margin:0 0 12px}
+      .sec-head h2 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+      .sec-head p{color:var(--muted);margin:0;font-size:1.05rem}
+
+      /* services */
+      .svc-grid{display:grid;gap:16px;grid-template-columns:1fr}
+      @media(min-width:620px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
+      @media(min-width:1020px){.svc-grid{grid-template-columns:repeat(4,1fr)}}
+      .svc{
+        background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+        padding:24px 22px;transition:transform .22s,border-color .22s,background .22s;
+      }
+      .svc:hover{transform:translateY(-4px);border-color:rgba(139,92,246,.45);background:var(--panel-strong)}
+      .svc .ic{
+        width:48px;height:48px;border-radius:13px;display:grid;place-items:center;margin-bottom:15px;
+        background:linear-gradient(135deg,rgba(139,92,246,.25),rgba(34,211,238,.18));
+        border:1px solid rgba(167,139,250,.3);color:#c4b5fd;
+      }
+      .svc .ic svg{width:23px;height:23px}
+      .svc h3{font-family:var(--font-d);font-size:1.04rem;font-weight:700;margin:0 0 7px;line-height:1.3}
+      .svc p{color:var(--muted);font-size:.92rem;margin:0;line-height:1.55}
+
+      /* pricing */
+      .price-grid{display:grid;gap:18px;grid-template-columns:1fr;align-items:stretch}
+      @media(min-width:960px){.price-grid{grid-template-columns:repeat(3,1fr)}}
+      .price-card{
+        position:relative;background:var(--panel);border:1px solid var(--line);border-radius:24px;
+        padding:30px 26px;display:flex;flex-direction:column;
+      }
+      .price-card.featured{
+        background:linear-gradient(180deg,rgba(124,58,237,.14),rgba(34,211,238,.06)),var(--bg-2);
+        border:1px solid transparent;
+        background-clip:padding-box;
+        box-shadow:0 24px 60px rgba(99,102,241,.25);
+      }
+      .price-card.featured::before{
+        content:"";position:absolute;inset:-1px;border-radius:24px;padding:1.5px;z-index:-1;
+        background:var(--grad);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+        -webkit-mask-composite:xor;mask-composite:exclude;
+      }
+      @media(min-width:960px){.price-card.featured{transform:translateY(-12px)}}
+      .pop-tag{
+        position:absolute;top:-14px;left:50%;transform:translateX(-50%);white-space:nowrap;
+        background:var(--grad-btn);color:#fff;font-family:var(--font-d);font-weight:800;font-size:.74rem;
+        letter-spacing:.09em;padding:7px 16px;border-radius:999px;box-shadow:0 8px 20px rgba(99,102,241,.5);
+      }
+      .price-card .p-name{font-family:var(--font-d);font-weight:700;letter-spacing:.14em;font-size:.85rem;color:var(--muted);text-transform:uppercase}
+      .price-was{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin:14px 0 0;font-size:.95rem;color:var(--muted-2);font-weight:600}
+      .price-was s{color:#f87171;text-decoration-thickness:2px;text-underline-offset:2px;font-weight:700;font-size:1.02rem}
+      .offer-chip{
+        background:linear-gradient(120deg,#dc2626,#ea580c);color:#fff;font-family:var(--font-d);font-weight:800;
+        font-size:.7rem;letter-spacing:.08em;padding:4px 11px;border-radius:999px;box-shadow:0 6px 16px rgba(220,38,38,.38);
+      }
+      .price-amt{display:flex;align-items:baseline;gap:8px;margin:3px 0 4px}
+      .price-amt .amt{font-family:var(--font-d);font-weight:800;font-size:3rem;letter-spacing:-.03em;line-height:1}
+      .price-card.featured .price-amt .amt{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+      .price-amt .per{color:var(--muted-2);font-size:.88rem;font-weight:600}
+      .price-desc{color:var(--muted);font-size:.94rem;margin:0 0 20px}
+      .price-card ul{list-style:none;margin:0 0 26px;padding:0;display:grid;gap:11px;flex:1}
+      .price-card li{display:flex;gap:10px;font-size:.95rem;color:#dbe1f3;line-height:1.45}
+      .price-card li svg{width:18px;height:18px;flex:none;color:#34d399;margin-top:2px}
+      .price-card li.dim{color:var(--muted-2)}
+      .card-actions{display:grid;gap:10px}
+      .btn-details{
+        background:rgba(139,92,246,.1);border:1px solid rgba(167,139,250,.38);color:#ddd0ff;
+        font-size:.95rem;
+      }
+      .btn-details:hover{background:rgba(139,92,246,.2);transform:translateY(-2px)}
+      .btn-details svg{width:18px;height:18px}
+
+      /* tabla comparativa de planes */
+      .compare{margin-top:38px}
+      .cmp-title{font-family:var(--font-d);font-weight:800;font-size:1.35rem;letter-spacing:-.01em;margin:0 0 6px}
+      .cmp-sub{color:var(--muted);font-size:.93rem;margin:0 0 16px}
+      .cmp-wrap{background:var(--panel);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+      table.cmp{width:100%;border-collapse:collapse;table-layout:fixed}
+      .cmp th,.cmp td{padding:11px 10px;border-bottom:1px solid var(--line);font-size:.88rem;text-align:center;vertical-align:middle}
+      .cmp tbody tr:last-child th,.cmp tbody tr:last-child td{border-bottom:0}
+      .cmp .frow{text-align:left;font-weight:600;color:#dbe1f3;width:43%}
+      .cmp thead th{font-family:var(--font-d);background:rgba(255,255,255,.03);vertical-align:top}
+      .cmp thead .frow{font-family:var(--font-b);color:var(--muted);font-size:.82rem;letter-spacing:.05em;text-transform:uppercase;vertical-align:bottom}
+      .cmp-pname{display:block;font-weight:800;font-size:.95rem;letter-spacing:.02em}
+      .cmp-was{display:block;color:#f87171;text-decoration:line-through;font-family:var(--font-b);font-weight:600;font-size:.78rem;margin-top:3px}
+      .cmp-now{display:block;font-weight:800;font-size:1.22rem;line-height:1.15}
+      .cmp td.hl,.cmp th.hl{background:rgba(124,58,237,.1)}
+      .ck-yes{color:#34d399;font-weight:800;font-size:1.05rem}
+      .ck-no{color:var(--muted-2)}
+      @media(max-width:560px){
+        .cmp th,.cmp td{padding:9px 6px;font-size:.79rem}
+        .cmp-pname{font-size:.83rem}
+        .cmp-now{font-size:1.02rem}
+      }
+      .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+      /* detalle de plan (modal) */
+      #planOverlay{position:fixed;inset:0;z-index:130;background:#04060d;display:none;overflow-y:auto;-webkit-overflow-scrolling:touch}
+      #planOverlay.open{display:block}
+      .plan-wrap{max-width:640px;margin:0 auto;padding:28px 18px 60px}
+      .plan-title{font-family:var(--font-d);font-weight:800;font-size:clamp(1.7rem,5vw,2.3rem);letter-spacing:-.02em;margin:0 0 8px;line-height:1.15}
+      .plan-desc{color:var(--muted);margin:0 0 20px;font-size:1rem}
+      .plan-price{display:flex;align-items:center;flex-wrap:wrap;gap:10px 12px}
+      .plan-price .pp-was{color:var(--muted-2);font-weight:600;font-size:1rem}
+      .plan-price .pp-was s{color:#f87171;text-decoration-thickness:2px;font-weight:700}
+      .plan-price .pp-now{font-family:var(--font-d);font-weight:800;font-size:2.6rem;line-height:1;letter-spacing:-.03em}
+      .plan-price .pp-per{color:var(--muted-2);font-size:.9rem;font-weight:600}
+      .plan-save{color:#6ee7b7;font-weight:700;font-size:.95rem;margin:8px 0 0}
+      .plan-fin{
+        margin-top:16px;border-radius:14px;padding:14px 16px;font-size:.95rem;color:var(--muted);line-height:1.55;
+        background:rgba(34,197,94,.1);border:1px solid rgba(52,211,153,.4);
+      }
+      .plan-fin b{color:#a7f3d0}
+      .plan-adds{
+        margin-top:24px;border-radius:16px;padding:18px 20px;
+        background:linear-gradient(120deg,rgba(124,58,237,.16),rgba(34,211,238,.08));
+        border:1px solid rgba(167,139,250,.35);
+      }
+      .plan-adds .pa-title{font-family:var(--font-d);font-weight:800;font-size:1.02rem;margin:0 0 12px}
+      .plan-adds ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+      .plan-adds li{display:flex;gap:10px;font-size:.96rem;line-height:1.45}
+      .plan-adds .plus{
+        flex:none;width:20px;height:20px;border-radius:50%;background:var(--grad-btn);color:#fff;
+        display:grid;place-items:center;font-weight:800;font-size:.85rem;line-height:1;margin-top:1px;
+      }
+      .plan-list-title{font-family:var(--font-d);font-weight:800;font-size:1.08rem;margin:28px 0 6px}
+      .plan-list{list-style:none;margin:0;padding:0}
+      .plan-list li{display:flex;gap:11px;align-items:flex-start;padding:10px 2px;border-bottom:1px solid var(--line);font-size:.96rem;line-height:1.45}
+      .plan-list li svg{width:19px;height:19px;flex:none;color:#34d399;margin-top:2px}
+      .plan-list li.off{color:var(--muted-2)}
+      .plan-list li .dash{flex:none;width:19px;text-align:center;color:var(--muted-2);font-weight:700}
+      .plan-cta{width:100%;margin-top:28px;font-size:1.05rem}
+      @media(min-width:560px){.plan-cta{width:auto;min-width:300px}}
+
+      .price-note{
+        margin-top:22px;background:var(--panel);border:1px solid var(--line);border-radius:16px;
+        padding:18px 22px;color:var(--muted);font-size:.95rem;display:grid;gap:6px;
+      }
+      .price-note b{color:var(--text)}
+      .cuba-note{
+        margin-top:14px;border-radius:16px;padding:18px 22px;font-size:.95rem;color:#fde8d7;line-height:1.6;
+        background:linear-gradient(120deg,rgba(234,88,12,.16),rgba(220,38,38,.12));
+        border:1px solid rgba(251,146,60,.35);
+      }
+      .cuba-note b{color:#fff}
+
+      /* financiamiento */
+      .finance{
+        margin-top:22px;border-radius:20px;padding:26px 26px;
+        background:linear-gradient(120deg,rgba(34,197,94,.13),rgba(34,211,238,.07)),var(--bg-2);
+        border:1px solid rgba(52,211,153,.45);
+      }
+      .fin-title{font-family:var(--font-d);font-weight:800;font-size:1.32rem;letter-spacing:-.01em;margin:0 0 10px}
+      .fin-text{color:var(--muted);margin:0 0 16px;font-size:1rem}
+      .fin-list{list-style:none;margin:0 0 16px;padding:0;display:grid;gap:9px}
+      .fin-list li{display:flex;flex-wrap:wrap;gap:6px 9px;align-items:baseline;background:rgba(255,255,255,.045);border:1px solid var(--line);border-radius:12px;padding:11px 15px;font-size:.95rem}
+      .fin-list li b{font-family:var(--font-d)}
+      .fin-list li .fin-arrow{color:#34d399;font-weight:800}
+      .fin-rule{margin:0;font-size:.97rem;color:#d1fae5;line-height:1.55}
+
+      /* plan de cuidado */
+      .care{
+        margin-top:22px;border-radius:20px;padding:24px 26px;
+        background:linear-gradient(120deg,rgba(139,92,246,.13),rgba(34,211,238,.06)),var(--bg-2);
+        border:1px solid rgba(167,139,250,.45);
+      }
+      .care-title{font-family:var(--font-d);font-weight:800;font-size:1.32rem;letter-spacing:-.01em;margin:0 0 10px}
+      .care-text{color:var(--muted);margin:0 0 10px;font-size:1rem}
+      .care-note{color:#ddd0ff;font-size:.95rem;margin:0 0 18px;line-height:1.55}
+      .care-hint{color:var(--muted-2);font-size:.88rem;margin:12px 0 0}
+
+      /* sistemas complejos / a la medida */
+      .complex-panel{
+        border-radius:26px;padding:34px 26px;position:relative;overflow:hidden;
+        background:linear-gradient(140deg,rgba(124,58,237,.16),rgba(9,13,26,.35) 55%,rgba(201,162,39,.12)),var(--bg-2);
+        border:1px solid rgba(167,139,250,.35);
+      }
+      @media(min-width:760px){.complex-panel{padding:42px 38px}}
+      .complex-panel .sec-head{margin-bottom:28px}
+      .quote-chip{
+        display:inline-flex;align-items:center;gap:8px;font-size:.82rem;font-weight:800;letter-spacing:.05em;
+        color:#fde68a;background:rgba(201,162,39,.13);border:1px solid rgba(201,162,39,.45);
+        padding:7px 14px;border-radius:999px;margin-bottom:16px;text-transform:uppercase;
+      }
+      .pro-note{
+        margin-top:22px;background:rgba(255,255,255,.045);border:1px solid var(--line);border-radius:16px;
+        padding:16px 20px;color:var(--muted);font-size:.94rem;line-height:1.6;
+      }
+      .pro-note b{color:var(--text)}
+      .complex-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+      .proof-bar{
+        margin-top:18px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;
+        background:rgba(10,10,10,.55);border:1px solid rgba(201,162,39,.5);border-radius:16px;padding:16px 20px;
+      }
+      .proof-bar .pb-badge{
+        background:linear-gradient(120deg,#c9a227,#8c6d1f);color:#141414;font-family:var(--font-d);font-weight:800;
+        font-size:.7rem;letter-spacing:.09em;padding:6px 12px;border-radius:999px;text-transform:uppercase;flex:none;
+      }
+      .proof-bar p{margin:0;color:#e9e2cf;font-size:.95rem;flex:1;min-width:220px}
+      .proof-bar p b{color:#fff}
+      .proof-bar a{color:#f5d97e;font-weight:800;text-decoration:none;white-space:nowrap}
+      .proof-bar a:hover{text-decoration:underline}
+
+      /* samples */
+      .sample-grid{display:grid;gap:18px;grid-template-columns:1fr}
+      @media(min-width:640px){.sample-grid{grid-template-columns:repeat(2,1fr)}}
+      @media(min-width:1020px){.sample-grid{grid-template-columns:repeat(3,1fr)}}
+      .sample{
+        border-radius:22px;overflow:hidden;background:var(--panel);border:1px solid var(--line);
+        display:flex;flex-direction:column;transition:transform .22s,border-color .22s;
+      }
+      .sample:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.25)}
+      .sample .thumb{position:relative;height:190px;overflow:hidden}
+      .sample .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+      .sample:hover .thumb img{transform:scale(1.06)}
+      .sample .thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(5,7,15,.75))}
+      .sample .swatches{position:absolute;left:14px;bottom:12px;z-index:2;display:flex;gap:6px}
+      .sample .swatches i{width:18px;height:18px;border-radius:6px;border:2px solid rgba(255,255,255,.75);display:block}
+      .sample .tag-demo{
+        position:absolute;top:12px;left:12px;z-index:2;background:rgba(5,7,15,.72);backdrop-filter:blur(6px);
+        color:#e6e9f7;font-size:.7rem;font-weight:800;letter-spacing:.08em;padding:6px 11px;border-radius:999px;
+        border:1px solid rgba(255,255,255,.2);text-transform:uppercase;
+      }
+      .sample .s-body{padding:20px 20px 22px;display:flex;flex-direction:column;gap:6px;flex:1}
+      .sample h3{font-family:var(--font-d);font-size:1.22rem;font-weight:800;margin:0}
+      .sample .s-cat{color:var(--cyan);font-weight:700;font-size:.83rem;letter-spacing:.05em;text-transform:uppercase}
+      .sample p{color:var(--muted);font-size:.93rem;margin:0 0 12px;flex:1}
+      .sample .btn{align-self:flex-start}
+      .sample.real .thumb::after{background:linear-gradient(180deg,transparent 40%,rgba(5,7,15,.8))}
+      .real-flag{
+        position:absolute;top:12px;left:12px;z-index:2;background:rgba(18,140,75,.9);color:#fff;
+        font-size:.7rem;font-weight:800;letter-spacing:.08em;padding:6px 11px;border-radius:999px;text-transform:uppercase;
+      }
+      /* J&JL Boutique: miniatura de marca negro y dorado (sin foto ficticia) */
+      .sample .thumb.jjl-thumb{
+        background:radial-gradient(420px 200px at 50% 0%,rgba(201,162,39,.28),transparent 65%),linear-gradient(160deg,#171410,#0a0908 60%,#12100c);
+        display:flex;align-items:center;justify-content:center;
+      }
+      .sample .thumb.jjl-thumb::after{background:linear-gradient(180deg,transparent 55%,rgba(5,4,2,.65))}
+      .jjl-mark{position:relative;z-index:1;text-align:center;padding:18px 14px 26px}
+      .jjl-logo{
+        display:block;font-family:'Fraunces',Georgia,serif;font-weight:900;font-size:2.7rem;letter-spacing:.04em;line-height:1;
+        background:linear-gradient(120deg,#f5d97e,#c9a227 55%,#e9cf87);-webkit-background-clip:text;background-clip:text;color:transparent;
+      }
+      .jjl-sub{display:block;margin-top:7px;color:#f5efe0;font-family:var(--font-d);font-weight:700;font-size:.82rem;letter-spacing:.52em;text-indent:.52em}
+      .jjl-line{display:block;width:64px;height:2px;margin:13px auto 11px;background:linear-gradient(90deg,transparent,#c9a227,transparent)}
+      .jjl-tag{display:block;color:#cfc4a3;font-size:.8rem;font-weight:600;letter-spacing:.04em}
+
+      /* steps */
+      .steps{display:grid;gap:16px;grid-template-columns:1fr}
+      @media(min-width:900px){.steps{grid-template-columns:repeat(3,1fr)}}
+      .step{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px}
+      .step .num{
+        font-family:var(--font-d);font-weight:800;font-size:2rem;line-height:1;
+        background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+        display:block;margin-bottom:14px;
+      }
+      .step h3{font-family:var(--font-d);margin:0 0 8px;font-size:1.12rem}
+      .step p{color:var(--muted);margin:0;font-size:.95rem}
+
+      /* final cta */
+      .final{
+        margin:76px 0 0;border-radius:28px;padding:52px 28px;text-align:center;position:relative;overflow:hidden;
+        background:linear-gradient(140deg,rgba(124,58,237,.22),rgba(9,13,26,.4) 55%,rgba(8,145,178,.2)),var(--bg-2);
+        border:1px solid rgba(139,92,246,.35);
+      }
+      .final h2{font-family:var(--font-d);font-weight:800;font-size:clamp(1.7rem,4.6vw,2.5rem);letter-spacing:-.02em;margin:0 0 14px;line-height:1.2}
+      .final p{color:var(--muted);max-width:36rem;margin:0 auto 28px}
+      .final .row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+      footer.site{padding:40px 0 110px;text-align:center;color:var(--muted-2);font-size:.92rem}
+      footer.site .f-logo{font-family:var(--font-d);font-weight:800;font-size:1.3rem;color:var(--text);margin-bottom:8px}
+      footer.site .f-logo .w{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.7rem}
+      footer.site .f-logo .web{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+      footer.site .f-logo .pro{color:var(--cyan)}
+      footer.site a{color:var(--muted);font-weight:700;text-decoration:none}
+      footer.site a:hover{color:var(--text)}
+
+      /* floating whatsapp */
+      .wa-float{
+        position:fixed;right:18px;bottom:18px;z-index:70;width:60px;height:60px;border-radius:50%;
+        background:var(--grad-btn);display:grid;place-items:center;color:#fff;
+        box-shadow:0 14px 34px rgba(99,102,241,.5);transition:transform .2s;
+      }
+      .wa-float:hover{transform:scale(1.08)}
+      .wa-float svg{width:28px;height:28px;color:#fff}
+      .wa-float::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid rgba(139,92,246,.55);animation:waping 2.4s infinite}
+      @keyframes waping{0%{transform:scale(1);opacity:1}100%{transform:scale(1.55);opacity:0}}
+
+      /* reveal: content is never hidden by default; the .in class is only a
+         hook for future motion, so nothing can render blank if scripts or
+         observers don't run (e.g. full-page captures) */
+      .rv{opacity:1;transform:none}
+
+      /* ---------- demo overlay ---------- */
+      #demoOverlay{
+        position:fixed;inset:0;z-index:100;background:#04060d;display:none;overflow-y:auto;
+        -webkit-overflow-scrolling:touch;
+      }
+      #demoOverlay.open{display:block}
+      .demo-topbar{
+        position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:12px;
+        background:rgba(4,6,13,.88);backdrop-filter:blur(12px);padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.12);
+      }
+      .demo-back{
+        display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);color:#fff;
+        border:1px solid rgba(255,255,255,.2);border-radius:11px;padding:9px 16px;font-weight:700;font-size:.9rem;min-height:2.75rem;
+      }
+      .demo-back svg{width:17px;height:17px}
+      .demo-topbar .dt-label{color:#aab3cc;font-size:.85rem;font-weight:600}
+      .demo-topbar .dt-name{color:#fff;font-family:var(--font-d);font-weight:700;font-size:.95rem;margin-left:auto;text-align:right}
+      body.locked{overflow:hidden}
+
+      /* demo site internals (themed via --d-* vars) */
+      .demo-site{background:var(--d-bg);color:var(--d-text);font-family:var(--d-font);min-height:100%;overflow-x:hidden}
+      .demo-site .d-nav{display:flex;align-items:center;gap:12px;padding:16px 22px;max-width:1120px;margin:0 auto}
+      .demo-site .d-mark{width:42px;height:42px;border-radius:calc(var(--d-radius)*.55);background:linear-gradient(135deg,var(--d-accent),var(--d-accent2));color:var(--d-onaccent);display:grid;place-items:center;font-family:var(--d-display);font-weight:800;font-size:.92rem;letter-spacing:.03em;flex:none;box-shadow:0 8px 18px rgba(0,0,0,.18)}
+      .demo-site .d-logo{font-family:var(--d-display);font-weight:800;font-size:1.42rem;letter-spacing:.01em;line-height:1.05}
+      .demo-site .d-logo em{font-style:normal;color:var(--d-accent)}
+      .demo-site.caps .d-logo{text-transform:uppercase;letter-spacing:.05em}
+      .demo-site .d-nav-right{margin-left:auto;display:flex;align-items:center;gap:12px}
+      .demo-site .d-links{display:none;gap:2px}
+      @media(min-width:820px){.demo-site .d-links{display:flex}}
+      .demo-site .d-links button{background:none;border:0;color:var(--d-text);opacity:.75;font-weight:600;font-size:.92rem;padding:9px 11px;border-radius:8px;min-height:2.5rem;font-family:inherit}
+      .demo-site .d-links button:hover{opacity:1;background:var(--d-chip)}
+      .demo-site .d-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-weight:700;font-size:.95rem;padding:12px 20px;border-radius:var(--d-btnr);min-height:3rem;border:1px solid transparent;font-family:inherit}
+      .demo-site .d-btn svg{width:18px;height:18px;flex:none}
+      .demo-site .d-btn.sm{padding:9px 16px;min-height:2.6rem;font-size:.88rem}
+      .demo-site .d-btn-wa{background:#1faa55;color:#fff;box-shadow:0 10px 22px rgba(31,170,85,.32)}
+      .demo-site .d-btn-main{background:var(--d-accent);color:var(--d-onaccent);box-shadow:0 10px 22px rgba(0,0,0,.16)}
+      .demo-site .d-btn-glass{background:rgba(10,10,14,.42);border-color:rgba(255,255,255,.45);color:#fff;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+      .demo-site .d-btn-light{background:#fff;color:#191008;box-shadow:0 10px 22px rgba(0,0,0,.2)}
+      .demo-site .d-btn-outline-w{background:transparent;border-color:rgba(255,255,255,.65);color:#fff}
+
+      /* hero a pantalla completa */
+      .demo-site .d-hero{position:relative;min-height:78vh;min-height:min(86svh,620px);display:flex;align-items:flex-end;overflow:hidden;background:#141414}
+      .demo-site .d-hero img.ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+      .demo-site .d-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.34),rgba(0,0,0,0) 34%,rgba(0,0,0,0) 40%,var(--d-shade) 92%)}
+      .demo-site .d-hero-in{position:relative;z-index:2;width:100%;max-width:1120px;margin:0 auto;padding:110px 22px 36px;color:#fff}
+      .demo-site .d-kick2{font-size:.78rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--d-accent-soft);margin-bottom:12px;text-shadow:0 1px 10px rgba(0,0,0,.45)}
+      .demo-site .d-hero-in h2{font-family:var(--d-display);font-size:clamp(2.35rem,7.6vw,4.15rem);line-height:1.03;margin:0 0 14px;font-weight:800;max-width:15em;text-shadow:0 3px 30px rgba(0,0,0,.45)}
+      .demo-site.caps .d-hero-in h2{text-transform:uppercase}
+      .demo-site .d-hero-in>p{margin:0 0 24px;opacity:.95;max-width:34rem;font-size:clamp(1rem,2.4vw,1.14rem);text-shadow:0 1px 14px rgba(0,0,0,.4)}
+      .demo-site .d-hero-ctas{display:flex;flex-wrap:wrap;gap:10px}
+      .demo-site .d-rating{display:flex;align-items:center;gap:9px;margin-top:20px;font-weight:700;font-size:.92rem;text-shadow:0 1px 10px rgba(0,0,0,.5)}
+      .demo-site .d-rating .stars{display:inline-flex;gap:2px;color:var(--d-accent-soft)}
+      .demo-site .d-rating .stars svg{width:15px;height:15px}
+
+      /* cinta de especialidades */
+      .demo-site .d-marquee{background:linear-gradient(90deg,var(--d-accent),var(--d-accent2),var(--d-accent));color:var(--d-onaccent);overflow:hidden;padding:11px 0}
+      .demo-site .d-marquee .mq{display:inline-flex;white-space:nowrap;animation:d-mq 30s linear infinite;font-family:var(--d-display);font-weight:700;letter-spacing:.16em;font-size:.84rem;text-transform:uppercase}
+      .demo-site .d-marquee .mq span{padding-right:.4em}
+      @keyframes d-mq{to{transform:translateX(-50%)}}
+
+      /* ventajas */
+      .demo-site .d-perks{max-width:1120px;margin:0 auto;padding:24px 22px 2px;display:flex;flex-wrap:wrap;gap:8px}
+      .demo-site .d-perk{display:inline-flex;align-items:center;gap:8px;background:var(--d-card);border:1px solid var(--d-line);border-radius:999px;padding:8px 14px;font-size:.86rem;font-weight:700;box-shadow:0 4px 14px rgba(0,0,0,.05)}
+      .demo-site .d-perk svg{width:15px;height:15px;color:var(--d-accent);flex:none}
+
+      /* secciones */
+      .demo-site .d-sec{max-width:1120px;margin:0 auto;padding:48px 22px 10px;scroll-margin-top:64px}
+      .demo-site .d-band{background:var(--d-chip);margin-top:34px}
+      .demo-site .d-band .d-sec{padding-top:40px;padding-bottom:44px}
+      .demo-site .d-kick{font-size:.76rem;font-weight:800;letter-spacing:.19em;text-transform:uppercase;color:var(--d-accent);margin:0 0 9px}
+      .demo-site .d-sec h3{font-family:var(--d-display);font-size:clamp(1.65rem,4.6vw,2.2rem);margin:0 0 9px;font-weight:800;line-height:1.14}
+      .demo-site.caps .d-sec h3{text-transform:uppercase;letter-spacing:.015em}
+      .demo-site .d-sec .d-sub{opacity:.72;margin:0 0 26px;font-size:1rem;max-width:37rem}
+
+      /* destacados */
+      .demo-site .d-feat{display:grid;gap:16px;grid-template-columns:1fr}
+      @media(min-width:720px){.demo-site .d-feat{grid-template-columns:repeat(3,1fr)}}
+      .demo-site .d-fcard{background:var(--d-card);border:1px solid var(--d-line);border-radius:var(--d-radius);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 14px 30px rgba(0,0,0,.07)}
+      .demo-site .d-fcard .fi{position:relative;height:172px;flex:none}
+      .demo-site .d-fcard .fi img{width:100%;height:100%;object-fit:cover}
+      .demo-site .d-ftag{position:absolute;top:12px;left:12px;background:var(--d-accent);color:var(--d-onaccent);font-size:.68rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;padding:6px 11px;border-radius:999px;box-shadow:0 6px 14px rgba(0,0,0,.25)}
+      .demo-site .d-fic{padding:22px 20px 0;color:var(--d-accent)}
+      .demo-site .d-fic svg{width:34px;height:34px}
+      .demo-site .d-fnum{padding:20px 20px 0;font-family:var(--d-display);font-size:2.1rem;font-weight:800;color:var(--d-accent);line-height:1}
+      .demo-site .d-fbody{padding:16px 20px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
+      .demo-site .d-fbody h4{margin:0;font-family:var(--d-display);font-size:1.14rem;line-height:1.25;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+      .demo-site .d-fbody h4 .pr{color:var(--d-accent);white-space:nowrap;font-size:1.05rem}
+      .demo-site .d-fbody p{margin:0;opacity:.74;font-size:.93rem;line-height:1.55}
+
+      /* menú con precios (restaurante / cafetería) */
+      .demo-site .d-menu{display:grid;gap:2px 48px;grid-template-columns:1fr}
+      @media(min-width:780px){.demo-site .d-menu{grid-template-columns:1fr 1fr}}
+      .demo-site .d-mi{padding:15px 2px 13px;border-bottom:1px solid var(--d-line)}
+      .demo-site .d-mi-top{display:flex;align-items:baseline;gap:10px}
+      .demo-site .d-mi-name{font-family:var(--d-display);font-weight:700;font-size:1.08rem}
+      .demo-site .d-mi-dots{flex:1;border-bottom:2px dotted var(--d-line);transform:translateY(-4px);min-width:24px}
+      .demo-site .d-mi-price{font-family:var(--d-display);font-weight:800;color:var(--d-accent);font-size:1.06rem;white-space:nowrap}
+      .demo-site .d-mi p{margin:4px 0 0;opacity:.7;font-size:.92rem;max-width:27rem}
+
+      /* lista de precios (barbería) */
+      .demo-site .d-list{border-top:1px solid var(--d-line)}
+      .demo-site .d-li{display:flex;align-items:baseline;gap:14px;padding:19px 2px;border-bottom:1px solid var(--d-line)}
+      .demo-site .d-li-main .nm{font-family:var(--d-display);font-size:1.22rem;font-weight:700;display:block}
+      .demo-site .d-li-main .ds{opacity:.62;font-size:.9rem;display:block;margin-top:2px;max-width:30rem}
+      .demo-site .d-li-dots{flex:1;border-bottom:1px dotted var(--d-line);transform:translateY(-5px);min-width:20px}
+      .demo-site .d-li .pr{font-family:var(--d-display);font-size:1.4rem;color:var(--d-accent);font-weight:800;white-space:nowrap}
+
+      /* tarjetas robustas con iconos (taller) */
+      .demo-site .d-cards{display:grid;gap:14px;grid-template-columns:1fr}
+      @media(min-width:680px){.demo-site .d-cards{grid-template-columns:repeat(2,1fr)}}
+      .demo-site .d-scard{background:var(--d-card);border:1px solid var(--d-line);border-radius:var(--d-radius);padding:22px;box-shadow:0 10px 24px rgba(15,37,71,.06)}
+      .demo-site .d-scard .ic{width:48px;height:48px;border-radius:12px;background:var(--d-chip);color:var(--d-accent);display:grid;place-items:center;margin-bottom:15px}
+      .demo-site .d-scard .ic svg{width:24px;height:24px}
+      .demo-site .d-scard h4{margin:0 0 7px;font-family:var(--d-display);font-size:1.1rem;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+      .demo-site.caps .d-scard h4{text-transform:uppercase;letter-spacing:.02em;font-size:1.02rem}
+      .demo-site .d-scard h4 .pr{color:var(--d-accent2);white-space:nowrap}
+      .demo-site .d-scard p{margin:0;opacity:.74;font-size:.93rem}
+
+      /* tarjetas genéricas (colecciones boutique) e info */
+      .demo-site .d-svc{display:grid;gap:14px;grid-template-columns:1fr}
+      @media(min-width:680px){.demo-site .d-svc{grid-template-columns:repeat(2,1fr)}}
+      .demo-site .d-card{background:var(--d-card);border:1px solid var(--d-line);border-radius:var(--d-radius);padding:22px}
+      .demo-site .d-card h4{margin:0 0 7px;font-family:var(--d-display);font-size:1.12rem;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+      .demo-site .d-card h4 .pr{color:var(--d-accent);white-space:nowrap}
+      .demo-site .d-card h4.mt{margin-top:18px}
+      .demo-site .d-card p{margin:0 0 6px;opacity:.8;font-size:.95rem}
+      .demo-site .d-bigphone{font-family:var(--d-display);font-size:1.35rem;font-weight:800}
+
+      /* galería mosaico */
+      .demo-site .d-gal{display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
+      .demo-site .d-gal img{width:100%;height:180px;object-fit:cover;border-radius:var(--d-radius)}
+      .demo-site .d-gal img:first-child{grid-column:span 2;height:250px}
+      @media(min-width:760px){.demo-site .d-gal{grid-template-columns:repeat(3,1fr)}.demo-site .d-gal img{height:235px}.demo-site .d-gal img:first-child{height:235px}}
+
+      /* testimonio */
+      .demo-site .d-quote{max-width:780px;margin:0 auto;padding:56px 22px 8px;text-align:center}
+      .demo-site .d-quote .stars{color:var(--d-accent);letter-spacing:.35em;font-size:1rem;margin-bottom:16px}
+      .demo-site .d-quote blockquote{font-family:var(--d-display);font-size:clamp(1.32rem,3.8vw,1.75rem);line-height:1.42;margin:0 0 14px;font-weight:600}
+      .demo-site .d-quote cite{font-style:normal;opacity:.62;font-size:.9rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+
+      /* contacto, banda final y pie */
+      .demo-site .d-info{display:grid;gap:14px;grid-template-columns:1fr}
+      @media(min-width:680px){.demo-site .d-info{grid-template-columns:1fr 1fr}}
+      .demo-site .d-cta{max-width:1120px;margin:0 auto;padding:44px 22px 6px}
+      .demo-site .d-cta-in{background:linear-gradient(120deg,var(--d-accent),var(--d-accent2));border-radius:calc(var(--d-radius)*1.15);padding:38px 26px;color:var(--d-onaccent);text-align:center;box-shadow:0 24px 44px rgba(0,0,0,.16)}
+      .demo-site .d-cta-in h3{font-family:var(--d-display);font-size:clamp(1.55rem,4.4vw,2.1rem);margin:0 0 9px;line-height:1.15}
+      .demo-site.caps .d-cta-in h3{text-transform:uppercase}
+      .demo-site .d-cta-in p{margin:0 auto 22px;opacity:.93;max-width:31rem}
+      .demo-site .d-cta-in .row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+      .demo-site .d-foot{text-align:center;padding:44px 22px 50px}
+      .demo-site .d-foot .d-logo{font-size:1.3rem}
+      .demo-site .d-foot .fs{font-family:var(--d-display);opacity:.75;margin:8px 0 4px;font-size:1rem}
+      .demo-site .d-foot p{margin:0;opacity:.55;font-size:.86rem}
+
+      /* ---------- questionnaire ---------- */
+      #quizOverlay{position:fixed;inset:0;z-index:120;background:#04060d;display:none;overflow-y:auto;-webkit-overflow-scrolling:touch}
+      #quizOverlay.open{display:block}
+      .quiz-topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:12px;background:rgba(4,6,13,.92);backdrop-filter:blur(12px);padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.12)}
+      .quiz-back{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.2);border-radius:11px;padding:9px 16px;font-weight:700;font-size:.9rem;min-height:2.75rem}
+      .quiz-back svg{width:17px;height:17px}
+      .quiz-topbar .qt-label{color:#aab3cc;font-size:.85rem;font-weight:600;margin-left:auto;text-align:right}
+      .quiz-wrap{max-width:780px;margin:0 auto;padding:28px 18px 60px}
+      .quiz-head h2{font-family:var(--font-d);font-weight:800;font-size:clamp(1.6rem,4.5vw,2.3rem);letter-spacing:-.02em;line-height:1.18;margin:0 0 10px}
+      .quiz-head h2 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+      .quiz-head p{color:var(--muted);margin:0 0 8px;font-size:1rem}
+      .quiz-sec{margin-top:30px}
+      .quiz-sec-title{font-family:var(--font-d);font-weight:800;font-size:1.08rem;letter-spacing:.02em;margin:0 0 4px;display:flex;align-items:center;gap:10px}
+      .quiz-sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+      .quiz-sec-sub{color:var(--muted-2);font-size:.88rem;margin:0 0 16px}
+      .q-field{margin-bottom:18px}
+      .q-field label.q-label,.q-field legend.q-label{display:block;font-weight:700;font-size:.96rem;margin:0 0 8px;color:var(--text);padding:0}
+      .q-field label.q-label .req{color:#f87171}
+      .q-field label.q-label .opt{color:var(--muted-2);font-weight:600;font-size:.84rem}
+      .q-field .q-hint{color:var(--muted-2);font-size:.85rem;margin:6px 0 0}
+      .q-input,.q-select,.q-textarea{
+        width:100%;background:rgba(255,255,255,.055);border:1px solid var(--line);border-radius:12px;
+        color:var(--text);font-family:var(--font-b);font-size:16px;line-height:1.5;padding:12px 14px;min-height:3rem;
+      }
+      .q-textarea{min-height:6.5rem;resize:vertical}
+      .q-textarea.tall{min-height:10rem}
+      .q-select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23a3adc9' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:42px}
+      .q-select option{background:#0b1020;color:#eef1fb}
+      .q-input:focus,.q-select:focus,.q-textarea:focus{outline:2px solid rgba(139,92,246,.7);outline-offset:1px;border-color:rgba(139,92,246,.6)}
+      .q-input.invalid,.q-select.invalid{border-color:#f87171;outline:2px solid rgba(248,113,113,.35)}
+      .q-grid2{display:grid;gap:0 16px;grid-template-columns:1fr}
+      @media(min-width:640px){.q-grid2{grid-template-columns:1fr 1fr}}
+      .q-choices{display:grid;gap:9px}
+      @media(min-width:560px){.q-choices.cols2{grid-template-columns:1fr 1fr}}
+      .q-choice{
+        display:flex;align-items:flex-start;gap:11px;background:rgba(255,255,255,.045);border:1px solid var(--line);
+        border-radius:12px;padding:12px 14px;cursor:pointer;font-size:.95rem;line-height:1.45;min-height:3rem;
+      }
+      .q-choice:hover{border-color:rgba(139,92,246,.45)}
+      .q-choice input{width:20px;height:20px;flex:none;margin:1px 0 0;accent-color:#7c3aed;cursor:pointer}
+      .q-inline-check{display:flex;align-items:center;gap:10px;margin-top:10px;font-size:.92rem;color:var(--muted);cursor:pointer}
+      .q-inline-check input{width:20px;height:20px;accent-color:#7c3aed;cursor:pointer;flex:none}
+      fieldset.q-field{border:0;padding:0;margin:0 0 18px;min-width:0}
+      .quiz-error{display:none;background:rgba(220,38,38,.14);border:1px solid rgba(248,113,113,.5);color:#fecaca;border-radius:12px;padding:13px 16px;font-size:.93rem;font-weight:600;margin:22px 0 0}
+      .quiz-error.show{display:block}
+      .quiz-notice{display:flex;gap:10px;align-items:flex-start;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.3);color:#c9eefb;border-radius:12px;padding:13px 16px;font-size:.92rem;line-height:1.55;margin:26px 0 16px}
+      .quiz-notice svg{width:19px;height:19px;flex:none;margin-top:2px;color:var(--cyan)}
+      .quiz-submit{width:100%;font-size:1.05rem;padding:15px 24px}
+      @media(min-width:560px){.quiz-submit{width:auto;min-width:280px}}
+      .quiz-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+
+      .quiz-success{text-align:center;padding:44px 8px 10px}
+      .quiz-success .qs-msg{font-size:1.14rem;line-height:1.6;color:var(--text);max-width:32rem;margin:0 auto 10px}
+      .quiz-success .qs-note{color:var(--muted);font-size:.97rem;margin:0 auto 26px}
+      @media (prefers-reduced-motion: reduce){
+        *,*::before,*::after{animation-duration:.001s !important;transition-duration:.001s !important;scroll-behavior:auto !important}
+        .rv{opacity:1;transform:none}
+      }
+    </style>
+  
+    <meta name="description" content="BuilderWeb Pro — Páginas web profesionales para negocios en cualquier lugar. Planes desde $199 con financiamiento. Tu negocio en Google, Facebook y WhatsApp.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="BuilderWeb Pro">
+    <meta property="og:title" content="BuilderWeb Pro — Páginas Web para Negocios">
+    <meta property="og:description" content="Páginas web profesionales para negocios en cualquier lugar. Planes desde $199 · 30% de anticipo y el resto en 3 pagos sin intereses.">
+    <meta property="og:url" content="https://builderwebpro.com/">
+    <meta property="og:image" content="https://builderwebpro.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BuilderWeb Pro — Páginas Web para Negocios">
+    <meta name="twitter:description" content="Páginas web profesionales para negocios en cualquier lugar. Planes desde $199 con financiamiento.">
+    <meta name="twitter:image" content="https://builderwebpro.com/og-image.png">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"ProfessionalService","name":"BuilderWeb Pro","url":"https://builderwebpro.com/","telephone":"+1-346-479-3662","email":"builderwebpro.tx@gmail.com","priceRange":"$199 - $599","areaServed":"United States","sameAs":["https://www.facebook.com/profile.php?id=61596156106791","https://www.instagram.com/builderwebpro.tx/"]}
+    </script>
+  </head>
+  <body>
+    <div class="ambient" aria-hidden="true"></div>
+
+    <header class="site">
+      <div class="wrap header-in">
+        <a class="logo" href="#top" aria-label="BuilderWeb Pro"><span class="w" aria-hidden="true">W</span><span class="logo-name">Builder<span class="web">Web</span> <span class="pro">Pro</span></span></a>
+        <nav class="main" aria-label="Principal">
+          <a href="#servicios" data-es="Servicios" data-en="Services">Servicios</a>
+          <a href="#paquetes" data-es="Paquetes" data-en="Packages">Paquetes</a>
+          <a href="#complejo" data-es="Apps Web" data-en="Web Apps">Apps Web</a>
+          <a href="#muestras" data-es="Muestras" data-en="Samples">Muestras</a>
+          <a href="#como" data-es="Cómo funciona" data-en="How it works">Cómo funciona</a>
+        </nav>
+        <div class="lang-toggle" role="group" aria-label="Idioma / Language">
+          <button type="button" id="langEs" aria-pressed="true">ES</button>
+          <button type="button" id="langEn" aria-pressed="false">EN</button>
+        </div>
+        <a class="btn btn-grad btn-sm header-cta" href="#cuestionario" data-open-quiz>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M9 13h6M9 17h4"/></svg>
+          <span data-es="Cotizar" data-en="Get a quote">Cotizar</span>
+        </a>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- ============ HERO ============ -->
+      <div class="hero">
+        <div class="wrap hero-grid">
+          <div class="rv in">
+            <span class="hero-badge"><span class="pulse" aria-hidden="true"></span><span data-es="Páginas web para negocios en cualquier lugar" data-en="Websites for businesses anywhere">Páginas web para negocios en cualquier lugar</span></span>
+            <h1><span data-es="Tu negocio merece una página web" data-en="Your business deserves a website">Tu negocio merece una página web</span> <span class="grad" data-es="que venda por ti" data-en="that sells for you">que venda por ti</span></h1>
+            <p class="hero-sub" data-es="Páginas web profesionales con tu propio dominio, botón de WhatsApp y llamadas directas — pago único, sin mensualidades de hosting." data-en="Professional websites with your own domain, WhatsApp button and click-to-call — one-time payment, no monthly hosting fees.">Páginas web profesionales con tu propio dominio, botón de WhatsApp y llamadas directas — pago único, sin mensualidades de hosting.</p>
+            <div class="hero-ctas">
+              <a class="btn btn-grad" href="#cuestionario" data-open-quiz data-pkg="Muestra personalizada $10">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+                <span data-es="Quiero mi muestra por $10" data-en="I want my $10 preview">Quiero mi muestra por $10</span>
+              </a>
+              <a class="btn btn-ghost" href="#paquetes">
+                <span data-es="Ver paquetes y ejemplos" data-en="See plans & samples">Ver paquetes y ejemplos</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+              </a>
+            </div>
+            <div class="hero-points">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-es="Pago único (desde $199)" data-en="One-time payment (from $199)">Pago único (desde $199)</span></span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-es="Sin mensualidades de hosting" data-en="No monthly hosting fees">Sin mensualidades de hosting</span></span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-es="Muestra en 24–48 h · atención en español" data-en="Preview in 24–48 h · service in Spanish & English">Muestra en 24–48 h · atención en español</span></span>
+            </div>
+            <a class="real-chip" href="https://buildermaxtexas.com" target="_blank" rel="noopener">
+              <span class="live" aria-hidden="true"></span>
+              <span><span data-es="Ejemplo real en vivo:" data-en="Real live example:">Ejemplo real en vivo:</span> <b>buildermaxtexas.com</b></span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </a>
+          </div>
+
+          <div class="mock rv in" aria-hidden="true">
+            <div class="mock-bar">
+              <i style="background:#f87171"></i><i style="background:#fbbf24"></i><i style="background:#34d399"></i>
+              <span class="mock-url">cortefino.com</span>
+            </div>
+            <div class="mock-body">
+              <img src="img/img-3a27766654.webp" alt="" />
+              <span class="mock-float"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2"/></svg>WhatsApp</span>
+              <div class="mock-caption">
+                <div class="mc-name">Corte Fino</div>
+                <div class="mc-sub" data-es="Barbería · Reserva tu cita en un toque" data-en="Barbershop · Book your chair in one tap">Barbería · Reserva tu cita en un toque</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SERVICIOS ============ -->
+      <section class="block" id="servicios">
+        <div class="wrap">
+          <div class="sec-head rv">
+            <h2><span data-es="Todo lo que tu negocio necesita para" data-en="Everything your business needs to">Todo lo que tu negocio necesita para</span> <span class="grad" data-es="verse profesional" data-en="look professional">verse profesional</span></h2>
+            <p data-es="No solo la página: montamos tu presencia completa en internet para que tus clientes te encuentren, te escriban y te recomienden." data-en="Not just the website: we build your complete online presence so customers can find you, message you and recommend you.">No solo la página: montamos tu presencia completa en internet para que tus clientes te encuentren, te escriban y te recomienden.</p>
+          </div>
+          <div class="svc-grid">
+            <article class="svc rv">
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+              <h3 data-es="Página web con dominio propio" data-en="Website with your own domain">Página web con dominio propio</h3>
+              <p data-es="Tu negocio en su propia dirección (tunegocio.com), rápida, bonita y hecha para verse perfecta en el teléfono." data-en="Your business at its own address (yourbusiness.com) — fast, beautiful and made to look perfect on phones.">Tu negocio en su propia dirección (tunegocio.com), rápida, bonita y hecha para verse perfecta en el teléfono.</p>
+            </article>
+            <article class="svc rv">
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+              <h3 data-es="Perfil de Empresa de Google" data-en="Google Business Profile">Perfil de Empresa de Google</h3>
+              <p data-es="Aparece en Google Maps con tu teléfono, fotos, horarios y servicios cuando los clientes buscan negocios como el tuyo." data-en="Show up on Google Maps with your phone, photos, hours and services when customers search for businesses like yours.">Aparece en Google Maps con tu teléfono, fotos, horarios y servicios cuando los clientes buscan negocios como el tuyo.</p>
+            </article>
+            <article class="svc rv">
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>
+              <h3 data-es="Página de Facebook de negocio" data-en="Facebook business page">Página de Facebook de negocio</h3>
+              <p data-es="Tu página creada y configurada completa: foto de perfil, portada, descripción y botón de WhatsApp." data-en="Your page created and fully set up: profile photo, cover, description and WhatsApp button.">Tu página creada y configurada completa: foto de perfil, portada, descripción y botón de WhatsApp.</p>
+            </article>
+            <article class="svc rv">
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><circle cx="11" cy="11" r="2"/></svg></div>
+              <h3 data-es="Logo y tarjeta de presentación" data-en="Logo & business card design">Logo y tarjeta de presentación</h3>
+              <p data-es="Una marca sencilla y elegante que se vea seria en tu página, tus tarjetas, tu camión y tus redes." data-en="A clean, elegant brand that looks serious on your website, cards, truck and social media.">Una marca sencilla y elegante que se vea seria en tu página, tus tarjetas, tu camión y tus redes.</p>
+            </article>
+            <article class="svc rv">
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-6h6v6"/></svg></div>
+              <h3 data-es="Página en Nextdoor" data-en="Nextdoor business page">Página en Nextdoor</h3>
+              <p data-es="Presencia en la red de vecinos de tu zona, donde los clientes locales piden recomendaciones todos los días." data-en="A presence on your neighborhood network, where local customers ask for recommendations every day.">Presencia en la red de vecinos de tu zona, donde los clientes locales piden recomendaciones todos los días.</p>
+            </article>
+            <article class="svc rv">
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg></div>
+              <h3 data-es="Flyers y contenido" data-en="Flyers & content">Flyers y contenido</h3>
+              <p data-es="Volantes digitales y publicaciones listas para compartir tus servicios en Facebook, Nextdoor y WhatsApp." data-en="Digital flyers and posts ready to share your services on Facebook, Nextdoor and WhatsApp.">Volantes digitales y publicaciones listas para compartir tus servicios en Facebook, Nextdoor y WhatsApp.</p>
+            </article>
+            <article class="svc rv">
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21 7 14.2 2 9.3l6.9-1z"/></svg></div>
+              <h3 data-es="Sistema de reseñas de Google" data-en="Google review system">Sistema de reseñas de Google</h3>
+              <p data-es="Un enlace directo y un mensaje listo para pedir reseñas a tus clientes contentos y subir tu reputación." data-en="A direct link and a ready-to-send message to ask happy customers for reviews and grow your reputation.">Un enlace directo y un mensaje listo para pedir reseñas a tus clientes contentos y subir tu reputación.</p>
+            </article>
+            <article class="svc rv">
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM21 14v.01M14 21v.01M18 18h3v3h-3z"/></svg></div>
+              <h3 data-es="Código QR" data-en="QR code">Código QR</h3>
+              <p data-es="Para tus tarjetas, tu camión o tu local: el cliente lo escanea y llega directo a tu página o a tu WhatsApp." data-en="For your cards, truck or storefront: customers scan it and land right on your website or WhatsApp.">Para tus tarjetas, tu camión o tu local: el cliente lo escanea y llega directo a tu página o a tu WhatsApp.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ PAQUETES ============ -->
+      <section class="block" id="paquetes">
+        <div class="wrap">
+          <div class="sec-head rv">
+            <h2><span data-es="Paquetes claros," data-en="Clear packages,">Paquetes claros,</span> <span class="grad" data-es="pago único" data-en="one payment">pago único</span></h2>
+            <p data-es="Sin contratos raros y sin mensualidades escondidas. Eliges tu paquete, pagas una sola vez y tu presencia en internet queda montada." data-en="No weird contracts and no hidden monthly fees. Pick your package, pay once, and your online presence is set up.">Sin contratos raros y sin mensualidades escondidas. Eliges tu paquete, pagas una sola vez y tu presencia en internet queda montada.</p>
+          </div>
+          <div class="price-grid">
+            <article class="price-card rv">
+              <div class="p-name" data-es="Básico" data-en="Basic">Básico</div>
+              <div class="price-was"><span data-es="Antes" data-en="Was">Antes</span> <s>$299</s> <span class="offer-chip" data-es="OFERTA −33%" data-en="SALE −33%">OFERTA −33%</span></div>
+              <div class="price-amt"><span class="amt">$199</span><span class="per" data-es="pago único" data-en="one-time">pago único</span></div>
+              <p class="price-desc" data-es="Para empezar a existir en internet con una página profesional." data-en="Start existing online with a professional website.">Para empezar a existir en internet con una página profesional.</p>
+              <ul>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-es="Página web de una página con tu dominio propio conectado" data-en="One-page website with your own domain connected">Página web de una página con tu dominio propio conectado</span></li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-es="Botón de WhatsApp y botón de llamada" data-en="WhatsApp button and click-to-call button">Botón de WhatsApp y botón de llamada</span></li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-es="Galería de fotos de tus trabajos o productos" data-en="Photo gallery of your work or products">Galería de fotos de tus trabajos o productos</span></li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-es="Mapa de ubicación de tu negocio" data-en="Map with your business location">Mapa de ubicación de tu negocio</span></li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-es="Sin mensualidades de hosting" data-en="No monthly hosting fees">Sin mensualidades de hosting</span></li>
+              </ul>
+              <div class="card-actions">
+                <button type="button" class="btn btn-details" data-plan-details="0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span data-es="Ver detalles del plan" data-en="See plan details">Ver detalles del plan</span></button>
+                <a class="btn btn-ghost" href="#cuestionario" data-open-quiz data-pkg="Básico $199"><span data-es="Quiero el Básico" data-en="I want Basic">Quiero el Básico</span></a>
+              </div>
+            </article>
+
+            <article class="price-card featured rv">
+              <span class="pop-tag" data-es="EL MÁS PEDIDO" data-en="MOST POPULAR">EL MÁS PEDIDO</span>
+              <div class="p-name" data-es="Completo" data-en="Complete">Completo</div>
+              <div class="price-was"><span data-es="Antes" data-en="Was">Antes</span> <s>$599</s> <span class="offer-chip" data-es="OFERTA −50%" data-en="SALE −50%">OFERTA −50%</span></div>
+              <div class="price-amt"><span class="amt">$299</span><span class="per" data-es="pago único" data-en="one-time">pago único</span></div>
+              <p class="price-desc" data-es="La presencia completa: web, Google y Facebook trabajando juntos." data-en="The full presence: website, Google and Facebook working together.">La presencia completa: web, Google y Facebook trabajando juntos.</p>
+              <ul>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span><b data-es="Todo lo del Básico" data-en="Everything in Basic">Todo lo del Básico</b></span></li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-es="Perfil de Empresa de Google (Google Maps)" data-en="Google Business Profile (Google Maps)">Perfil de Empresa de Google (Google Maps)</span></li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-es="Página de Facebook configurada" data-en="Facebook page set up">Página de Facebook configurada</span></li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-es="Logo para tu negocio" data-en="Logo for your business">Logo para tu negocio</span></li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-es="Código QR para tarjetas y vehículos" data-en="QR code for cards and vehicles">Código QR para tarjetas y vehículos</span></li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-es="Enlace para pedir reseñas en Google" data-en="Link to request Google reviews">Enlace para pedir reseñas en Google</span></li>
+              </ul>
+              <div class="card-actions">
+                <button type="button" class="btn btn-details" data-plan-details="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span data-es="Ver detalles del plan" data-en="See plan details">Ver detalles del plan</span></button>
+                <a class="btn btn-grad" href="#cuestionario" data-open-quiz data-pkg="Completo $299"><span data-es="Quiero el Completo" data-en="I want Complete">Quiero el Completo</span></a>
+              </div>
+            </article>
+
+            <article class="price-card rv">
+              <div class="p-name">Premium</div>
+              <div class="price-was"><span data-es="Antes" data-en="Was">Antes</span> <s>$899</s> <span class="offer-chip" data-es="OFERTA −33%" data-en="SALE −33%">OFERTA −33%</span></div>
+              <div class="price-amt"><span class="amt">$599</span><span class="per" data-es="pago único" data-en="one-time">pago único</span></div>
+              <p class="price-desc" data-es="Para negocios que quieren arrancar con todo desde el primer día." data-en="For businesses that want to launch with everything from day one.">Para negocios que quieren arrancar con todo desde el primer día.</p>
+              <ul>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span><b data-es="Todo lo del Completo" data-en="Everything in Complete">Todo lo del Completo</b></span></li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-es="Página extendida de varias secciones" data-en="Extended multi-section website">Página extendida de varias secciones</span></li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-es="Página en Nextdoor" data-en="Nextdoor business page">Página en Nextdoor</span></li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-es="Flyer digital de lanzamiento" data-en="Launch digital flyer">Flyer digital de lanzamiento</span></li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-es="3 publicaciones iniciales en Facebook" data-en="3 starter Facebook posts">3 publicaciones iniciales en Facebook</span></li>
+              </ul>
+              <div class="card-actions">
+                <button type="button" class="btn btn-details" data-plan-details="2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span data-es="Ver detalles del plan" data-en="See plan details">Ver detalles del plan</span></button>
+                <a class="btn btn-ghost" href="#cuestionario" data-open-quiz data-pkg="Premium $599"><span data-es="Quiero el Premium" data-en="I want Premium">Quiero el Premium</span></a>
+              </div>
+            </article>
+          </div>
+
+          <div class="compare rv">
+            <h3 class="cmp-title" data-es="Compara los planes" data-en="Compare the plans">Compara los planes</h3>
+            <p class="cmp-sub" data-es="Así ves exactamente qué incluye cada plan y qué no. ✓ = incluido · — = no incluido." data-en="See exactly what each plan includes and what it doesn't. ✓ = included · — = not included.">Así ves exactamente qué incluye cada plan y qué no. ✓ = incluido · — = no incluido.</p>
+            <div class="cmp-wrap" id="compareTable"></div>
+          </div>
+
+          <div class="finance rv" id="muestra10">
+            <h3 class="fin-title" data-es="👀 Mira tu página antes de pagarla — Muestra por $10" data-en="👀 See your page before you pay for it — $10 preview">👀 Mira tu página antes de pagarla — Muestra por $10</h3>
+            <p class="fin-text" data-es="Sin arriesgar los $199: primero ves tu página hecha con tu negocio, tus colores y tus servicios. Incluye 1 ronda de ajustes." data-en="No need to risk the $199: first you see your page built with your business, your colors and your services. Includes 1 round of adjustments.">Sin arriesgar los $199: primero ves tu página hecha con tu negocio, tus colores y tus servicios. Incluye 1 ronda de ajustes.</p>
+            <ul class="fin-list">
+              <li><b>1</b><span class="fin-arrow" aria-hidden="true">→</span><span data-es="Llena el cuestionario y paga $10 por Zelle." data-en="Fill out the questionnaire and pay $10 by Zelle.">Llena el cuestionario y paga $10 por Zelle.</span></li>
+              <li><b>2</b><span class="fin-arrow" aria-hidden="true">→</span><span data-es="En 24–48 h recibes tu enlace privado con la portada de TU página ya diseñada." data-en="Within 24–48 hours you receive your private link with YOUR page's homepage already designed.">En 24–48 h recibes tu enlace privado con la portada de TU página ya diseñada.</span></li>
+              <li><b>3</b><span class="fin-arrow" aria-hidden="true">→</span><span data-es="Si te gusta, eliges tu plan y los $10 se descuentan de tu primer pago." data-en="If you love it, pick your plan and the $10 is credited toward your first payment.">Si te gusta, eliges tu plan y los $10 se descuentan de tu primer pago.</span></li>
+            </ul>
+            <p class="fin-text" data-es="💡 Tus $10 son 100% crédito a tu favor: úsalos como descuento directo al activar cualquiera de nuestros planes dentro de los primeros 15 días. Recibirás una vista previa privada con el diseño real de tu portada (los botones interactivos y el dominio se activan al entregar tu página final). No se devuelven en efectivo: se convierten en crédito a tu favor." data-en="💡 Your $10 is 100% credit in your favor: use it as a direct discount when you activate any of our plans within the first 15 days. You will receive a private preview with the real design of your homepage (the interactive buttons and the domain are activated when your final page is delivered). It is not refunded in cash: it becomes credit in your favor.">💡 Tus $10 son 100% crédito a tu favor: úsalos como descuento directo al activar cualquiera de nuestros planes dentro de los primeros 15 días. Recibirás una vista previa privada con el diseño real de tu portada (los botones interactivos y el dominio se activan al entregar tu página final). No se devuelven en efectivo: se convierten en crédito a tu favor.</p>
+            <a class="btn btn-grad" href="#cuestionario" data-open-quiz data-pkg="Muestra personalizada $10"><span data-es="Quiero mi muestra por $10" data-en="I want my $10 preview">Quiero mi muestra por $10</span></a>
+            <p class="care-hint" data-es="🔒 Pago seguro · Entrega en 24–48 horas · Sin compromisos forzosos" data-en="🔒 Secure payment · Delivered in 24–48 hours · No forced commitments">🔒 Pago seguro · Entrega en 24–48 horas · Sin compromisos forzosos</p>
+          </div>
+
+          <div class="finance rv">
+            <h3 class="fin-title" data-es="💳 ¿Prefieres pagarlo a plazos?" data-en="💳 Prefer to pay in installments?">💳 ¿Prefieres pagarlo a plazos?</h3>
+            <p class="fin-text" data-es="Financiamiento disponible: activa tu proyecto con solo el 30% de anticipo y paga el resto en 3 pagos mensuales, sin intereses." data-en="Financing available: start your project with just a 30% down payment and pay the rest in 3 monthly payments, interest-free.">Financiamiento disponible: activa tu proyecto con solo el 30% de anticipo y paga el resto en 3 pagos mensuales, sin intereses.</p>
+            <ul class="fin-list">
+              <li><b data-es="Básico · $199" data-en="Basic · $199">Básico · $199</b><span class="fin-arrow" aria-hidden="true">→</span><span data-es="anticipo de $59.70 y 3 pagos mensuales de $46.43" data-en="$59.70 down and 3 monthly payments of $46.43">anticipo de $59.70 y 3 pagos mensuales de $46.43</span></li>
+              <li><b data-es="Completo · $299" data-en="Complete · $299">Completo · $299</b><span class="fin-arrow" aria-hidden="true">→</span><span data-es="anticipo de $89.70 y 3 pagos mensuales de $69.77" data-en="$89.70 down and 3 monthly payments of $69.77">anticipo de $89.70 y 3 pagos mensuales de $69.77</span></li>
+              <li><b>Premium · $599</b><span class="fin-arrow" aria-hidden="true">→</span><span data-es="anticipo de $179.70 y 3 pagos mensuales de $139.77" data-en="$179.70 down and 3 monthly payments of $139.77">anticipo de $179.70 y 3 pagos mensuales de $139.77</span></li>
+            </ul>
+            <p class="fin-rule"><b data-es="Tu página se activa y se te entrega en cuanto confirmamos tu pago completo o tu anticipo." data-en="Your page is activated and delivered as soon as we confirm your full payment or your down payment.">Tu página se activa y se te entrega en cuanto confirmamos tu pago completo o tu anticipo.</b></p>
+            <a class="btn btn-grad" href="#cuestionario" data-open-quiz data-pkg="Completo $299"><span data-es="Solicitar plan a plazos" data-en="Request an installment plan">Solicitar plan a plazos</span></a>
+          </div>
+
+          <div class="care rv">
+            <h3 class="care-title" data-es="🛠️ Plan de Cuidado — $29/mes" data-en="🛠️ Care Plan — $29/month">🛠️ Plan de Cuidado — $29/mes</h3>
+            <p class="care-text" data-es="¿Ya tienes tu página con nosotros? Nosotros hacemos tus cambios por ti: fotos, precios, horarios, textos y publicaciones. Tú dedícate a tu negocio." data-en="Already have your page with us? We make your changes for you: photos, prices, hours, text and posts. You focus on your business.">¿Ya tienes tu página con nosotros? Nosotros hacemos tus cambios por ti: fotos, precios, horarios, textos y publicaciones. Tú dedícate a tu negocio.</p>
+            <p class="care-note" data-es="Opcional, sin contrato forzoso: lo activas o lo cancelas cuando quieras." data-en="Optional, with no forced contract: activate it or cancel it whenever you like.">Opcional, sin contrato forzoso: lo activas o lo cancelas cuando quieras.</p>
+            <a class="btn btn-grad" href="#cuestionario" data-open-quiz><span data-es="Quiero el Plan de Cuidado" data-en="I want the Care Plan">Quiero el Plan de Cuidado</span></a>
+            <p class="care-hint" data-es="También puedes contratarlo por correo una vez entregada tu página." data-en="You can also sign up for it by email once your page has been delivered.">También puedes contratarlo por correo una vez entregada tu página.</p>
+          </div>
+
+          <div class="price-note rv">
+            <span data-es="El costo del registro del dominio lo paga el cliente; su precio varía según el nombre elegido y te confirmamos el costo exacto antes de registrarlo." data-en="The cost of registering the domain is paid by the client; its price varies depending on the name chosen, and we confirm the exact cost before registering it.">El costo del registro del dominio lo paga el cliente; su precio varía según el nombre elegido y te confirmamos el costo exacto antes de registrarlo.</span>
+            <span data-es="¿No sabes qué paquete te conviene? Llena el cuestionario y te respondemos por correo con la recomendación, sin compromiso." data-en="Not sure which package fits you? Fill out the questionnaire and we'll reply by email with our recommendation, no obligation.">¿No sabes qué paquete te conviene? Llena el cuestionario y te respondemos por correo con la recomendación, sin compromiso.</span>
+          </div>
+          <div class="cuba-note rv">
+            <b data-es="¿Tu negocio está en Cuba?" data-en="Is your business in Cuba?">¿Tu negocio está en Cuba?</b>
+            <span data-es="Hacemos tu página ligera, pensada para que cargue rápido con la conexión de allá, y todo se coordina por WhatsApp. Pregunta por las condiciones." data-en="We build your site lightweight, designed to load fast on the connection over there, and everything is coordinated over WhatsApp. Ask us about the details.">Hacemos tu página ligera, pensada para que cargue rápido con la conexión de allá, y todo se coordina por WhatsApp. Pregunta por las condiciones.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SISTEMAS COMPLEJOS / A LA MEDIDA ============ -->
+      <section class="block" id="complejo">
+        <div class="wrap">
+          <div class="complex-panel rv">
+            <div class="sec-head">
+              <span class="quote-chip" data-es="Cotización por proyecto · No es paquete fijo" data-en="Quoted per project · Not a fixed package">Cotización por proyecto · No es paquete fijo</span>
+              <h2><span data-es="También hacemos" data-en="We also build">También hacemos</span> <span class="grad" data-es="Apps Web para tu negocio" data-en="Web Apps for your business">Apps Web para tu negocio</span></h2>
+              <p data-es="Además de páginas web, construimos aplicaciones web (apps) y sistemas a la medida: no una página de presentación, sino una herramienta que trabaja dentro de tu negocio, con su panel para que lo manejes desde tu teléfono. Cada proyecto se cotiza según lo que necesitas." data-en="Besides websites, we build custom web applications (apps) and systems: not a brochure page, but a tool that works inside your business, with your own panel to run it from your phone. Every project is quoted based on what you need.">Además de páginas web, construimos aplicaciones web (apps) y sistemas a la medida: no una página de presentación, sino una herramienta que trabaja dentro de tu negocio, con su panel para que lo manejes desde tu teléfono. Cada proyecto se cotiza según lo que necesitas.</p>
+            </div>
+            <div class="svc-grid">
+              <article class="svc">
+                <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div>
+                <h3 data-es="Tienda en línea completa, con pagos reales" data-en="Full online store with real payments">Tienda en línea completa, con pagos reales</h3>
+                <p data-es="Catálogo de productos, carrito y pago en línea (checkout) con tarjetas y PayPal, con envíos e impuestos configurados. Tus clientes compran y pagan sin salir de tu tienda." data-en="Product catalog, cart and online checkout with cards and PayPal, with shipping and taxes set up. Your customers buy and pay without leaving your store.">Catálogo de productos, carrito y pago en línea (checkout) con tarjetas y PayPal, con envíos e impuestos configurados. Tus clientes compran y pagan sin salir de tu tienda.</p>
+              </article>
+              <article class="svc">
+                <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M9 16l2 2 4-4"/></svg></div>
+                <h3 data-es="Reservas y citas en línea" data-en="Online bookings & appointments">Reservas y citas en línea</h3>
+                <p data-es="Tus clientes reservan su cita o servicio desde la página, según tu disponibilidad: ideal para barberías, salones, clínicas, talleres y restaurantes." data-en="Your customers book their appointment or service right from the page, based on your availability: ideal for barbershops, salons, clinics, shops and restaurants.">Tus clientes reservan su cita o servicio desde la página, según tu disponibilidad: ideal para barberías, salones, clínicas, talleres y restaurantes.</p>
+              </article>
+              <article class="svc">
+                <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16.5" r="1.6"/></svg></div>
+                <h3 data-es="Áreas de clientes y cursos" data-en="Customer areas & courses">Áreas de clientes y cursos</h3>
+                <p data-es="Registro de usuarios con acceso privado: áreas de clientes, cursos y contenido solo para miembros o para quienes ya pagaron." data-en="User sign-up with private access: customer areas, courses and content only for members or paying customers.">Registro de usuarios con acceso privado: áreas de clientes, cursos y contenido solo para miembros o para quienes ya pagaron.</p>
+              </article>
+              <article class="svc">
+                <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg></div>
+                <h3 data-es="Aplicaciones web (apps) a la medida" data-en="Custom web apps">Aplicaciones web (apps) a la medida</h3>
+                <p data-es="Sistemas con base de datos hechos para tu operación: inventario, pedidos, clientes y panel de administración para manejarlo todo desde tu teléfono." data-en="Database-driven systems built for your operation: inventory, orders, customers and an admin panel to run it all from your phone.">Sistemas con base de datos hechos para tu operación: inventario, pedidos, clientes y panel de administración para manejarlo todo desde tu teléfono.</p>
+              </article>
+            </div>
+            <div class="pro-note">
+              <b data-es="Lo que debes saber:" data-en="What you should know:">Lo que debes saber:</b>
+              <span data-es="Los sistemas complejos usan plataformas profesionales con costo mensual de la plataforma (lo paga el cliente) y las cuentas de pago van a nombre de tu negocio: el dinero de tus ventas llega a tu cuenta, siempre." data-en="Complex systems run on professional platforms with a monthly platform cost (paid by the client), and the payment accounts are in your business's name: your sales money always lands in your account.">Los sistemas complejos usan plataformas profesionales con costo mensual de la plataforma (lo paga el cliente) y las cuentas de pago van a nombre de tu negocio: el dinero de tus ventas llega a tu cuenta, siempre.</span>
+            </div>
+            <div class="proof-bar">
+              <span class="pb-badge" data-es="Trabajo real" data-en="Real work">Trabajo real</span>
+              <p><b>J&amp;JL Boutique</b> — <span data-es="una tienda en línea real que ya construimos, con catálogo, inventario y pedidos por WhatsApp. Mírala funcionando:" data-en="a real online store we already built, with catalog, inventory and WhatsApp orders. See it running:">una tienda en línea real que ya construimos, con catálogo, inventario y pedidos por WhatsApp. Mírala funcionando:</span></p>
+              <a href="https://jjl-boutique.onrender.com/" target="_blank" rel="noopener"><span data-es="Visitar la tienda real" data-en="Visit the real store">Visitar la tienda real</span> ↗</a>
+            </div>
+            <div class="complex-actions">
+              <a class="btn btn-grad" href="#cuestionario" data-open-quiz data-pkg="Proyecto a la medida / cotización">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M9 13h6M9 17h4"/></svg>
+                <span data-es="Cotizar mi app o proyecto" data-en="Get a quote for my app or project">Cotizar mi app o proyecto</span>
+              </a>
+              <a class="btn btn-ghost" href="#muestras"><span data-es="Ver la muestra de J&amp;JL Boutique" data-en="See the J&amp;JL Boutique sample">Ver la muestra de J&amp;JL Boutique</span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MUESTRAS ============ -->
+      <section class="block" id="muestras">
+        <div class="wrap">
+          <div class="sec-head rv">
+            <h2><span data-es="Mira lo que" data-en="See what">Mira lo que</span> <span class="grad" data-es="podemos hacer por ti" data-en="we can build for you">podemos hacer por ti</span></h2>
+            <p data-es="Estas son páginas de muestra con negocios de ejemplo, cada una con su propio estilo y colores — y al final, dos trabajos reales ya publicados: una página de servicios y una tienda en línea. Toca «Ver muestra» y navega la página completa, como la verían tus clientes." data-en="These are sample pages for example businesses, each with its own style and colors — plus, at the end, two real published projects: a services website and an online store. Tap “View sample” and browse the full page, just like your customers would.">Estas son páginas de muestra con negocios de ejemplo, cada una con su propio estilo y colores — y al final, dos trabajos reales ya publicados: una página de servicios y una tienda en línea. Toca «Ver muestra» y navega la página completa, como la verían tus clientes.</p>
+          </div>
+          <div class="sample-grid">
+            <article class="sample rv">
+              <div class="thumb">
+                <img src="img/img-de18860280.webp" alt="Plato de comida caribeña con arroz, carne guisada y plátanos fritos" />
+                <span class="tag-demo" data-es="Muestra" data-en="Sample">Muestra</span>
+                <span class="swatches" aria-hidden="true"><i style="background:#b91c1c"></i><i style="background:#ea580c"></i><i style="background:#fff7ed"></i></span>
+              </div>
+              <div class="s-body">
+                <span class="s-cat" data-es="Restaurante" data-en="Restaurant">Restaurante</span>
+                <h3>Sabor Criollo</h3>
+                <p data-es="Rojo cálido y naranja, con menú, fotos de los platos y botón para ordenar por WhatsApp." data-en="Warm red and orange, with a menu, dish photos and a WhatsApp order button.">Rojo cálido y naranja, con menú, fotos de los platos y botón para ordenar por WhatsApp.</p>
+                <button type="button" class="btn btn-grad btn-sm" data-open-demo="sabor"><span data-es="Ver muestra" data-en="View sample">Ver muestra</span></button>
+              </div>
+            </article>
+
+            <article class="sample rv">
+              <div class="thumb">
+                <img src="img/img-3a27766654.webp" alt="Barbero cortando el cabello de un cliente en una barbería elegante" />
+                <span class="tag-demo" data-es="Muestra" data-en="Sample">Muestra</span>
+                <span class="swatches" aria-hidden="true"><i style="background:#0a0a0a"></i><i style="background:#c9a227"></i><i style="background:#f5efe0"></i></span>
+              </div>
+              <div class="s-body">
+                <span class="s-cat" data-es="Barbería" data-en="Barbershop">Barbería</span>
+                <h3>Corte Fino</h3>
+                <p data-es="Negro y dorado, elegante: servicios con precios y botón para reservar la cita." data-en="Black and gold, elegant: services with prices and a button to book the chair.">Negro y dorado, elegante: servicios con precios y botón para reservar la cita.</p>
+                <button type="button" class="btn btn-grad btn-sm" data-open-demo="barber"><span data-es="Ver muestra" data-en="View sample">Ver muestra</span></button>
+              </div>
+            </article>
+
+            <article class="sample rv">
+              <div class="thumb">
+                <img src="img/img-d57c83ca9c.jpg" alt="Taller mecánico con autos en elevadores y mecánicos trabajando" />
+                <span class="tag-demo" data-es="Muestra" data-en="Sample">Muestra</span>
+                <span class="swatches" aria-hidden="true"><i style="background:#1d4ed8"></i><i style="background:#ea580c"></i><i style="background:#f1f5f9"></i></span>
+              </div>
+              <div class="s-body">
+                <span class="s-cat" data-es="Taller mecánico" data-en="Auto repair">Taller mecánico</span>
+                <h3>AutoFix</h3>
+                <p data-es="Azul industrial y naranja: servicios claros y llamada directa para cotizar la reparación." data-en="Industrial blue and orange: clear services and click-to-call for a repair quote.">Azul industrial y naranja: servicios claros y llamada directa para cotizar la reparación.</p>
+                <button type="button" class="btn btn-grad btn-sm" data-open-demo="auto"><span data-es="Ver muestra" data-en="View sample">Ver muestra</span></button>
+              </div>
+            </article>
+
+            <article class="sample rv">
+              <div class="thumb">
+                <img src="img/img-d7e38e3297.jpg" alt="Interior de una boutique de ropa femenina con maniquíes y percheros" />
+                <span class="tag-demo" data-es="Muestra" data-en="Sample">Muestra</span>
+                <span class="swatches" aria-hidden="true"><i style="background:#f9a8d4"></i><i style="background:#db2777"></i><i style="background:#fff7f0"></i></span>
+              </div>
+              <div class="s-body">
+                <span class="s-cat" data-es="Boutique de ropa" data-en="Clothing boutique">Boutique de ropa</span>
+                <h3>Luna Boutique</h3>
+                <p data-es="Rosa suave y crema, femenino: colecciones, galería y pedidos por WhatsApp." data-en="Soft pink and cream, feminine: collections, gallery and WhatsApp orders.">Rosa suave y crema, femenino: colecciones, galería y pedidos por WhatsApp.</p>
+                <button type="button" class="btn btn-grad btn-sm" data-open-demo="luna"><span data-es="Ver muestra" data-en="View sample">Ver muestra</span></button>
+              </div>
+            </article>
+
+            <article class="sample rv">
+              <div class="thumb">
+                <img src="img/img-4f09dd7435.jpg" alt="Taza de café con arte latte humeante sobre una mesa de madera en una cafetería acogedora" />
+                <span class="tag-demo" data-es="Muestra" data-en="Sample">Muestra</span>
+                <span class="swatches" aria-hidden="true"><i style="background:#6f4e37"></i><i style="background:#c89b6d"></i><i style="background:#faf6f0"></i></span>
+              </div>
+              <div class="s-body">
+                <span class="s-cat" data-es="Cafetería" data-en="Coffee shop">Cafetería</span>
+                <h3>Aroma Café</h3>
+                <p data-es="Marrón café y crema, acogedor: menú de bebidas, horarios y ubicación." data-en="Coffee brown and cream, cozy: drink menu, hours and location.">Marrón café y crema, acogedor: menú de bebidas, horarios y ubicación.</p>
+                <button type="button" class="btn btn-grad btn-sm" data-open-demo="cafe"><span data-es="Ver muestra" data-en="View sample">Ver muestra</span></button>
+              </div>
+            </article>
+
+            <article class="sample real rv">
+              <div class="thumb">
+                <img src="img/img-aa7ce6dc9f.jpg" alt="Casa residencial remodelada al anochecer con las luces encendidas" />
+                <span class="real-flag" data-es="Real · En vivo" data-en="Real · Live">Real · En vivo</span>
+                <span class="swatches" aria-hidden="true"><i style="background:#1c1410"></i><i style="background:#c9973f"></i><i style="background:#f7ead9"></i></span>
+              </div>
+              <div class="s-body">
+                <span class="s-cat" data-es="Trabajo real publicado" data-en="Real published work">Trabajo real publicado</span>
+                <h3>BuilderMax Texas</h3>
+                <p data-es="Una página real que hicimos y que está en línea hoy: remodelación y construcción en Katy, TX." data-en="A real site we built that is live today: remodeling and construction in Katy, TX.">Una página real que hicimos y que está en línea hoy: remodelación y construcción en Katy, TX.</p>
+                <a class="btn btn-ghost btn-sm" href="https://buildermaxtexas.com" target="_blank" rel="noopener"><span data-es="Visitar el sitio real" data-en="Visit the real site">Visitar el sitio real</span></a>
+              </div>
+            </article>
+
+            <article class="sample real rv">
+              <div class="thumb jjl-thumb">
+                <span class="real-flag" data-es="Real · En vivo" data-en="Real · Live">Real · En vivo</span>
+                <div class="jjl-mark" aria-hidden="true">
+                  <span class="jjl-logo">J&amp;JL</span>
+                  <span class="jjl-sub">BOUTIQUE</span>
+                  <span class="jjl-line"></span>
+                  <span class="jjl-tag">Premium · Negro y dorado</span>
+                </div>
+                <span class="swatches" aria-hidden="true"><i style="background:#0a0a0a"></i><i style="background:#c9a227"></i><i style="background:#f5efe0"></i></span>
+              </div>
+              <div class="s-body">
+                <span class="s-cat" data-es="Trabajo real · Tienda / sistema" data-en="Real work · Store / system">Trabajo real · Tienda / sistema</span>
+                <h3>J&amp;JL Boutique</h3>
+                <p data-es="Otro tipo de página, y es real: una tienda en línea completa con catálogo, inventario y pedidos por WhatsApp — no una página de presentación. Además tiene su propia aplicación Android publicada en Google Play." data-en="A different kind of site, and a real one: a full online store with catalog, inventory and WhatsApp orders — not a brochure page. It also has its own Android app published on Google Play.">Otro tipo de página, y es real: una tienda en línea completa con catálogo, inventario y pedidos por WhatsApp — no una página de presentación. Además tiene su propia aplicación Android publicada en Google Play.</p>
+                <a class="btn btn-ghost btn-sm" href="https://jjl-boutique.onrender.com/" target="_blank" rel="noopener"><span data-es="Visitar la tienda real" data-en="Visit the real store">Visitar la tienda real</span></a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ PRUEBA REAL ============ -->
+      <section class="block" id="prueba">
+        <div class="wrap">
+          <div class="sec-head rv">
+            <span class="chip" data-es="Prueba real" data-en="Real proof">Prueba real</span>
+            <h2><span data-es="La prueba no es lo que decimos:" data-en="The proof is not what we say:">La prueba no es lo que decimos:</span> <span class="grad" data-es="es lo que puedes visitar" data-en="it's what you can visit">es lo que puedes visitar</span></h2>
+            <p data-es="Sin reseñas inventadas: cuando un cliente nos lo autorice, aquí irá su testimonio con su nombre. Mientras tanto, todo lo que afirmamos se puede comprobar visitándolo." data-en="No invented reviews: when a client authorizes it, their testimonial will appear here with their name. In the meantime, everything we claim can be checked by visiting it.">Sin reseñas inventadas: cuando un cliente nos lo autorice, aquí irá su testimonio con su nombre. Mientras tanto, todo lo que afirmamos se puede comprobar visitándolo.</p>
+          </div>
+          <div class="sample-grid">
+            <article class="sample rv">
+              <div class="s-body">
+                <span class="s-cat" data-es="Proyectos reales en vivo" data-en="Real projects live">Proyectos reales en vivo</span>
+                <h3>2</h3>
+                <p data-es="BuilderMax Texas y J&JL Boutique: publicados, en línea y recibiendo visitas hoy. Están arriba, en la galería." data-en="BuilderMax Texas and J&JL Boutique: published, online and receiving visitors today. They are right above, in the gallery.">BuilderMax Texas y J&JL Boutique: publicados, en línea y recibiendo visitas hoy. Están arriba, en la galería.</p>
+              </div>
+            </article>
+            <article class="sample rv">
+              <div class="s-body">
+                <span class="s-cat" data-es="Mensualidades de hosting" data-en="Monthly hosting fees">Mensualidades de hosting</span>
+                <h3>$0</h3>
+                <p data-es="Pagas tu plan una sola vez. Sin renta mensual por mantener tu página en línea." data-en="You pay for your plan once. No monthly rent to keep your page online.">Pagas tu plan una sola vez. Sin renta mensual por mantener tu página en línea.</p>
+              </div>
+            </article>
+            <article class="sample rv">
+              <div class="s-body">
+                <span class="s-cat" data-es="Tu muestra, antes de pagar el plan" data-en="Your preview, before paying for the plan">Tu muestra, antes de pagar el plan</span>
+                <h3>24–48 h</h3>
+                <p data-es="Ves la portada de tu página ya diseñada antes de comprometerte con cualquier plan." data-en="You see your homepage already designed before committing to any plan.">Ves la portada de tu página ya diseñada antes de comprometerte con cualquier plan.</p>
+              </div>
+            </article>
+            <article class="sample rv">
+              <div class="s-body">
+                <span class="s-cat" data-es="Precio publicado" data-en="Published pricing">Precio publicado</span>
+                <h3>100%</h3>
+                <p data-es="Los precios y el financiamiento están en esta misma página, a la vista. Sin cotizaciones infladas ni sorpresas." data-en="Prices and financing are on this very page, in plain sight. No inflated quotes or surprises.">Los precios y el financiamiento están en esta misma página, a la vista. Sin cotizaciones infladas ni sorpresas.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ CÓMO FUNCIONA ============ -->
+      <section class="block" id="como">
+        <div class="wrap">
+          <div class="sec-head rv">
+            <h2><span data-es="Así de" data-en="It's this">Así de</span> <span class="grad" data-es="fácil" data-en="simple">fácil</span></h2>
+            <p data-es="Tú no tienes que saber nada de tecnología. Nosotros nos encargamos de todo." data-en="You don't need to know anything about technology. We take care of everything.">Tú no tienes que saber nada de tecnología. Nosotros nos encargamos de todo.</p>
+          </div>
+          <div class="steps">
+            <article class="step rv">
+              <span class="num">01</span>
+              <h3 data-es="Llenas el cuestionario" data-en="You fill out the questionnaire">Llenas el cuestionario</h3>
+              <p data-es="Toca «Quiero mi página web» y responde el cuestionario con los datos de tu negocio: servicios, horarios, dirección, teléfono y el estilo que te gusta. Al enviarlo, tus respuestas llegan directo a nuestro equipo por correo, y te respondemos por correo con la propuesta de tu página, sin compromiso." data-en="Tap “I want my website” and answer the questionnaire with your business details: services, hours, address, phone and the style you like. When you send it, your answers go straight to our team by email, and we reply by email with the proposal for your page, with no obligation.">Toca «Quiero mi página web» y responde el cuestionario con los datos de tu negocio: servicios, horarios, dirección, teléfono y el estilo que te gusta. Al enviarlo, tus respuestas llegan directo a nuestro equipo por correo, y te respondemos por correo con la propuesta de tu página, sin compromiso.</p>
+            </article>
+            <article class="step rv">
+              <span class="num">02</span>
+              <h3 data-es="Apruebas la propuesta y pagas" data-en="You approve the proposal and pay">Apruebas la propuesta y pagas</h3>
+              <p data-es="Te escribimos por correo qué vamos a construir y el precio final. Cuando apruebas, te enviamos los datos para pagar: el total o, si prefieres financiar, solo el 30% de anticipo. En cuanto confirmamos tu pago, construimos tu página con tus colores y tu estilo, y te la mostramos antes de publicarla." data-en="We email you what we will build and the final price. When you approve, we send you the payment details: the full amount or, if you prefer financing, just the 30% down payment. As soon as we confirm your payment, we build your page with your colors and style, and show it to you before it goes live.">Te escribimos por correo qué vamos a construir y el precio final. Cuando apruebas, te enviamos los datos para pagar: el total o, si prefieres financiar, solo el 30% de anticipo. En cuanto confirmamos tu pago, construimos tu página con tus colores y tu estilo, y te la mostramos antes de publicarla.</p>
+            </article>
+            <article class="step rv">
+              <span class="num">03</span>
+              <h3 data-es="Publicamos y recibes clientes" data-en="We publish and customers come">Publicamos y recibes clientes</h3>
+              <p data-es="Tu página se activa y se te entrega en cuanto confirmamos tu pago completo o tu anticipo. La publicamos con tu propio dominio, sin mensualidades de hosting, con tus botones de WhatsApp y llamada listos para trabajar." data-en="Your page is activated and delivered as soon as we confirm your full payment or your down payment. We publish it on your own domain, with no monthly hosting fees, and your WhatsApp and call buttons ready to work.">Tu página se activa y se te entrega en cuanto confirmamos tu pago completo o tu anticipo. La publicamos con tu propio dominio, sin mensualidades de hosting, con tus botones de WhatsApp y llamada listos para trabajar.</p>
+            </article>
+          </div>
+
+          <div class="final rv">
+            <h2 data-es="¿Listo para que tu negocio se vea profesional en internet?" data-en="Ready for your business to look professional online?">¿Listo para que tu negocio se vea profesional en internet?</h2>
+            <p data-es="Llena el cuestionario y cuéntanos de tu negocio. Tus respuestas llegan directo a nuestro equipo por correo y te respondemos por correo con la propuesta y el paquete ideal, sin compromiso." data-en="Fill out the questionnaire and tell us about your business. Your answers go straight to our team by email and we reply by email with the proposal and the right package for you, with no obligation.">Llena el cuestionario y cuéntanos de tu negocio. Tus respuestas llegan directo a nuestro equipo por correo y te respondemos por correo con la propuesta y el paquete ideal, sin compromiso.</p>
+            <div class="row">
+              <a class="btn btn-grad" href="#cuestionario" data-open-quiz>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M9 13h6M9 17h4"/></svg>
+                <span data-es="Quiero mi página web" data-en="I want my website">Quiero mi página web</span>
+              </a>
+              <a class="btn btn-ghost" href="#cuestionario" data-open-quiz>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+                <span data-es="Te respondemos por correo" data-en="We reply by email">Te respondemos por correo</span>
+              </a>
+              <a class="btn btn-ghost" href="tel:+13464793662">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>(346) 479-3662</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site">
+      <div class="wrap">
+        <div class="f-logo"><span class="w" aria-hidden="true">W</span> Builder<span class="web">Web</span> <span class="pro">Pro</span></div>
+        <p data-es="BuilderWeb Pro — Construimos tu página web · Trabajamos con clientes en todas partes · También hacemos páginas ligeras para negocios en Cuba" data-en="BuilderWeb Pro — We build your website · We work with clients everywhere · We also build lightweight sites for businesses in Cuba">BuilderWeb Pro — Construimos tu página web · Trabajamos con clientes en todas partes · También hacemos páginas ligeras para negocios en Cuba</p>
+        <p>builderwebpro.com · <a href="tel:+13464793662">(346) 479-3662</a> · <a href="https://buildermaxtexas.com" target="_blank" rel="noopener">buildermaxtexas.com</a></p>
+        <p>Síguenos: <a href="https://www.facebook.com/profile.php?id=61596156106791" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.instagram.com/builderwebpro.tx/" target="_blank" rel="noopener">Instagram</a></p>
+      </div>
+    </footer>
+
+    <a class="wa-float" href="#cuestionario" data-open-quiz aria-label="Abrir el cuestionario / Open the questionnaire">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M9 13h6M9 17h4"/></svg>
+    </a>
+
+    <!-- ============ QUESTIONNAIRE OVERLAY ============ -->
+    <div id="quizOverlay" role="dialog" aria-modal="true" aria-label="Cuestionario para tu página web">
+      <div class="quiz-topbar">
+        <button type="button" class="quiz-back" id="quizBack">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+          <span data-es="Volver" data-en="Back">Volver</span>
+        </button>
+        <span class="qt-label" data-es="Cuestionario · BuilderWeb Pro" data-en="Questionnaire · BuilderWeb Pro">Cuestionario · BuilderWeb Pro</span>
+      </div>
+      <div class="quiz-wrap" id="cuestionario">
+        <div class="quiz-head">
+          <h2><span data-es="Cuéntanos de tu negocio y" data-en="Tell us about your business and">Cuéntanos de tu negocio y</span> <span class="grad" data-es="creamos tu página" data-en="we'll build your page">creamos tu página</span></h2>
+          <p data-es="Responde estas preguntas — son justo las que necesitamos para crear tu página web. No tienes que saber de tecnología: escribe como puedas y nosotros nos encargamos del resto." data-en="Answer these questions — they are exactly what we need to build your website. No tech knowledge needed: write it your way and we'll handle the rest.">Responde estas preguntas — son justo las que necesitamos para crear tu página web. No tienes que saber de tecnología: escribe como puedas y nosotros nos encargamos del resto.</p>
+          <p data-es="Son obligatorios el nombre de tu negocio, tu teléfono/WhatsApp y tu correo — a ese correo te enviaremos la propuesta." data-en="Your business name, your phone/WhatsApp and your email are required — we will send the proposal to that email.">Son obligatorios el nombre de tu negocio, tu teléfono/WhatsApp y tu correo — a ese correo te enviaremos la propuesta.</p>
+        </div>
+
+        <form id="quizForm" novalidate>
+          <!-- Datos del negocio -->
+          <div class="quiz-sec">
+            <h3 class="quiz-sec-title" data-es="Datos de tu negocio" data-en="Your business details">Datos de tu negocio</h3>
+            <p class="quiz-sec-sub" data-es="Lo básico para que tus clientes te encuentren y te contacten." data-en="The basics so customers can find you and reach you.">Lo básico para que tus clientes te encuentren y te contacten.</p>
+
+            <div class="q-field">
+              <label class="q-label" for="qName"><span data-es="1. Nombre de tu negocio" data-en="1. Your business name">1. Nombre de tu negocio</span> <span class="req" aria-hidden="true">*</span></label>
+              <input class="q-input" id="qName" type="text" autocomplete="organization" data-es-ph="Ej.: Barbería Corte Fino" data-en-ph="E.g.: Corte Fino Barbershop" placeholder="Ej.: Barbería Corte Fino" />
+            </div>
+
+            <div class="q-grid2">
+              <div class="q-field">
+                <label class="q-label" for="qType" data-es="2. Tipo de negocio / giro" data-en="2. Type of business">2. Tipo de negocio / giro</label>
+                <select class="q-select" id="qType">
+                  <option value="" data-es="Selecciona una opción" data-en="Choose one">Selecciona una opción</option>
+                  <option value="Restaurante" data-es="Restaurante" data-en="Restaurant">Restaurante</option>
+                  <option value="Barbería / salón de belleza" data-es="Barbería / salón de belleza" data-en="Barbershop / beauty salon">Barbería / salón de belleza</option>
+                  <option value="Taller mecánico" data-es="Taller mecánico" data-en="Auto repair shop">Taller mecánico</option>
+                  <option value="Tienda / boutique" data-es="Tienda / boutique" data-en="Store / boutique">Tienda / boutique</option>
+                  <option value="Contratista / remodelación" data-es="Contratista / remodelación" data-en="Contractor / remodeling">Contratista / remodelación</option>
+                  <option value="Cafetería" data-es="Cafetería" data-en="Coffee shop">Cafetería</option>
+                  <option value="Otro" data-es="Otro" data-en="Other">Otro</option>
+                </select>
+              </div>
+              <div class="q-field">
+                <label class="q-label" for="qCity" data-es="3. ¿Dónde está tu negocio?" data-en="3. Where is your business located?">3. ¿Dónde está tu negocio?</label>
+                <input class="q-input" id="qCity" type="text" autocomplete="address-level2" data-es-ph="Ciudad, estado o país" data-en-ph="City, state or country" placeholder="Ciudad, estado o país" />
+              </div>
+            </div>
+
+            <div class="q-grid2">
+              <div class="q-field">
+                <label class="q-label" for="qPhone"><span data-es="4. Teléfono / WhatsApp que verá el público" data-en="4. Phone / WhatsApp customers will see">4. Teléfono / WhatsApp que verá el público</span> <span class="req" aria-hidden="true">*</span></label>
+                <input class="q-input" id="qPhone" type="tel" autocomplete="tel" data-es-ph="Ej.: (713) 555-0123" data-en-ph="E.g.: (713) 555-0123" placeholder="Ej.: (713) 555-0123" />
+              </div>
+              <div class="q-field">
+                <label class="q-label" for="qEmail"><span data-es="5. Tu correo (a ese correo te responderemos)" data-en="5. Your email (we will reply to this email)">5. Tu correo (a ese correo te responderemos)</span> <span class="req" aria-hidden="true">*</span></label>
+                <input class="q-input" id="qEmail" type="email" autocomplete="email" placeholder="tunegocio@correo.com" />
+              </div>
+            </div>
+
+            <div class="q-field">
+              <label class="q-label" for="qAddress" data-es="6. Dirección del local" data-en="6. Business address">6. Dirección del local</label>
+              <input class="q-input" id="qAddress" type="text" autocomplete="street-address" data-es-ph="Calle, número, ciudad" data-en-ph="Street, number, city" placeholder="Calle, número, ciudad" />
+              <label class="q-inline-check"><input type="checkbox" id="qNoLocal" /> <span data-es="No tengo local / trabajo a domicilio" data-en="I have no storefront / I work at clients' homes">No tengo local / trabajo a domicilio</span></label>
+            </div>
+
+            <div class="q-field">
+              <label class="q-label" for="qHours" data-es="7. Horario de atención" data-en="7. Business hours">7. Horario de atención</label>
+              <input class="q-input" id="qHours" type="text" data-es-ph="Ej.: Lun a Sáb · 9 a.m. – 8 p.m." data-en-ph="E.g.: Mon to Sat · 9 a.m. – 8 p.m." placeholder="Ej.: Lun a Sáb · 9 a.m. – 8 p.m." />
+            </div>
+          </div>
+
+          <!-- Contenido y estilo -->
+          <div class="quiz-sec">
+            <h3 class="quiz-sec-title" data-es="Contenido y estilo de tu página" data-en="Your page's content & style">Contenido y estilo de tu página</h3>
+            <p class="quiz-sec-sub" data-es="Qué ofreces, qué quieres lograr y cómo quieres que se vea." data-en="What you offer, what you want to achieve and how you want it to look.">Qué ofreces, qué quieres lograr y cómo quieres que se vea.</p>
+
+            <div class="q-field">
+              <label class="q-label" for="qServices" data-es="8. Servicios que ofreces" data-en="8. Services you offer">8. Servicios que ofreces</label>
+              <textarea class="q-textarea" id="qServices" data-es-ph="Escribe tus servicios, uno por línea. Si tienes precios, ponlos al lado." data-en-ph="Write your services, one per line. Add prices next to them if you have them." placeholder="Escribe tus servicios, uno por línea. Si tienes precios, ponlos al lado."></textarea>
+            </div>
+
+            <fieldset class="q-field">
+              <legend class="q-label" data-es="9. ¿Qué quieres lograr con tu página?" data-en="9. What do you want your page to do?">9. ¿Qué quieres lograr con tu página?</legend>
+              <div class="q-choices cols2" id="qGoals">
+                <label class="q-choice"><input type="checkbox" value="Recibir llamadas" data-en-val="Get phone calls" /> <span data-es="Recibir llamadas" data-en="Get phone calls">Recibir llamadas</span></label>
+                <label class="q-choice"><input type="checkbox" value="Recibir mensajes de WhatsApp" data-en-val="Get WhatsApp messages" /> <span data-es="Recibir mensajes de WhatsApp" data-en="Get WhatsApp messages">Recibir mensajes de WhatsApp</span></label>
+                <label class="q-choice"><input type="checkbox" value="Mostrar mis trabajos" data-en-val="Show my work" /> <span data-es="Mostrar mis trabajos" data-en="Show my work">Mostrar mis trabajos</span></label>
+                <label class="q-choice"><input type="checkbox" value="Vender productos" data-en-val="Sell products" /> <span data-es="Vender productos" data-en="Sell products">Vender productos</span></label>
+                <label class="q-choice"><input type="checkbox" value="Que me encuentren en Google" data-en-val="Be found on Google" /> <span data-es="Que me encuentren en Google" data-en="Be found on Google">Que me encuentren en Google</span></label>
+              </div>
+            </fieldset>
+
+            <div class="q-grid2">
+              <fieldset class="q-field">
+                <legend class="q-label" data-es="10. ¿Ya tienes logo?" data-en="10. Do you already have a logo?">10. ¿Ya tienes logo?</legend>
+                <div class="q-choices">
+                  <label class="q-choice"><input type="radio" name="qLogo" value="Sí" data-en-val="Yes" /> <span data-es="Sí, ya tengo" data-en="Yes, I have one">Sí, ya tengo</span></label>
+                  <label class="q-choice"><input type="radio" name="qLogo" value="No — te lo diseñamos" data-en-val="No — design one for me" /> <span data-es="No — quiero que me lo diseñen" data-en="No — I want you to design one">No — quiero que me lo diseñen</span></label>
+                </div>
+              </fieldset>
+              <fieldset class="q-field">
+                <legend class="q-label" data-es="11. ¿Tienes fotos de tu negocio o trabajos?" data-en="11. Do you have photos of your business or work?">11. ¿Tienes fotos de tu negocio o trabajos?</legend>
+                <div class="q-choices">
+                  <label class="q-choice"><input type="radio" name="qPhotos" value="Sí, las envío por WhatsApp" data-en-val="Yes, I'll send them on WhatsApp" /> <span data-es="Sí, las envío por WhatsApp" data-en="Yes, I'll send them on WhatsApp">Sí, las envío por WhatsApp</span></label>
+                  <label class="q-choice"><input type="radio" name="qPhotos" value="No tengo" data-en-val="I don't have any" /> <span data-es="No tengo" data-en="I don't have any">No tengo</span></label>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="q-grid2">
+              <div class="q-field">
+                <label class="q-label" for="qStyle" data-es="12. Estilo que te gusta" data-en="12. Style you like">12. Estilo que te gusta</label>
+                <select class="q-select" id="qStyle">
+                  <option value="" data-es="Selecciona una opción" data-en="Choose one">Selecciona una opción</option>
+                  <option value="Moderno" data-es="Moderno" data-en="Modern">Moderno</option>
+                  <option value="Elegante" data-es="Elegante" data-en="Elegant">Elegante</option>
+                  <option value="Llamativo" data-es="Llamativo" data-en="Bold & eye-catching">Llamativo</option>
+                  <option value="Clásico" data-es="Clásico" data-en="Classic">Clásico</option>
+                </select>
+                <p class="q-hint" data-es="¿No sabes? Mira las páginas de muestra de esta misma página: cada una tiene un estilo distinto." data-en="Not sure? Check the sample pages on this site: each one has a different style.">¿No sabes? Mira las páginas de muestra de esta misma página: cada una tiene un estilo distinto.</p>
+              </div>
+              <div class="q-field">
+                <label class="q-label" for="qColors" data-es="Colores que te gustan" data-en="Colors you like">Colores que te gustan</label>
+                <input class="q-input" id="qColors" type="text" data-es-ph="Ej.: negro y dorado, azul…" data-en-ph="E.g.: black and gold, blue…" placeholder="Ej.: negro y dorado, azul…" />
+              </div>
+            </div>
+
+            <div class="q-grid2">
+              <div class="q-field">
+                <label class="q-label" for="qLang" data-es="13. Idioma de tu página" data-en="13. Your page's language">13. Idioma de tu página</label>
+                <select class="q-select" id="qLang">
+                  <option value="Español" data-es="Español" data-en="Spanish">Español</option>
+                  <option value="Inglés" data-es="Inglés" data-en="English">Inglés</option>
+                  <option value="Ambos (español e inglés)" data-es="Ambos (español e inglés)" data-en="Both (Spanish & English)">Ambos (español e inglés)</option>
+                </select>
+              </div>
+              <div class="q-field">
+                <label class="q-label" for="qPackage" data-es="15. Paquete que te interesa" data-en="15. Package you're interested in">15. Paquete que te interesa</label>
+                <select class="q-select" id="qPackage">
+                  <option value="No sé, quiero asesoría" data-es="No sé, quiero asesoría" data-en="Not sure, I want advice">No sé, quiero asesoría</option>
+                  <option value="Muestra personalizada $10" data-es="Muestra personalizada — $10 (se descuenta de mi plan)" data-en="Personalized preview — $10 (credited toward my plan)">Muestra personalizada — $10 (se descuenta de mi plan)</option>
+                  <option value="Básico $199" data-es="Básico $199" data-en="Basic $199">Básico $199</option>
+                  <option value="Completo $299" data-es="Completo $299" data-en="Complete $299">Completo $299</option>
+                  <option value="Premium $599" data-es="Premium $599" data-en="Premium $599">Premium $599</option>
+                  <option value="Proyecto a la medida / cotización" data-es="App web / proyecto a la medida" data-en="Web app / custom project">App web / proyecto a la medida</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="q-field">
+              <label class="q-label" for="qExisting"><span data-es="14. ¿Ya tienes dominio, página web o Facebook?" data-en="14. Do you already have a domain, website or Facebook page?">14. ¿Ya tienes dominio, página web o Facebook?</span> <span class="opt" data-es="(opcional — pega los enlaces que tengas)" data-en="(optional — paste any links you have)">(opcional — pega los enlaces que tengas)</span></label>
+              <input class="q-input" id="qExisting" type="text" data-es-ph="Ej.: facebook.com/minegocio, minegocio.com…" data-en-ph="E.g.: facebook.com/mybusiness, mybusiness.com…" placeholder="Ej.: facebook.com/minegocio, minegocio.com…" />
+            </div>
+            <div class="q-grid2">
+              <div class="q-field">
+                <label class="q-label" for="qUpdates" data-es="17. ¿Qué tan seguido cambian tus precios o se te acaban los productos?" data-en="17. How often do your prices change or products run out?">17. ¿Qué tan seguido cambian tus precios o se te acaban los productos?</label>
+                <select class="q-select" id="qUpdates">
+                  <option value="Casi nunca" data-es="Casi nunca" data-en="Hardly ever">Casi nunca</option>
+                  <option value="Cada mes" data-es="Cada mes" data-en="Every month">Cada mes</option>
+                  <option value="Cada semana" data-es="Cada semana" data-en="Every week">Cada semana</option>
+                  <option value="A diario / muy seguido" data-es="A diario / muy seguido" data-en="Daily / very often">A diario / muy seguido</option>
+                  <option value="No vendo productos, es un servicio" data-es="No vendo productos, es un servicio" data-en="I don't sell products, it's a service">No vendo productos, es un servicio</option>
+                </select>
+              </div>
+              <div class="q-field">
+                <label class="q-label" for="qSelfControl" data-es="18. ¿Quieres poder cambiar precios, productos y disponibilidad tú mismo, desde tu teléfono?" data-en="18. Do you want to change prices, products and availability yourself, from your phone?">18. ¿Quieres poder cambiar precios, productos y disponibilidad tú mismo, desde tu teléfono?</label>
+                <select class="q-select" id="qSelfControl">
+                  <option value="Sí, quiero ese control (servicio aparte, con su precio)" data-es="Sí, quiero ese control" data-en="Yes, I want that control">Sí, quiero ese control</option>
+                  <option value="No, prefiero que lo hagan ustedes" data-es="No, prefiero que lo hagan ustedes" data-en="No, I'd rather you do it">No, prefiero que lo hagan ustedes</option>
+                  <option value="No sé, quiero que me lo expliquen" data-es="No sé, quiero que me lo expliquen" data-en="Not sure, explain it to me">No sé, quiero que me lo expliquen</option>
+                </select>
+                <p class="q-hint" data-es="Ese control es un panel sencillo para tu tienda o negocio. Es un servicio aparte, con su propio precio: en tu propuesta te lo cotizamos." data-en="That control is a simple panel for your store or business. It's a separate service with its own price: we'll quote it in your proposal.">Ese control es un panel sencillo para tu tienda o negocio. Es un servicio aparte, con su propio precio: en tu propuesta te lo cotizamos.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Detalles específicos -->
+          <div class="quiz-sec">
+            <h3 class="quiz-sec-title" data-es="Detalles específicos" data-en="Specific details">Detalles específicos</h3>
+            <p class="quiz-sec-sub" data-es="Este espacio es tuyo: explícanos con tus palabras todo lo especial de tu proyecto." data-en="This space is yours: explain in your own words everything special about your project.">Este espacio es tuyo: explícanos con tus palabras todo lo especial de tu proyecto.</p>
+            <div class="q-field">
+              <label class="q-label" for="qDetails" data-es="16. Cuéntanos los detalles específicos de tu proyecto" data-en="16. Tell us the specific details of your project">16. Cuéntanos los detalles específicos de tu proyecto</label>
+              <textarea class="q-textarea tall" id="qDetails" data-es-ph="Ej.: quiero una sección para reservar citas, que se parezca a cierta página que vi, tengo una fecha límite, vendo desde casa, atiendo en dos ciudades… Todo lo que se te ocurra, escríbelo aquí." data-en-ph="E.g.: I want a section to book appointments, I'd like it to look like a page I saw, I have a deadline, I sell from home, I serve two cities… Anything that comes to mind, write it here." placeholder="Ej.: quiero una sección para reservar citas, que se parezca a cierta página que vi, tengo una fecha límite, vendo desde casa, atiendo en dos ciudades… Todo lo que se te ocurra, escríbelo aquí."></textarea>
+            </div>
+          </div>
+
+          <!-- BWP_INTEGRACION_N8N_V1: Turnstile se activa solo al habilitar y verificar el Worker. -->
+          <div id="bwpTurnstileWrap" style="display:none;margin:18px 0;">
+            <div id="bwpTurnstile"></div>
+          </div>
+
+          <div class="quiz-error" id="quizError" role="alert"></div>
+
+          <div class="quiz-notice">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+            <span data-es="Al enviar, tus respuestas llegan directo a nuestro equipo por correo. Revisamos tu solicitud y te escribimos a tu correo con la propuesta de tu página, sin compromiso." data-en="When you submit, your answers go straight to our team by email. We review your request and email you the proposal for your page, with no obligation.">Al enviar, tus respuestas llegan directo a nuestro equipo por correo. Revisamos tu solicitud y te escribimos a tu correo con la propuesta de tu página, sin compromiso.</span>
+          </div>
+          <div class="quiz-actions">
+            <button type="submit" class="btn btn-grad quiz-submit" id="quizSubmitBtn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg>
+              <span data-es="Enviar cuestionario" data-en="Send questionnaire">Enviar cuestionario</span>
+            </button>
+          </div>
+        </form>
+
+        <div class="quiz-success" id="quizSuccess" style="display:none">
+          <p class="qs-msg" data-es="✅ ¡Recibido! Nuestro equipo revisará tu solicitud y te escribiremos por correo con la propuesta de tu página, sin compromiso." data-en="✅ Received! Our team will review your request and email you the proposal for your page, with no obligation.">✅ ¡Recibido! Nuestro equipo revisará tu solicitud y te escribiremos por correo con la propuesta de tu página, sin compromiso.</p>
+          <p class="qs-note" data-es="También te enviamos una confirmación a tu correo." data-en="We also sent a confirmation to your email.">También te enviamos una confirmación a tu correo.</p>
+          <button type="button" class="btn btn-grad" id="quizSuccessClose"><span data-es="Cerrar" data-en="Close">Cerrar</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ PLAN DETAIL OVERLAY ============ -->
+    <div id="planOverlay" role="dialog" aria-modal="true" aria-label="Detalle del plan">
+      <div class="quiz-topbar">
+        <button type="button" class="quiz-back" id="planBack">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+          <span data-es="Volver" data-en="Back">Volver</span>
+        </button>
+        <span class="qt-label" data-es="Detalle del plan" data-en="Plan details">Detalle del plan</span>
+      </div>
+      <div class="plan-wrap" id="planContent"></div>
+    </div>
+
+    <!-- ============ DEMO OVERLAY ============ -->
+    <div id="demoOverlay" role="dialog" aria-modal="true" aria-label="Página de muestra">
+      <div class="demo-topbar">
+        <button type="button" class="demo-back" id="demoBack">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+          <span data-es="Volver a BuilderWeb Pro" data-en="Back to BuilderWeb Pro">Volver a BuilderWeb Pro</span>
+        </button>
+        <span class="dt-label" data-es="Estás viendo una página de muestra" data-en="You are viewing a sample page">Estás viendo una página de muestra</span>
+        <span class="dt-name" id="demoTopName"></span>
+      </div>
+      <div id="demoContent"></div>
+    </div>
+
+    <script>
+      /* ================= i18n ================= */
+      var currentLang = 'es';
+
+      function setLang(lang) {
+        currentLang = lang;
+        document.documentElement.lang = lang;
+        var els = document.querySelectorAll('[data-es]');
+        for (var i = 0; i < els.length; i++) {
+          var v = els[i].getAttribute('data-' + lang);
+          if (v !== null) els[i].textContent = v;
+        }
+        document.getElementById('langEs').setAttribute('aria-pressed', lang === 'es' ? 'true' : 'false');
+        document.getElementById('langEn').setAttribute('aria-pressed', lang === 'en' ? 'true' : 'false');
+        var phs = document.querySelectorAll('[data-es-ph]');
+        for (var j = 0; j < phs.length; j++) {
+          var pv = phs[j].getAttribute('data-' + lang + '-ph');
+          if (pv !== null) phs[j].setAttribute('placeholder', pv);
+        }
+        renderCompare();
+        if (typeof planOverlay !== 'undefined' && planOverlay.classList.contains('open') && currentPlan >= 0) renderPlan(currentPlan);
+        if (overlay.classList.contains('open') && currentDemo) renderDemo(currentDemo);
+      }
+      document.getElementById('langEs').addEventListener('click', function () { setLang('es'); });
+      document.getElementById('langEn').addEventListener('click', function () { setLang('en'); });
+
+      /* ================= reveal on scroll ================= */
+      var io = ('IntersectionObserver' in window) ? new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { threshold: 0.12 }) : null;
+      document.querySelectorAll('.rv').forEach(function (el) { if (io) io.observe(el); else el.classList.add('in'); });
+
+      /* ================= demo data ================= */
+      var WA_SVG = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m0 1.8c2.17 0 4.2.85 5.74 2.38a8.1 8.1 0 0 1 2.37 5.73c0 4.48-3.64 8.12-8.11 8.12-1.6 0-3.16-.46-4.5-1.34l-.32-.19-3.34.88.89-3.26-.21-.34a8.08 8.08 0 0 1-1.24-4.28c0-4.47 3.65-8.11 8.12-8.11"/></svg>';
+      var TEL_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>';
+
+      var DEMOS = {
+        sabor: {
+          name: 'Sabor Criollo',
+          logo: 'Sabor <em>Criollo</em>',
+          theme: { bg:'#FFF8F0', text:'#2A1608', card:'#FFFFFF', line:'rgba(120,53,15,.15)', accent:'#C0272D', accent2:'#EA580C', onaccent:'#FFF7ED', accentSoft:'#FDBA74', shade:'rgba(59,16,0,.58)', chip:'rgba(194,65,12,.09)', radius:'18px', btnr:'12px', font:"'Manrope',sans-serif", display:"'Fraunces',Georgia,serif" },
+          hero: 'img/img-de18860280.webp',
+          mark: 'SC', layout: 'menu',
+          navCta: { es:'Ordenar', en:'Order' },
+          rating: { es:'4.9 · Más de 480 reseñas en Google', en:'4.9 · 480+ Google reviews' },
+          perks: [ {es:'Hecho al momento', en:'Made fresh to order'}, {es:'Ingredientes frescos', en:'Fresh ingredients'}, {es:'Para llevar y en el local', en:'Takeout & dine-in'}, {es:'Parqueo gratis', en:'Free parking'} ],
+          marquee: 'Ropa vieja · Lechón asado · Mofongo · Congrí · Flan casero · ',
+          svcKick: { es:'Cocina criolla', en:'Creole kitchen' },
+          featKick: { es:'Los favoritos', en:'The favorites' },
+          featTitle: { es:'Favoritos de la casa', en:'House favorites' },
+          featSub: { es:'Los platos que nuestros clientes repiten cada semana.', en:'The dishes our customers come back for every week.' },
+          featured: [
+            { img:'img/img-de18860280.webp', tag:{es:'El favorito', en:'The favorite'}, n:{es:'Ropa vieja con congrí', en:'Ropa vieja with black beans & rice'}, d:{es:'Carne deshebrada en salsa criolla, congrí, maduros y ensalada.', en:'Shredded beef in creole sauce, black beans and rice, sweet plantains and salad.'}, p:'$16.95' },
+            { img:'img/img-11b0b58f8b.webp', tag:{es:'Fin de semana', en:'Weekend special'}, n:{es:'Lechón asado con yuca', en:'Roast pork with yuca'}, d:{es:'Marinado en mojo por 24 horas, con yuca y cebolla encurtida.', en:'Mojo-marinated for 24 hours, with yuca and pickled onion.'}, p:'$17.50' },
+            { img:'img/img-d470428a51.webp', tag:{es:'Receta familiar', en:'Family recipe'}, n:{es:'Mofongo de chicharrón', en:'Pork mofongo'}, d:{es:'Plátano verde majado con chicharrón y caldo de pollo al lado.', en:'Mashed green plantain with pork cracklings and chicken broth on the side.'}, p:'$14.95' }
+          ],
+          quote: { text:{es:'El congrí sabe a casa de mi abuela. No hay otro lugar así en la zona.', en:'The black beans and rice taste just like my grandmother used to make. There is no place like it around here.'}, author:{es:'María G. · Clienta frecuente', en:'María G. · Regular customer'} },
+          ctaTitle: { es:'¿Hambre? Ordena en un toque', en:'Hungry? Order in one tap' },
+          ctaText: { es:'Escríbenos por WhatsApp y tu orden sale al momento, caliente y lista para llevar.', en:'Message us on WhatsApp and your order is made right away, hot and ready to go.' },
+          gallery: ['img/img-de18860280.webp', 'img/img-11b0b58f8b.webp', 'img/img-d470428a51.webp'],
+          phone: '(713) 555-0142', wa: 'https://wa.me/17135550142',
+          kicker: { es:'Comida caribeña · Katy, TX', en:'Caribbean food · Katy, TX' },
+          slogan: { es:'El sabor de la casa, como el de la abuela', en:'A taste of home, just like grandma used to make' },
+          tagline: { es:'Platos criollos hechos al momento, con ingredientes frescos y el sazón de siempre. Ordena para llevar o come con nosotros.', en:'Home-style dishes made to order, with fresh ingredients and the seasoning you grew up with. Order takeout or dine in with us.' },
+          ctaMain: { es:'Ver el menú', en:'See the menu' },
+          ctaWa: { es:'Ordenar por WhatsApp', en:'Order on WhatsApp' },
+          svcTitle: { es:'Nuestro menú', en:'Our menu' },
+          svcSub: { es:'Los favoritos de la casa, servidos todo el día.', en:'House favorites, served all day.' },
+          services: [
+            { n:{es:'Ropa vieja con congrí', en:'Ropa vieja with black beans & rice'}, d:{es:'Carne deshebrada en salsa criolla, congrí, maduros y ensalada.', en:'Shredded beef in creole sauce, black beans and rice, sweet plantains and salad.'}, p:'$16.95' },
+            { n:{es:'Lechón asado con yuca', en:'Roast pork with yuca'}, d:{es:'Lechón marinado en mojo, yuca con mojo de ajo y cebolla encurtida.', en:'Mojo-marinated roast pork, yuca with garlic mojo and pickled onion.'}, p:'$17.50' },
+            { n:{es:'Mofongo de chicharrón', en:'Pork mofongo'}, d:{es:'Plátano verde majado con chicharrón y caldo de pollo al lado.', en:'Mashed green plantain with pork cracklings and chicken broth on the side.'}, p:'$14.95' },
+            { n:{es:'Flan de la casa', en:'House flan'}, d:{es:'El postre de siempre: flan de caramelo, suave y casero.', en:'The classic dessert: smooth, homemade caramel flan.'}, p:'$6.50' }
+          ],
+          galTitle: { es:'De nuestra cocina', en:'From our kitchen' },
+          infoTitle: { es:'Visítanos', en:'Visit us' },
+          hours: { es:['Lunes a sábado · 11:00 a.m. – 9:00 p.m.', 'Domingo · 12:00 p.m. – 6:00 p.m.'], en:['Monday to Saturday · 11:00 a.m. – 9:00 p.m.', 'Sunday · 12:00 p.m. – 6:00 p.m.'] },
+          address: { es:'Calle Principal 123 · Katy, TX', en:'123 Main Street · Katy, TX' }
+        },
+        barber: {
+          name: 'Corte Fino',
+          logo: 'CORTE <em>FINO</em>',
+          theme: { bg:'#0B0B0D', text:'#F5EFE0', card:'#16161A', line:'rgba(201,162,39,.28)', accent:'#C9A227', accent2:'#8C6D1F', onaccent:'#141414', accentSoft:'#E7CE7A', shade:'rgba(0,0,0,.66)', chip:'rgba(201,162,39,.13)', radius:'6px', btnr:'4px', font:"'Manrope',sans-serif", display:"'Playfair Display',Georgia,serif" },
+          hero: 'img/img-3a27766654.webp',
+          mark: 'CF', layout: 'list',
+          navCta: { es:'Reservar', en:'Book now' },
+          rating: { es:'5.0 · Más de 320 reseñas en Google', en:'5.0 · 320+ Google reviews' },
+          perks: [ {es:'Reserva por WhatsApp', en:'Book on WhatsApp'}, {es:'Toalla caliente', en:'Hot towel finish'}, {es:'Sin filas: tu hora es tu hora', en:'No lines: your time is yours'}, {es:'Bebida de cortesía', en:'Complimentary drink'} ],
+          marquee: 'Fade · Navaja · Toalla caliente · Corte clásico · Barba · ',
+          svcKick: { es:'Servicios y precios', en:'Services & prices' },
+          featKick: { es:'La experiencia', en:'The experience' },
+          featTitle: { es:'Más que un corte', en:'More than a haircut' },
+          featSub: { es:'Un ritual clásico, sin prisa y con acabado impecable.', en:'A classic ritual, unhurried and flawlessly finished.' },
+          featured: [
+            { num:'01', n:{es:'Consulta y estilo', en:'Consultation & style'}, d:{es:'Escuchamos lo que buscas y recomendamos el corte según tu rostro y tu rutina.', en:'We listen to what you want and recommend the cut for your face and your daily routine.'}, p:'' },
+            { num:'02', n:{es:'Navaja y toalla caliente', en:'Razor & hot towel'}, d:{es:'Contornos a navaja, toalla caliente y aceites esenciales para cerrar el servicio.', en:'Razor-sharp lines, a hot towel and essential oils to close the service.'}, p:'' },
+            { num:'03', n:{es:'Acabado y styling', en:'Finish & styling'}, d:{es:'Producto premium y los trucos para mantener el estilo en casa.', en:'Premium product and the tricks to keep the style at home.'}, p:'' }
+          ],
+          quote: { text:{es:'El mejor degradado que me han hecho en años. No cambio esta barbería por nada.', en:'The best fade I have had in years. I would not trade this barbershop for anything.'}, author:{es:'Andrés R. · Cliente desde 2021', en:'Andrés R. · Client since 2021'} },
+          ctaTitle: { es:'Reserva tu silla hoy', en:'Book your chair today' },
+          ctaText: { es:'Las citas del fin de semana se llenan rápido. Asegura la tuya por WhatsApp en un toque.', en:'Weekend appointments fill up fast. Lock yours in on WhatsApp in one tap.' },
+          gallery: ['img/img-3a27766654.webp', 'img/img-e2ba90819d.webp', 'img/img-a60d7d8857.webp'],
+          phone: '(713) 555-0177', wa: 'https://wa.me/17135550177',
+          kicker: { es:'Barbería clásica · Houston, TX', en:'Classic barbershop · Houston, TX' },
+          slogan: { es:'Precisión en cada corte, estilo en cada detalle', en:'Precision in every cut, style in every detail' },
+          tagline: { es:'Barberos con experiencia, ambiente tranquilo y acabado impecable. Reserva tu silla en un toque.', en:'Experienced barbers, a calm atmosphere and a flawless finish. Book your chair in one tap.' },
+          ctaMain: { es:'Ver servicios', en:'See services' },
+          ctaWa: { es:'Reservar por WhatsApp', en:'Book on WhatsApp' },
+          svcTitle: { es:'Servicios', en:'Services' },
+          svcSub: { es:'Sin prisa, sin filas: tu hora es tu hora.', en:'No rush, no lines: your time is your time.' },
+          services: [
+            { n:{es:'Corte clásico', en:'Classic cut'}, d:{es:'Tijera y máquina, acabado con navaja y styling.', en:'Scissors and clippers, razor finish and styling.'}, p:'$30' },
+            { n:{es:'Degradado · Fade', en:'Fade'}, d:{es:'Degradado bajo, medio o alto, con línea marcada.', en:'Low, mid or high fade with a sharp lineup.'}, p:'$32' },
+            { n:{es:'Corte + barba', en:'Cut + beard'}, d:{es:'El servicio completo: corte, barba perfilada y toalla caliente.', en:'The full service: cut, shaped beard and hot towel.'}, p:'$45' },
+            { n:{es:'Arreglo de barba', en:'Beard trim'}, d:{es:'Perfilado con navaja, aceites y acabado frío.', en:'Razor shaping, oils and a cool finish.'}, p:'$20' }
+          ],
+          galTitle: { es:'La casa', en:'The shop' },
+          infoTitle: { es:'Encuéntranos', en:'Find us' },
+          hours: { es:['Martes a sábado · 9:00 a.m. – 8:00 p.m.', 'Domingo y lunes · Cerrado'], en:['Tuesday to Saturday · 9:00 a.m. – 8:00 p.m.', 'Sunday & Monday · Closed'] },
+          address: { es:'Avenida Central 456 · Houston, TX', en:'456 Central Avenue · Houston, TX' }
+        },
+        auto: {
+          name: 'AutoFix',
+          logo: 'AUTO<em>FIX</em>',
+          theme: { bg:'#F1F5F9', text:'#0F2547', card:'#FFFFFF', line:'rgba(15,37,71,.13)', accent:'#1D4ED8', accent2:'#F97316', onaccent:'#FFFFFF', accentSoft:'#FCA55C', shade:'rgba(6,24,54,.6)', chip:'rgba(29,78,216,.08)', radius:'10px', btnr:'8px', font:"'Manrope',sans-serif", display:"'Oswald','Sora',sans-serif" },
+          hero: 'img/img-d57c83ca9c.jpg',
+          mark: 'AF', layout: 'cards', caps: true,
+          icons: ['gauge','oil','brake','snow'],
+          navCta: { es:'Cotizar', en:'Get a quote' },
+          rating: { es:'4.8 · Más de 650 reseñas en Google', en:'4.8 · 650+ Google reviews' },
+          perks: [ {es:'Diagnóstico el mismo día', en:'Same-day diagnostics'}, {es:'Precio por escrito', en:'Written prices'}, {es:'Garantía de 12 meses', en:'12-month warranty'}, {es:'Todas las marcas', en:'All makes welcome'} ],
+          marquee: 'Frenos · Cambio de aceite · Diagnóstico · Aire acondicionado · Alineación · ',
+          svcKick: { es:'Servicios del taller', en:'Shop services' },
+          featKick: { es:'Por qué AutoFix', en:'Why AutoFix' },
+          featTitle: { es:'Reparaciones honestas, bien hechas', en:'Honest repairs, done right' },
+          featSub: { es:'Sin sorpresas: ves el diagnóstico, el precio y la garantía antes de autorizar cualquier trabajo.', en:'No surprises: you see the diagnosis, the price and the warranty before approving any work.' },
+          featured: [
+            { icon:'shield', n:{es:'Garantía real, por escrito', en:'A real warranty, in writing'}, d:{es:'12 meses o 12,000 millas en piezas y mano de obra en cada reparación.', en:'12 months or 12,000 miles on parts and labor for every repair.'}, p:'' },
+            { icon:'file', n:{es:'Precio antes de empezar', en:'Price before we start'}, d:{es:'Nada se repara sin tu autorización. El precio acordado es el precio final.', en:'Nothing gets fixed without your approval. The agreed price is the final price.'}, p:'' },
+            { icon:'wrench', n:{es:'Mecánicos certificados', en:'Certified mechanics'}, d:{es:'Equipo certificado y diagnóstico computarizado de última generación.', en:'A certified team with state-of-the-art computer diagnostics.'}, p:'' }
+          ],
+          quote: { text:{es:'Me mostraron el diagnóstico con fotos y el precio final fue exactamente el acordado.', en:'They showed me the diagnosis with photos and the final price was exactly what we agreed.'}, author:{es:'Jorge M. · Cliente verificado', en:'Jorge M. · Verified customer'} },
+          ctaTitle: { es:'¿Tu auto necesita atención?', en:'Does your car need attention?' },
+          ctaText: { es:'Llama o escribe por WhatsApp y te damos cita para hoy mismo.', en:'Call or message us on WhatsApp and we will get you in today.' },
+          gallery: ['img/img-d57c83ca9c.jpg', 'img/img-0bc4e047b6.jpg', 'img/img-6a13c5bc40.jpg'],
+          phone: '(713) 555-0119', wa: 'https://wa.me/17135550119',
+          kicker: { es:'Taller mecánico · Katy, TX', en:'Auto repair shop · Katy, TX' },
+          slogan: { es:'Tu auto en buenas manos, sin vueltas', en:'Your car in good hands, no runaround' },
+          tagline: { es:'Diagnóstico honesto, precio por escrito antes de empezar y garantía en reparaciones. Llama y cotiza hoy.', en:'Honest diagnostics, written prices before we start and warranty on repairs. Call for a quote today.' },
+          ctaMain: { es:'Ver servicios', en:'See services' },
+          ctaWa: { es:'Cotizar por WhatsApp', en:'Quote on WhatsApp' },
+          svcTitle: { es:'Servicios', en:'Services' },
+          svcSub: { es:'Trabajamos todas las marcas, americanos y asiáticos.', en:'We work on all makes, American and Asian.' },
+          services: [
+            { n:{es:'Diagnóstico computarizado', en:'Computer diagnostics'}, d:{es:'Escaneo completo y explicación clara de lo que tu auto necesita.', en:'Full scan and a clear explanation of what your car needs.'}, p:'$49' },
+            { n:{es:'Cambio de aceite', en:'Oil change'}, d:{es:'Aceite sintético o convencional, filtro incluido y revisión de niveles.', en:'Synthetic or conventional oil, filter included and fluid check.'}, p:{es:'desde $39', en:'from $39'} },
+            { n:{es:'Frenos', en:'Brakes'}, d:{es:'Pastillas y discos por eje, con prueba de manejo al terminar.', en:'Pads and rotors per axle, with a road test when done.'}, p:{es:'desde $129', en:'from $129'} },
+            { n:{es:'Aire acondicionado', en:'Air conditioning'}, d:{es:'Revisión del sistema, recarga y reparación de fugas.', en:'System check, recharge and leak repair.'}, p:{es:'Cotización gratis', en:'Free quote'} }
+          ],
+          galTitle: { es:'El taller', en:'The shop' },
+          infoTitle: { es:'Ubicación y horario', en:'Location & hours' },
+          hours: { es:['Lunes a viernes · 8:00 a.m. – 6:00 p.m.', 'Sábado · 8:00 a.m. – 2:00 p.m.'], en:['Monday to Friday · 8:00 a.m. – 6:00 p.m.', 'Saturday · 8:00 a.m. – 2:00 p.m.'] },
+          address: { es:'Boulevard Industrial 789 · Katy, TX', en:'789 Industrial Blvd · Katy, TX' }
+        },
+        luna: {
+          name: 'Luna Boutique',
+          logo: 'Luna <em>Boutique</em>',
+          theme: { bg:'#FDF6F3', text:'#4A2438', card:'#FFFFFF', line:'rgba(219,39,119,.15)', accent:'#DB2777', accent2:'#B76E79', onaccent:'#FFFFFF', accentSoft:'#FBCFE8', shade:'rgba(90,20,50,.48)', chip:'rgba(219,39,119,.08)', radius:'22px', btnr:'999px', font:"'Manrope',sans-serif", display:"'Cormorant Garamond',Georgia,serif" },
+          hero: 'img/img-d7e38e3297.jpg',
+          mark: 'L', layout: 'grid',
+          navCta: { es:'Escribir', en:'Message us' },
+          rating: { es:'4.9 · Más de 210 reseñas en Google', en:'4.9 · 210+ Google reviews' },
+          perks: [ {es:'Nueva colección cada semana', en:'New arrivals every week'}, {es:'Tallas para todas', en:'Sizes for everyone'}, {es:'Atención personalizada', en:'Personal styling help'}, {es:'Pedidos por WhatsApp', en:'Order on WhatsApp'} ],
+          marquee: 'Nueva colección · Vestidos · Conjuntos · Accesorios · ',
+          svcKick: { es:'Colecciones', en:'Collections' },
+          featKick: { es:'Destacadas', en:'Featured' },
+          featTitle: { es:'Piezas destacadas de la semana', en:'Featured pieces of the week' },
+          featSub: { es:'Una selección corta, con calidad que se siente. Pregunta por tu talla por WhatsApp.', en:'A short selection with quality you can feel. Ask for your size on WhatsApp.' },
+          featured: [
+            { img:'img/img-d7e38e3297.jpg', tag:{es:'Nuevo', en:'New in'}, n:{es:'Vestido midi floral', en:'Floral midi dress'}, d:{es:'Fresco, con caída suave y bolsillos. Ideal de día o de noche.', en:'Light and flowy, with pockets. Perfect for day or night.'}, p:'$42' },
+            { img:'img/img-b362f0d095.jpg', tag:{es:'Favorito', en:'Favorite'}, n:{es:'Conjunto de dos piezas', en:'Two-piece set'}, d:{es:'Blusa y pantalón coordinados, listos para salir.', en:'Coordinated top and pants, ready to wear.'}, p:'$38' },
+            { img:'img/img-e184256726.jpg', tag:{es:'Últimas piezas', en:'Last pieces'}, n:{es:'Blusa satinada', en:'Satin blouse'}, d:{es:'El toque elegante que combina con todo tu clóset.', en:'The elegant touch that goes with everything in your closet.'}, p:'$26' }
+          ],
+          quote: { text:{es:'La calidad me sorprendió para el precio. Ya soy clienta fija de Luna.', en:'The quality surprised me for the price. I am a Luna regular now.'}, author:{es:'Dayana L. · Clienta', en:'Dayana L. · Customer'} },
+          ctaTitle: { es:'¿Te gustó alguna pieza?', en:'Saw something you like?' },
+          ctaText: { es:'Escríbenos por WhatsApp y te confirmamos talla y disponibilidad al momento.', en:'Message us on WhatsApp and we will confirm size and availability right away.' },
+          gallery: ['img/img-d7e38e3297.jpg', 'img/img-b362f0d095.jpg', 'img/img-e184256726.jpg'],
+          phone: '(713) 555-0126', wa: 'https://wa.me/17135550126',
+          kicker: { es:'Ropa femenina · Katy, TX', en:"Women's fashion · Katy, TX" },
+          slogan: { es:'Piezas que te hacen sentir tú', en:'Pieces that make you feel like you' },
+          tagline: { es:'Colecciones nuevas cada semana, tallas para todas y atención personalizada. Pregunta por tu talla por WhatsApp.', en:'New collections every week, sizes for everyone and personal attention. Ask about your size on WhatsApp.' },
+          ctaMain: { es:'Ver colecciones', en:'See collections' },
+          ctaWa: { es:'Preguntar por WhatsApp', en:'Ask on WhatsApp' },
+          svcTitle: { es:'Colecciones', en:'Collections' },
+          svcSub: { es:'Detalles al privado: escríbenos y te atendemos con gusto.', en:'Details by message: write to us and we will gladly help you.' },
+          services: [
+            { n:{es:'Vestidos de temporada', en:'Seasonal dresses'}, d:{es:'Casuales, de fiesta y para ocasiones especiales.', en:'Casual, party and special-occasion dresses.'}, p:'' },
+            { n:{es:'Conjuntos y blusas', en:'Sets & blouses'}, d:{es:'Combinaciones listas para salir, en todas las tallas.', en:'Ready-to-wear combinations in every size.'}, p:'' },
+            { n:{es:'Accesorios', en:'Accessories'}, d:{es:'Bolsos, joyería y complementos para completar tu look.', en:'Bags, jewelry and finishing touches for your look.'}, p:'' },
+            { n:{es:'Asesoría de estilo', en:'Style advice'}, d:{es:'Te ayudamos a armar tu outfit completo sin costo.', en:'We help you put together your full outfit at no cost.'}, p:{es:'Gratis', en:'Free'} }
+          ],
+          galTitle: { es:'La boutique', en:'The boutique' },
+          infoTitle: { es:'Visítanos', en:'Visit us' },
+          hours: { es:['Lunes a sábado · 10:00 a.m. – 8:00 p.m.', 'Domingo · 12:00 p.m. – 5:00 p.m.'], en:['Monday to Saturday · 10:00 a.m. – 8:00 p.m.', 'Sunday · 12:00 p.m. – 5:00 p.m.'] },
+          address: { es:'Plaza Las Flores, Local 12 · Katy, TX', en:'Plaza Las Flores, Suite 12 · Katy, TX' }
+        },
+        cafe: {
+          name: 'Aroma Café',
+          logo: 'Aroma <em>Café</em>',
+          theme: { bg:'#FAF5EC', text:'#3E2A1E', card:'#FFFFFF', line:'rgba(111,78,55,.18)', accent:'#7A4E2D', accent2:'#5F7161', onaccent:'#FFF8EE', accentSoft:'#E5C79F', shade:'rgba(46,26,12,.55)', chip:'rgba(111,78,55,.09)', radius:'16px', btnr:'999px', font:"'Manrope',sans-serif", display:"'DM Serif Display',Georgia,serif" },
+          hero: 'img/img-4f09dd7435.jpg',
+          mark: 'AC', layout: 'menu',
+          navCta: { es:'Ordenar', en:'Order' },
+          rating: { es:'4.9 · Más de 390 reseñas en Google', en:'4.9 · 390+ Google reviews' },
+          perks: [ {es:'Granos de especialidad', en:'Specialty beans'}, {es:'Repostería casera', en:'Homemade pastries'}, {es:'Wi-Fi gratis', en:'Free Wi-Fi'}, {es:'Rincón de lectura', en:'Reading corner'} ],
+          marquee: 'Espresso · Capuchino · Arte latte · Café cubano · Pastelitos · ',
+          svcKick: { es:'Menú de bebidas', en:'Drinks menu' },
+          featKick: { es:'Del barista', en:'From the barista' },
+          featTitle: { es:'Favoritos de la casa', en:'House favorites' },
+          featSub: { es:'Los que los clientes de siempre piden todos los días.', en:'The ones our regulars order every single day.' },
+          featured: [
+            { img:'img/img-4f09dd7435.jpg', tag:{es:'El clásico', en:'The classic'}, n:{es:'Café cubano', en:'Cuban coffee'}, d:{es:'Fuerte, dulce y con su espumita perfecta, como debe ser.', en:'Strong, sweet and with the perfect foam, just as it should be.'}, p:'$3.50' },
+            { img:'img/img-fe0a42ea60.jpg', tag:{es:'Favorito', en:'Favorite'}, n:{es:'Latte artesanal', en:'Artisan latte'}, d:{es:'Arte latte en cada taza, con leche fresca local.', en:'Latte art in every cup, with fresh local milk.'}, p:'$4.75' },
+            { img:'img/img-a25bb2f0ab.webp', tag:{es:'Recién horneado', en:'Freshly baked'}, n:{es:'Pastelito de guayaba', en:'Guava pastry'}, d:{es:'Hojaldre crujiente y guayaba de verdad, horneado cada mañana.', en:'Flaky pastry with real guava, baked every morning.'}, p:'$2.75' }
+          ],
+          quote: { text:{es:'Mi oficina, mi biblioteca y mi café favorito, todo en un solo lugar.', en:'My office, my library and my favorite coffee, all in one place.'}, author:{es:'Sofía T. · Clienta frecuente', en:'Sofía T. · Regular customer'} },
+          ctaTitle: { es:'Pásate por tu café', en:'Come by for your coffee' },
+          ctaText: { es:'Ordena por WhatsApp y lo tienes listo y caliente al llegar.', en:'Order on WhatsApp and it will be hot and ready when you arrive.' },
+          gallery: ['img/img-4f09dd7435.jpg', 'img/img-fe0a42ea60.jpg', 'img/img-a25bb2f0ab.webp'],
+          phone: '(713) 555-0158', wa: 'https://wa.me/17135550158',
+          kicker: { es:'Cafetería · Houston, TX', en:'Coffee shop · Houston, TX' },
+          slogan: { es:'Tu pausa favorita del día', en:'Your favorite pause of the day' },
+          tagline: { es:'Café recién molido, repostería casera y un rincón tranquilo para trabajar, leer o conversar.', en:'Freshly ground coffee, homemade pastries and a quiet corner to work, read or talk.' },
+          ctaMain: { es:'Ver el menú', en:'See the menu' },
+          ctaWa: { es:'Ordenar por WhatsApp', en:'Order on WhatsApp' },
+          svcTitle: { es:'Menú', en:'Menu' },
+          svcSub: { es:'Preparado al momento, con granos seleccionados.', en:'Made to order, with selected beans.' },
+          services: [
+            { n:{es:'Café cubano', en:'Cuban coffee'}, d:{es:'Fuerte, dulce y con su espumita, como debe ser.', en:'Strong, sweet and with its foam, just as it should be.'}, p:'$3.50' },
+            { n:{es:'Latte artesanal', en:'Artisan latte'}, d:{es:'Leche vaporizada y arte latte en cada taza.', en:'Steamed milk and latte art in every cup.'}, p:'$4.75' },
+            { n:{es:'Capuchino', en:'Cappuccino'}, d:{es:'Equilibrio perfecto de espresso, leche y espuma.', en:'The perfect balance of espresso, milk and foam.'}, p:'$4.50' },
+            { n:{es:'Pastelitos y repostería', en:'Pastries & baked goods'}, d:{es:'Guayaba, queso y croissants recién horneados.', en:'Guava, cheese and freshly baked croissants.'}, p:{es:'desde $2.75', en:'from $2.75'} }
+          ],
+          galTitle: { es:'Nuestro rincón', en:'Our corner' },
+          infoTitle: { es:'Visítanos', en:'Visit us' },
+          hours: { es:['Lunes a viernes · 7:00 a.m. – 7:00 p.m.', 'Sábado y domingo · 8:00 a.m. – 6:00 p.m.'], en:['Monday to Friday · 7:00 a.m. – 7:00 p.m.', 'Saturday & Sunday · 8:00 a.m. – 6:00 p.m.'] },
+          address: { es:'Calle del Parque 321 · Houston, TX', en:'321 Park Street · Houston, TX' }
+        }
+      };
+
+      /* ================= demo overlay ================= */
+      var overlay = document.getElementById('demoOverlay');
+      var demoContent = document.getElementById('demoContent');
+      var currentDemo = null;
+
+      function L(obj) { return (obj && typeof obj === 'object') ? (obj[currentLang] || obj.es) : obj; }
+
+      var D_ICONS = {
+        gauge: '<path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/>',
+        oil: '<path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/>',
+        brake: '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>',
+        snow: '<path d="M12 2v20M4 6l16 12M20 6L4 18"/>',
+        shield: '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/>',
+        file: '<path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M9 13h6M9 17h4"/>',
+        wrench: '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>'
+      };
+      function dIcon(name) {
+        return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (D_ICONS[name] || '') + '</svg>';
+      }
+
+      function renderDemo(key) {
+        var d = DEMOS[key]; if (!d) return;
+        var t = d.theme;
+        var en = currentLang === 'en';
+        var styleVars = '--d-bg:' + t.bg + ';--d-text:' + t.text + ';--d-card:' + t.card + ';--d-line:' + t.line +
+          ';--d-accent:' + t.accent + ';--d-accent2:' + (t.accent2 || t.accent) + ';--d-onaccent:' + t.onaccent + ';--d-accent-soft:' + t.accentSoft +
+          ';--d-shade:' + t.shade + ';--d-chip:' + t.chip + ';--d-radius:' + t.radius + ';--d-btnr:' + t.btnr +
+          ';--d-font:' + t.font + ';--d-display:' + t.display;
+        var CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>';
+        var STAR = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21 7 14.2 2 9.3l6.9-1z"/></svg>';
+        var telHref = 'tel:+1' + d.phone.replace(/\D/g, '');
+        var navSvc = en ? 'Services' : 'Servicios';
+        var navFeat = en ? 'Highlights' : 'Destacados';
+        var navGal = en ? 'Gallery' : 'Galería';
+        var navInfo = en ? 'Contact' : 'Contacto';
+        var hoursLbl = en ? 'Hours' : 'Horario';
+        var addrLbl = en ? 'Address' : 'Dirección';
+        var callLbl = en ? 'Call' : 'Llamar';
+        var footNote = en ? 'Sample page created by' : 'Página de muestra creada por';
+        var walkIn = en ? 'Walk-ins welcome. Message us on WhatsApp and we reply fast.' : 'Sin cita también te atendemos. Escríbenos por WhatsApp y respondemos rápido.';
+
+        var nav = '<div class="d-nav"><span class="d-mark" aria-hidden="true">' + (d.mark || '') + '</span><span class="d-logo">' + d.logo + '</span>' +
+          '<div class="d-nav-right"><div class="d-links">' +
+          (d.featured ? '<button type="button" data-dscroll="d-feat">' + navFeat + '</button>' : '') +
+          '<button type="button" data-dscroll="d-svc">' + navSvc + '</button>' +
+          '<button type="button" data-dscroll="d-gal">' + navGal + '</button>' +
+          '<button type="button" data-dscroll="d-info">' + navInfo + '</button></div>' +
+          '<a class="d-btn d-btn-main sm" href="' + d.wa + '" target="_blank" rel="noopener">' + L(d.navCta) + '</a></div></div>';
+
+        var hero = '<div class="d-hero"><img class="ph" src="' + d.hero + '" alt="' + d.name + '" />' +
+          '<div class="d-hero-in"><div class="d-kick2">' + L(d.kicker) + '</div>' +
+          '<h2>' + L(d.slogan) + '</h2><p>' + L(d.tagline) + '</p>' +
+          '<div class="d-hero-ctas">' +
+          '<a class="d-btn d-btn-wa" href="' + d.wa + '" target="_blank" rel="noopener">' + WA_SVG + L(d.ctaWa) + '</a>' +
+          '<button type="button" class="d-btn d-btn-main" data-dscroll="d-svc">' + L(d.ctaMain) + '</button>' +
+          '<a class="d-btn d-btn-glass" href="' + telHref + '">' + TEL_SVG + d.phone + '</a></div>' +
+          (d.rating ? '<div class="d-rating"><span class="stars" aria-hidden="true">' + STAR + STAR + STAR + STAR + STAR + '</span><span>' + L(d.rating) + '</span></div>' : '') +
+          '</div></div>';
+
+        var mq = '';
+        if (d.marquee) {
+          var mtxt = L(d.marquee);
+          mq = '<div class="d-marquee" aria-hidden="true"><div class="mq"><span>' + mtxt + '</span><span>' + mtxt + '</span></div></div>';
+        }
+
+        var perks = '';
+        if (d.perks && d.perks.length) {
+          perks = '<div class="d-perks">' + d.perks.map(function (p) { return '<span class="d-perk">' + CHECK + L(p) + '</span>'; }).join('') + '</div>';
+        }
+
+        var feat = '';
+        if (d.featured && d.featured.length) {
+          var fc = d.featured.map(function (f) {
+            var media = '';
+            if (f.img) media = '<div class="fi"><img src="' + f.img + '" alt="' + L(f.n) + '" />' + (f.tag ? '<span class="d-ftag">' + L(f.tag) + '</span>' : '') + '</div>';
+            else if (f.icon) media = '<div class="d-fic">' + dIcon(f.icon) + '</div>';
+            else if (f.num) media = '<div class="d-fnum" aria-hidden="true">' + f.num + '</div>';
+            var price = L(f.p);
+            return '<article class="d-fcard">' + media + '<div class="d-fbody"><h4><span>' + L(f.n) + '</span>' + (price ? '<span class="pr">' + price + '</span>' : '') + '</h4><p>' + L(f.d) + '</p></div></article>';
+          }).join('');
+          feat = '<div class="d-band"><div class="d-sec" id="d-feat"><p class="d-kick">' + L(d.featKick) + '</p><h3>' + L(d.featTitle) + '</h3><p class="d-sub">' + L(d.featSub) + '</p><div class="d-feat">' + fc + '</div></div></div>';
+        }
+
+        var svcBody = '';
+        if (d.layout === 'menu') {
+          svcBody = '<div class="d-menu">' + d.services.map(function (s) {
+            var price = L(s.p);
+            return '<div class="d-mi"><div class="d-mi-top"><span class="d-mi-name">' + L(s.n) + '</span><span class="d-mi-dots"></span>' + (price ? '<span class="d-mi-price">' + price + '</span>' : '') + '</div><p>' + L(s.d) + '</p></div>';
+          }).join('') + '</div>';
+        } else if (d.layout === 'list') {
+          svcBody = '<div class="d-list">' + d.services.map(function (s) {
+            var price = L(s.p);
+            return '<div class="d-li"><div class="d-li-main"><span class="nm">' + L(s.n) + '</span><span class="ds">' + L(s.d) + '</span></div><span class="d-li-dots"></span>' + (price ? '<span class="pr">' + price + '</span>' : '') + '</div>';
+          }).join('') + '</div>';
+        } else if (d.layout === 'cards') {
+          svcBody = '<div class="d-cards">' + d.services.map(function (s, i) {
+            var price = L(s.p);
+            var ic = (d.icons && d.icons[i]) ? '<div class="ic">' + dIcon(d.icons[i]) + '</div>' : '';
+            return '<div class="d-scard">' + ic + '<h4><span>' + L(s.n) + '</span>' + (price ? '<span class="pr">' + price + '</span>' : '') + '</h4><p>' + L(s.d) + '</p></div>';
+          }).join('') + '</div>';
+        } else {
+          svcBody = '<div class="d-svc">' + d.services.map(function (s) {
+            var price = L(s.p);
+            return '<div class="d-card"><h4><span>' + L(s.n) + '</span>' + (price ? '<span class="pr">' + price + '</span>' : '') + '</h4><p>' + L(s.d) + '</p></div>';
+          }).join('') + '</div>';
+        }
+        var svc = '<div class="d-sec" id="d-svc">' + (d.svcKick ? '<p class="d-kick">' + L(d.svcKick) + '</p>' : '') + '<h3>' + L(d.svcTitle) + '</h3><p class="d-sub">' + L(d.svcSub) + '</p>' + svcBody + '</div>';
+
+        var gal = '<div class="d-sec" id="d-gal"><h3>' + L(d.galTitle) + '</h3><div class="d-gal">' + d.gallery.map(function (src, i) {
+          return '<img src="' + src + '" alt="' + d.name + ' — ' + (en ? 'gallery photo' : 'foto de galería') + ' ' + (i + 1) + '" />';
+        }).join('') + '</div></div>';
+
+        var quote = '';
+        if (d.quote) {
+          quote = '<div class="d-quote"><div class="stars" aria-hidden="true">★★★★★</div><blockquote>' + L(d.quote.text) + '</blockquote><cite>' + L(d.quote.author) + '</cite></div>';
+        }
+
+        var hours = L(d.hours).map(function (h) { return '<p>' + h + '</p>'; }).join('');
+        var info = '<div class="d-sec" id="d-info"><h3>' + L(d.infoTitle) + '</h3><div class="d-info">' +
+          '<div class="d-card"><h4>' + hoursLbl + '</h4>' + hours + '<h4 class="mt">' + addrLbl + '</h4><p>' + L(d.address) + '</p></div>' +
+          '<div class="d-card"><h4>' + navInfo + '</h4><p class="d-bigphone">' + d.phone + '</p><p>' + walkIn + '</p>' +
+          '<p style="margin-top:14px"><a class="d-btn d-btn-wa" href="' + d.wa + '" target="_blank" rel="noopener">' + WA_SVG + L(d.ctaWa) + '</a></p></div>' +
+          '</div></div>';
+
+        var cta = '';
+        if (d.ctaTitle) {
+          cta = '<div class="d-cta"><div class="d-cta-in"><h3>' + L(d.ctaTitle) + '</h3><p>' + L(d.ctaText) + '</p><div class="row">' +
+            '<a class="d-btn d-btn-light" href="' + d.wa + '" target="_blank" rel="noopener">' + WA_SVG + L(d.ctaWa) + '</a>' +
+            '<a class="d-btn d-btn-outline-w" href="' + telHref + '">' + TEL_SVG + callLbl + ' · ' + d.phone + '</a></div></div></div>';
+        }
+
+        var foot = '<div class="d-foot"><span class="d-logo">' + d.logo + '</span><p class="fs">' + L(d.slogan) + '</p><p>' + footNote + ' <b>BuilderWeb Pro</b></p></div>';
+
+        demoContent.innerHTML =
+          '<div class="demo-site' + (d.caps ? ' caps' : '') + '" style="' + styleVars + '">' +
+            nav + hero + mq + perks + feat + svc + gal + quote + info + cta + foot +
+          '</div>';
+
+        demoContent.querySelectorAll('[data-dscroll]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var target = document.getElementById(btn.getAttribute('data-dscroll'));
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+        });
+        document.getElementById('demoTopName').textContent = d.name;
+      }
+      function openDemo(key) {
+        currentDemo = key;
+        renderDemo(key);
+        overlay.classList.add('open');
+        document.body.classList.add('locked');
+        overlay.scrollTop = 0;
+        document.getElementById('demoBack').focus();
+      }
+      function closeDemo() {
+        overlay.classList.remove('open');
+        document.body.classList.remove('locked');
+        currentDemo = null;
+      }
+      document.querySelectorAll('[data-open-demo]').forEach(function (btn) {
+        btn.addEventListener('click', function () { openDemo(btn.getAttribute('data-open-demo')); });
+      });
+      document.getElementById('demoBack').addEventListener('click', closeDemo);
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && currentDemo) closeDemo(); });
+
+      /* ================= questionnaire ================= */
+      var quizOverlay = document.getElementById('quizOverlay');
+      var quizForm = document.getElementById('quizForm');
+      var quizError = document.getElementById('quizError');
+
+      /* BWP_INTEGRACION_N8N_V1: solo configuración PÚBLICA; no poner secretos aquí. */
+      var BWP_WORKER_ENABLED = true; // Cambiar a true SOLO tras verificar Worker+n8n desde el sitio real.
+      var BWP_WORKER_URL = 'https://builderwebpro-contacto.builderwebpro-tx-a50.workers.dev/';
+      var BWP_TURNSTILE_SITE_KEY = '0x4AAAAAAGCaPJ8EI69Z1fnQ';
+      var bwpWidgetId = null;
+      var bwpSubmissionId = null;
+      function bwpGetSubmissionId() {
+        if (!bwpSubmissionId) {
+          bwpSubmissionId = (window.crypto && crypto.randomUUID)
+            ? crypto.randomUUID()
+            : 'sid-' + Date.now() + '-' + Math.random().toString(36).slice(2, 10);
+        }
+        return bwpSubmissionId;
+      }
+      var bwpScriptLoading = false;
+      function bwpUseWorker() {
+        return BWP_WORKER_ENABLED === true &&
+          /^https:\/\/[^\s]+$/.test(BWP_WORKER_URL) && !!BWP_TURNSTILE_SITE_KEY;
+      }
+      function bwpSecurityError() {
+        quizError.textContent = currentLang === 'en'
+          ? 'Security verification is unavailable. Please try again later or contact us directly.'
+          : 'La verificación de seguridad no está disponible. Inténtalo más tarde o contáctanos directamente.';
+        quizError.classList.add('show');
+      }
+      function bwpRenderTurnstile() {
+        if (!bwpUseWorker() || !window.turnstile || !quizOverlay.classList.contains('open')) return;
+        try {
+          if (bwpWidgetId === null) {
+            bwpWidgetId = window.turnstile.render('#bwpTurnstile', {
+              sitekey: BWP_TURNSTILE_SITE_KEY, theme: 'dark', appearance: 'always',
+              'expired-callback': function () {
+                quizError.textContent = currentLang === 'en'
+                  ? 'Verification expired. Please complete it again.'
+                  : 'La verificación caducó. Complétala nuevamente.';
+                quizError.classList.add('show');
+              },
+              'error-callback': function () { bwpSecurityError(); }
+            });
+          } else {
+            window.turnstile.reset(bwpWidgetId);
+          }
+        } catch (_) { bwpSecurityError(); }
+      }
+      function bwpPrepareTurnstile() {
+        if (!bwpUseWorker()) return;
+        document.getElementById('bwpTurnstileWrap').style.display = 'block';
+        if (window.turnstile) { bwpRenderTurnstile(); return; }
+        if (bwpScriptLoading) return;
+        bwpScriptLoading = true;
+        var script = document.createElement('script');
+        script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+        script.async = true;
+        script.onload = function () { bwpScriptLoading = false; bwpRenderTurnstile(); };
+        script.onerror = function () { bwpScriptLoading = false; bwpSecurityError(); };
+        document.head.appendChild(script);
+      }
+
+      function openQuiz(pkg) {
+        if (pkg) {
+          var sel = document.getElementById('qPackage');
+          for (var i = 0; i < sel.options.length; i++) {
+            if (sel.options[i].value === pkg) { sel.selectedIndex = i; break; }
+          }
+        }
+        document.getElementById('quizSuccess').style.display = 'none';
+        quizForm.style.display = '';
+        quizOverlay.classList.add('open');
+        document.body.classList.add('locked');
+        quizOverlay.scrollTop = 0;
+        bwpPrepareTurnstile();
+        document.getElementById('quizBack').focus();
+      }
+      function closeQuiz() {
+        quizOverlay.classList.remove('open');
+        document.body.classList.remove('locked');
+      }
+      document.querySelectorAll('[data-open-quiz]').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          openQuiz(btn.getAttribute('data-pkg'));
+        });
+      });
+      document.getElementById('quizBack').addEventListener('click', closeQuiz);
+      document.getElementById('quizSuccessClose').addEventListener('click', closeQuiz);
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && quizOverlay.classList.contains('open')) closeQuiz(); });
+
+      function qVal(id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; }
+      function qRadio(name) {
+        var el = quizForm.querySelector('input[name="' + name + '"]:checked');
+        if (!el) return '';
+        return currentLang === 'en' ? (el.getAttribute('data-en-val') || el.value) : el.value;
+      }
+      function qSelectText(id) {
+        var el = document.getElementById(id);
+        if (!el || !el.value) return '';
+        var opt = el.options[el.selectedIndex];
+        return currentLang === 'en' ? (opt.getAttribute('data-en') || opt.value) : opt.value;
+      }
+
+      quizForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var en = currentLang === 'en';
+        var nameEl = document.getElementById('qName');
+        var phoneEl = document.getElementById('qPhone');
+        var emailEl = document.getElementById('qEmail');
+        var missing = [];
+        nameEl.classList.remove('invalid');
+        phoneEl.classList.remove('invalid');
+        emailEl.classList.remove('invalid');
+        if (!nameEl.value.trim()) { missing.push(en ? 'your business name' : 'el nombre de tu negocio'); nameEl.classList.add('invalid'); }
+        if (!phoneEl.value.trim()) { missing.push(en ? 'a contact phone/WhatsApp' : 'un teléfono/WhatsApp de contacto'); phoneEl.classList.add('invalid'); }
+        var emailVal = emailEl.value.trim();
+        if (!emailVal || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) { missing.push(en ? 'a valid email (so we can reply to you)' : 'un correo válido (para poder responderte)'); emailEl.classList.add('invalid'); }
+        if (missing.length) {
+          quizError.textContent = en
+            ? 'Almost there: please fill in ' + missing.join(', ') + ' so we can identify your business and contact you.'
+            : 'Ya casi: por favor llena ' + missing.join(', ') + ', para saber de qué negocio se trata y poder contactarte.';
+          quizError.classList.add('show');
+          quizError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          (nameEl.classList.contains('invalid') ? nameEl : (phoneEl.classList.contains('invalid') ? phoneEl : emailEl)).focus();
+          return;
+        }
+        quizError.classList.remove('show');
+
+        var dash = '—';
+        var goals = [];
+        quizForm.querySelectorAll('#qGoals input[type="checkbox"]:checked').forEach(function (cb) {
+          goals.push(en ? (cb.getAttribute('data-en-val') || cb.value) : cb.value);
+        });
+        var noLocal = document.getElementById('qNoLocal').checked;
+        var address = qVal('qAddress');
+        if (noLocal) address = (address ? address + ' · ' : '') + (en ? 'No storefront / works at clients\' homes' : 'Sin local / trabajo a domicilio');
+        var styleTxt = qSelectText('qStyle');
+        var colors = qVal('qColors');
+        if (colors) styleTxt = (styleTxt ? styleTxt + ' · ' : '') + (en ? 'Colors: ' : 'Colores: ') + colors;
+
+        var payload = {};
+        payload['1. Nombre del negocio'] = nameEl.value.trim();
+        payload['2. Tipo de negocio'] = qSelectText('qType') || dash;
+        payload['3. ¿Dónde está el negocio?'] = qVal('qCity') || dash;
+        payload['4. Teléfono/WhatsApp público'] = phoneEl.value.trim();
+        payload['5. Correo del cliente'] = emailVal;
+        payload['6. Dirección'] = address || dash;
+        payload['7. Horario'] = qVal('qHours') || dash;
+        payload['8. Servicios'] = qVal('qServices') || dash;
+        payload['9. Qué quiere lograr con su página'] = goals.length ? goals.join(', ') : dash;
+        payload['10. ¿Ya tiene logo?'] = qRadio('qLogo') || dash;
+        payload['11. ¿Tiene fotos?'] = qRadio('qPhotos') || dash;
+        payload['12. Estilo y colores'] = styleTxt || dash;
+        payload['13. Idioma de la página'] = qSelectText('qLang') || dash;
+        payload['14. Dominio, web o Facebook que ya tiene'] = qVal('qExisting') || dash;
+        payload['15. Paquete que le interesa'] = qSelectText('qPackage') || qVal('qPackage') || dash;
+        payload['16. Detalles específicos del proyecto'] = qVal('qDetails') || dash;
+        payload['17. Frecuencia de cambios de precios/productos'] = qSelectText('qUpdates') || dash;
+        payload['18. ¿Quiere control propio? (panel, precio aparte)'] = qSelectText('qSelfControl') || dash;
+        payload['_subject'] = 'Nuevo cuestionario BuilderWeb Pro — ' + nameEl.value.trim();
+        payload['_template'] = 'table';
+        payload['_replyto'] = emailVal;
+        payload['_autoresponse'] = '¡Gracias por tu solicitud a BuilderWeb Pro! Recibimos tu cuestionario y nuestro equipo ya lo está revisando. En menos de 24 horas te escribiremos a este correo con la propuesta de tu página: qué construiremos para ti, el precio final y los próximos pasos. — Equipo BuilderWeb Pro';
+        payload['_captcha'] = 'true';
+
+        // Adaptar el cuestionario de 18 respuestas a los campos del flujo n8n.
+        // Conservamos íntegro el contenido numerado como mensaje para el equipo comercial.
+        if (bwpUseWorker()) {
+          payload.nombre = nameEl.value.trim();
+          payload.telefono = phoneEl.value.trim();
+          payload.correo = emailVal;
+          payload.servicio = qSelectText('qPackage') || qVal('qPackage') || 'Página web';
+          payload.mensaje = Object.keys(payload).filter(function (k) { return /^\d{1,2}\. /.test(k); })
+            .map(function (k) { return k + ': ' + payload[k]; }).join('\n');
+          payload.name = payload.nombre;
+          payload.phone = payload.telefono;
+          payload.email = payload.correo;
+          payload.language = currentLang;
+          payload.source = 'builderwebpro.com';
+          payload.submission_id = bwpGetSubmissionId();
+          payload.submittedAt = new Date().toISOString();
+          payload.website = ''; // Honeypot de n8n: vacío para clientes reales.
+          var token = window.turnstile && bwpWidgetId !== null
+            ? window.turnstile.getResponse(bwpWidgetId) : '';
+          if (!token) {
+            quizError.textContent = en
+              ? 'Please complete the security verification before submitting.'
+              : 'Completa la verificación de seguridad antes de enviar.';
+            quizError.classList.add('show');
+            quizError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            bwpPrepareTurnstile();
+            return;
+          }
+          payload['cf-turnstile-response'] = token;
+        }
+
+        var submitBtn = document.getElementById('quizSubmitBtn');
+        var submitLabel = submitBtn.querySelector('span');
+        var labelWas = submitLabel.textContent;
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '.65';
+        submitLabel.textContent = en ? 'Sending…' : 'Enviando…';
+
+        var useWorker = bwpUseWorker();
+        var endpoint = useWorker ? BWP_WORKER_URL
+          : 'https://formsubmit.co/ajax/e00ca9d6043fc13354ccda2653e5954d';
+        var controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+        var timeoutId = controller ? setTimeout(function () { controller.abort(); }, 25000) : null;
+        fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(payload),
+          signal: controller ? controller.signal : undefined
+        }).then(function (resp) {
+          if (!resp.ok) throw new Error('send failed: HTTP ' + resp.status);
+          return resp.json().catch(function () { return {}; });
+        }).then(function (result) {
+          if (useWorker && result.ok !== true) throw new Error('Worker did not confirm delivery');
+          if (!useWorker && (result.success === false || result.success === 'false')) throw new Error('FormSubmit failed');
+          bwpSubmissionId = null; // Envio confirmado: el proximo cuestionario usa un ID nuevo.
+          quizForm.style.display = 'none';
+          document.getElementById('quizSuccess').style.display = 'block';
+          quizOverlay.scrollTop = 0;
+        }).catch(function () {
+          if (useWorker && window.turnstile && bwpWidgetId !== null) {
+            window.turnstile.reset(bwpWidgetId);
+          }
+          quizError.textContent = en
+            ? 'We could not send it. Please email us at builderwebpro.tx@gmail.com'
+            : 'No se pudo enviar. Escríbenos a builderwebpro.tx@gmail.com';
+          quizError.classList.add('show');
+          quizError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }).finally(function () {
+          if (timeoutId !== null) clearTimeout(timeoutId);
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = '';
+          submitLabel.textContent = labelWas;
+        });
+      });
+
+      /* ================= planes: comparación y detalle ================= */
+      /* Única fuente de verdad: cada plan incluye las primeras N características. */
+      var FEATS = [
+        { es: 'Página web de una página con dominio propio conectado', en: 'One-page website with your own domain connected' },
+        { es: 'Botón de WhatsApp y de llamada', en: 'WhatsApp and click-to-call buttons' },
+        { es: 'Galería de fotos de tus trabajos', en: 'Photo gallery of your work' },
+        { es: 'Mapa de ubicación', en: 'Location map' },
+        { es: 'Hosting sin mensualidades', en: 'No monthly hosting fees' },
+        { es: 'Perfil de Empresa de Google (Google Maps)', en: 'Google Business Profile (Google Maps)' },
+        { es: 'Página de Facebook configurada', en: 'Facebook page set up' },
+        { es: 'Logo diseñado para tu negocio', en: 'Logo designed for your business' },
+        { es: 'Código QR (tarjetas y vehículos)', en: 'QR code (cards and vehicles)' },
+        { es: 'Enlace para pedir reseñas de Google', en: 'Link to request Google reviews' },
+        { es: 'Página extendida de varias secciones', en: 'Extended multi-section website' },
+        { es: 'Página de negocio en Nextdoor', en: 'Nextdoor business page' },
+        { es: 'Flyer digital de lanzamiento', en: 'Launch digital flyer' },
+        { es: '3 publicaciones iniciales en Facebook', en: '3 starter Facebook posts' }
+      ];
+      var PLANS = [
+        { name: { es: 'Básico', en: 'Basic' }, pkg: 'Básico $199', was: 299, now: 199, count: 5, prev: -1,
+          desc: { es: 'Para empezar a existir en internet con una página profesional.', en: 'Start existing online with a professional website.' } },
+        { name: { es: 'Completo', en: 'Complete' }, pkg: 'Completo $299', was: 599, now: 299, count: 10, prev: 0,
+          desc: { es: 'La presencia completa: web, Google y Facebook trabajando juntos.', en: 'The full presence: website, Google and Facebook working together.' } },
+        { name: { es: 'Premium', en: 'Premium' }, pkg: 'Premium $599', was: 899, now: 599, count: 14, prev: 1,
+          desc: { es: 'Para negocios que quieren arrancar con todo desde el primer día.', en: 'For businesses that want to launch with everything from day one.' } }
+      ];
+      var planOverlay = document.getElementById('planOverlay');
+      var currentPlan = -1;
+      var CHECK_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>';
+
+      function planPct(p) { return Math.round((1 - p.now / p.was) * 100); }
+
+      function renderCompare() {
+        var host = document.getElementById('compareTable');
+        if (!host) return;
+        var en = currentLang === 'en';
+        var html = '<table class="cmp"><thead><tr><th scope="col" class="frow">' + (en ? 'Feature' : 'Característica') + '</th>';
+        PLANS.forEach(function (p, idx) {
+          html += '<th scope="col"' + (idx === 1 ? ' class="hl"' : '') + '><span class="cmp-pname">' + (en ? p.name.en : p.name.es) + '</span>' +
+            '<span class="cmp-was">$' + p.was + '</span><span class="cmp-now">$' + p.now + '</span></th>';
+        });
+        html += '</tr></thead><tbody>';
+        FEATS.forEach(function (f, fi) {
+          html += '<tr><th scope="row" class="frow">' + (en ? f.en : f.es) + '</th>';
+          PLANS.forEach(function (p, idx) {
+            var inc = fi < p.count;
+            html += '<td' + (idx === 1 ? ' class="hl"' : '') + '>' + (inc
+              ? '<span class="ck-yes" aria-hidden="true">✓</span><span class="sr-only">' + (en ? 'Included' : 'Incluido') + '</span>'
+              : '<span class="ck-no" aria-hidden="true">—</span><span class="sr-only">' + (en ? 'Not included' : 'No incluido') + '</span>') + '</td>';
+          });
+          html += '</tr>';
+        });
+        html += '</tbody></table>';
+        host.innerHTML = html;
+      }
+
+      function renderPlan(i) {
+        var p = PLANS[i];
+        var en = currentLang === 'en';
+        var name = en ? p.name.en : p.name.es;
+        var html = '<h2 class="plan-title">' + (en ? '' : 'Plan ') + name + (en ? ' plan' : '') + '</h2>';
+        html += '<p class="plan-desc">' + (en ? p.desc.en : p.desc.es) + '</p>';
+        html += '<div class="plan-price"><span class="pp-was">' + (en ? 'Was ' : 'Antes ') + '<s>$' + p.was + '</s></span>' +
+          '<span class="pp-now">$' + p.now + '</span><span class="pp-per">' + (en ? 'one-time payment' : 'pago único') + '</span>' +
+          '<span class="offer-chip">' + (en ? 'SALE' : 'OFERTA') + ' −' + planPct(p) + '%</span></div>';
+        html += '<p class="plan-save">' + (en ? 'You save $' + (p.was - p.now) + ' with this offer.' : 'Ahorras $' + (p.was - p.now) + ' con esta oferta.') + '</p>';
+        var finDown = p.now * 0.30;
+        var finMonthly = (p.now - finDown) / 3;
+        html += '<p class="plan-fin">' + (en
+          ? 'Or finance it: <b>$' + finDown.toFixed(2) + ' down</b> (30%) + 3 monthly payments of <b>$' + finMonthly.toFixed(2) + '</b>, interest-free. Your page is activated as soon as we confirm your down payment.'
+          : 'O fináncialo: <b>$' + finDown.toFixed(2) + ' de anticipo</b> (30%) + 3 pagos mensuales de <b>$' + finMonthly.toFixed(2) + '</b>, sin intereses. Tu página se activa en cuanto confirmamos tu anticipo.') + '</p>';
+        if (p.prev >= 0) {
+          var prev = PLANS[p.prev];
+          var prevName = en ? prev.name.en : prev.name.es;
+          html += '<div class="plan-adds"><div class="pa-title">' + (en ? 'Everything in ' + prevName + ', PLUS:' : 'Todo lo del ' + prevName + ', MÁS:') + '</div><ul>';
+          for (var a = prev.count; a < p.count; a++) {
+            html += '<li><span class="plus" aria-hidden="true">+</span><span>' + (en ? FEATS[a].en : FEATS[a].es) + '</span></li>';
+          }
+          html += '</ul></div>';
+        }
+        html += '<h3 class="plan-list-title">' + (en ? 'Full breakdown: what it includes and what it doesn\'t' : 'Detalle completo: qué incluye y qué no') + '</h3><ul class="plan-list">';
+        FEATS.forEach(function (f, fi) {
+          var inc = fi < p.count;
+          html += '<li class="' + (inc ? 'inc' : 'off') + '">' +
+            (inc ? CHECK_SVG : '<span class="dash" aria-hidden="true">—</span>') +
+            '<span>' + (en ? f.en : f.es) + '</span>' +
+            '<span class="sr-only">(' + (inc ? (en ? 'included' : 'incluido') : (en ? 'not included' : 'no incluido')) + ')</span></li>';
+        });
+        html += '</ul>';
+        html += '<button type="button" class="btn btn-grad plan-cta" id="planCta">' +
+          (en ? 'I want the ' + name + ' plan — $' + p.now : 'Quiero el plan ' + name + ' — $' + p.now) + '</button>';
+        document.getElementById('planContent').innerHTML = html;
+        document.getElementById('planCta').addEventListener('click', function () {
+          var pkg = p.pkg;
+          closePlan();
+          openQuiz(pkg);
+        });
+      }
+
+      function openPlan(i) {
+        currentPlan = i;
+        renderPlan(i);
+        planOverlay.classList.add('open');
+        document.body.classList.add('locked');
+        planOverlay.scrollTop = 0;
+        document.getElementById('planBack').focus();
+      }
+      function closePlan() {
+        planOverlay.classList.remove('open');
+        currentPlan = -1;
+        if (!quizOverlay.classList.contains('open')) document.body.classList.remove('locked');
+      }
+      document.querySelectorAll('[data-plan-details]').forEach(function (btn) {
+        btn.addEventListener('click', function () { openPlan(parseInt(btn.getAttribute('data-plan-details'), 10)); });
+      });
+      document.getElementById('planBack').addEventListener('click', closePlan);
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && planOverlay.classList.contains('open')) closePlan(); });
+
+      renderCompare();
+    </script>
+  </body>
+</html>
