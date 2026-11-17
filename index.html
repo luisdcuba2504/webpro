@@ -687,6 +687,73 @@
         *,*::before,*::after{animation-duration:.001s !important;transition-duration:.001s !important;scroll-behavior:auto !important}
         .rv{opacity:1;transform:none}
       }
+
+      /* ===== Ajuste compacto (solo presentación): letra un poco más
+         pequeña y menos aire vertical. No cambia ningún contenido. ===== */
+      body{font-size:15.5px;line-height:1.55}
+      .header-in{padding-top:9px;padding-bottom:9px}
+      .logo{font-size:1.24rem}
+      .hero{padding:42px 0 20px}
+      .hero-grid{gap:30px}
+      .hero-badge{margin-bottom:14px}
+      h1{font-size:clamp(2.14rem,5.65vw,3.55rem);margin-bottom:15px}
+      .hero-sub{font-size:clamp(.99rem,2.25vw,1.14rem);margin-bottom:22px}
+      .hero-ctas{margin-bottom:18px}
+      .real-chip{margin-top:16px}
+      .mock-body img{height:260px}
+      @media(max-width:959px){.mock-body img{height:200px}}
+      section.block{padding:46px 0 4px}
+      .sec-head{margin-bottom:24px}
+      .sec-head h2{font-size:clamp(1.65rem,4.05vw,2.38rem)}
+      .sec-head p{font-size:.99rem}
+      .svc-grid{gap:12px}
+      .svc{padding:18px 17px}
+      .svc .ic{margin-bottom:10px}
+      .svc h3{font-size:.99rem}
+      .price-grid{gap:14px}
+      .price-card{padding:23px 20px}
+      .price-was{margin-top:10px}
+      .price-amt .amt{font-size:2.72rem}
+      .price-desc{margin-bottom:14px}
+      .price-card ul{gap:8px;margin-bottom:18px}
+      .compare{margin-top:24px}
+      .cmp-title{font-size:1.24rem}
+      .cmp th,.cmp td{padding:8px 8px}
+      .price-note{margin-top:14px;padding:13px 17px}
+      .cuba-note{margin-top:10px;padding:13px 17px}
+      .finance{margin-top:14px;padding:19px 20px}
+      .fin-title,.care-title{font-size:1.21rem}
+      .fin-text{margin-bottom:11px}
+      .fin-list{gap:7px;margin-bottom:12px}
+      .fin-list li{padding:8px 12px}
+      .care{margin-top:14px;padding:18px 20px}
+      .care-text{margin-bottom:7px}
+      .care-note{margin-bottom:12px}
+      .complex-panel{padding:24px 19px}
+      @media(min-width:760px){.complex-panel{padding:30px 27px}}
+      .complex-panel .sec-head{margin-bottom:18px}
+      .quote-chip{margin-bottom:11px}
+      .pro-note{margin-top:14px;padding:12px 15px}
+      .proof-bar{margin-top:12px;padding:12px 15px}
+      .complex-actions{margin-top:15px}
+      .sample-grid{gap:13px}
+      .sample .thumb{height:158px}
+      .sample .s-body{padding:15px 16px 17px}
+      .sample h3{font-size:1.13rem}
+      .sample p{margin-bottom:8px}
+      .steps{gap:12px}
+      .step{padding:20px 18px}
+      .step .num{font-size:1.8rem;margin-bottom:9px}
+      .step h3{font-size:1.05rem}
+      .final{margin-top:48px;padding:36px 22px}
+      .final h2{font-size:clamp(1.56rem,4.2vw,2.3rem);margin-bottom:10px}
+      .final p{margin-bottom:20px}
+      footer.site{padding:28px 0 96px}
+      /* plegado de la comparativa de planes (cerrada por defecto) */
+      .fold-toggle{margin:0 0 6px}
+      .fold-toggle .fold-chev{width:17px;height:17px;transition:transform .2s}
+      .fold-toggle.open .fold-chev{transform:rotate(180deg)}
+      .fold-panel{margin-top:10px}
     </style>
   
     <meta name="description" content="BuilderWeb Pro — Páginas web profesionales para negocios en cualquier lugar. Planes desde $199 con financiamiento. Tu negocio en Google, Facebook y WhatsApp.">
@@ -895,7 +962,10 @@
           <div class="compare rv">
             <h3 class="cmp-title" data-es="Compara los planes" data-en="Compare the plans">Compara los planes</h3>
             <p class="cmp-sub" data-es="Así ves exactamente qué incluye cada plan y qué no. ✓ = incluido · — = no incluido." data-en="See exactly what each plan includes and what it doesn't. ✓ = included · — = not included.">Así ves exactamente qué incluye cada plan y qué no. ✓ = incluido · — = no incluido.</p>
-            <div class="cmp-wrap" id="compareTable"></div>
+            <button type="button" class="btn btn-ghost btn-sm fold-toggle" data-fold-btn aria-expanded="false" aria-controls="compareFold"><span data-es="Ver comparativa completa" data-en="See the full comparison">Ver comparativa completa</span><svg class="fold-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+            <div class="fold-panel" id="compareFold" hidden>
+              <div class="cmp-wrap" id="compareTable"></div>
+            </div>
           </div>
 
           <div class="finance rv" id="muestra10">
@@ -2345,6 +2415,31 @@
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && planOverlay.classList.contains('open')) closePlan(); });
 
       renderCompare();
+    </script>
+    <script>
+      /* Plegado de la comparativa de planes: cerrada por defecto; el botón la despliega. */
+      (function () {
+        var btn = document.querySelector('[data-fold-btn]');
+        var panel = document.getElementById('compareFold');
+        if (!btn || !panel) return;
+        var label = btn.querySelector('span');
+        var TEXTS = {
+          open: { es: 'Ver comparativa completa', en: 'See the full comparison' },
+          close: { es: 'Ocultar comparativa', en: 'Hide the comparison' }
+        };
+        btn.addEventListener('click', function () {
+          var willOpen = panel.hidden;
+          panel.hidden = !willOpen;
+          btn.setAttribute('aria-expanded', String(willOpen));
+          btn.classList.toggle('open', willOpen);
+          if (label) {
+            var t = willOpen ? TEXTS.close : TEXTS.open;
+            label.setAttribute('data-es', t.es);
+            label.setAttribute('data-en', t.en);
+            label.textContent = (document.documentElement.lang === 'en') ? t.en : t.es;
+          }
+        });
+      })();
     </script>
     <script>
       if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/sw.js'); }
