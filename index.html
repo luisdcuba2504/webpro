@@ -756,19 +756,21 @@
       .fold-panel{margin-top:10px}
 
       /* ===== Filas horizontales (solo presentación): en pantallas de
-         menos de 900px, servicios, muestras y pasos dejan de apilarse en
-         vertical y se deslizan hacia el lado con el dedo (scroll-snap
-         nativo, sin librerías). En escritorio queda la rejilla normal. ===== */
+         menos de 900px, todo grupo de tarjetas iguales (servicios,
+         paquetes, pasos de la muestra, financiamiento, apps web,
+         muestras y prueba real) deja de apilarse en vertical y se
+         desliza hacia el lado con el dedo (scroll-snap nativo, sin
+         librerías). En escritorio queda la rejilla normal. ===== */
       .hrow-hint{display:none}
       @media(max-width:899px){
         .hrow-hint{display:block;margin:0 0 10px;color:var(--muted);font-size:.85rem;font-weight:700;letter-spacing:.04em}
-        .svc-grid.hrow,.sample-grid.hrow,.steps.hrow{
+        .svc-grid.hrow,.sample-grid.hrow,.steps.hrow,.price-grid.hrow,.fin-list.hrow,.finrow .fin-list{
           display:flex;flex-wrap:nowrap;overflow-x:auto;
           scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
           scrollbar-width:none;padding-bottom:8px;
         }
-        .svc-grid.hrow::-webkit-scrollbar,.sample-grid.hrow::-webkit-scrollbar,.steps.hrow::-webkit-scrollbar{display:none}
-        .svc-grid.hrow>*,.sample-grid.hrow>*,.steps.hrow>*{flex:0 0 82%;scroll-snap-align:start}
+        .svc-grid.hrow::-webkit-scrollbar,.sample-grid.hrow::-webkit-scrollbar,.steps.hrow::-webkit-scrollbar,.price-grid.hrow::-webkit-scrollbar,.fin-list.hrow::-webkit-scrollbar,.finrow .fin-list::-webkit-scrollbar{display:none}
+        .svc-grid.hrow>*,.sample-grid.hrow>*,.steps.hrow>*,.price-grid.hrow>*,.fin-list.hrow>*,.finrow .fin-list>*{flex:0 0 82%;scroll-snap-align:start}
       }
     </style>
   
@@ -918,7 +920,8 @@
             <h2><span data-es="Paquetes claros," data-en="Clear packages,">Paquetes claros,</span> <span class="grad" data-es="pago único" data-en="one payment">pago único</span></h2>
             <p data-es="Sin contratos raros y sin mensualidades escondidas. Eliges tu paquete, pagas una sola vez y tu presencia en internet queda montada." data-en="No weird contracts and no hidden monthly fees. Pick your package, pay once, and your online presence is set up.">Sin contratos raros y sin mensualidades escondidas. Eliges tu paquete, pagas una sola vez y tu presencia en internet queda montada.</p>
           </div>
-          <div class="price-grid">
+          <p class="hrow-hint"><span data-es="Desliza →" data-en="Swipe →">Desliza →</span></p>
+          <div class="price-grid hrow">
             <article class="price-card rv">
               <div class="p-name" data-es="Básico" data-en="Basic">Básico</div>
               <div class="price-was"><span data-es="Antes" data-en="Was">Antes</span> <s>$299</s> <span class="offer-chip" data-es="OFERTA −33%" data-en="SALE −33%">OFERTA −33%</span></div>
@@ -988,7 +991,8 @@
           <div class="finance rv" id="muestra10">
             <h3 class="fin-title" data-es="👀 Mira tu página antes de pagarla — Muestra por $10" data-en="👀 See your page before you pay for it — $10 preview">👀 Mira tu página antes de pagarla — Muestra por $10</h3>
             <p class="fin-text" data-es="Sin arriesgar los $199: primero ves tu página hecha con tu negocio, tus colores y tus servicios. Incluye 1 ronda de ajustes." data-en="No need to risk the $199: first you see your page built with your business, your colors and your services. Includes 1 round of adjustments.">Sin arriesgar los $199: primero ves tu página hecha con tu negocio, tus colores y tus servicios. Incluye 1 ronda de ajustes.</p>
-            <ul class="fin-list">
+            <p class="hrow-hint"><span data-es="Desliza →" data-en="Swipe →">Desliza →</span></p>
+            <ul class="fin-list hrow">
               <li><b>1</b><span class="fin-arrow" aria-hidden="true">→</span><span data-es="Llena el cuestionario y paga $10 por Zelle." data-en="Fill out the questionnaire and pay $10 by Zelle.">Llena el cuestionario y paga $10 por Zelle.</span></li>
               <li><b>2</b><span class="fin-arrow" aria-hidden="true">→</span><span data-es="En 24–48 h recibes tu enlace privado con la portada de TU página ya diseñada." data-en="Within 24–48 hours you receive your private link with YOUR page's homepage already designed.">En 24–48 h recibes tu enlace privado con la portada de TU página ya diseñada.</span></li>
               <li><b>3</b><span class="fin-arrow" aria-hidden="true">→</span><span data-es="Si te gusta, eliges tu plan y los $10 se descuentan de tu primer pago." data-en="If you love it, pick your plan and the $10 is credited toward your first payment.">Si te gusta, eliges tu plan y los $10 se descuentan de tu primer pago.</span></li>
@@ -998,9 +1002,10 @@
             <p class="care-hint" data-es="🔒 Pago seguro · Entrega en 24–48 horas · Sin compromisos forzosos" data-en="🔒 Secure payment · Delivered in 24–48 hours · No forced commitments">🔒 Pago seguro · Entrega en 24–48 horas · Sin compromisos forzosos</p>
           </div>
 
-          <div class="finance rv">
+          <div class="finance rv finrow">
             <h3 class="fin-title" data-es="💳 ¿Prefieres pagarlo a plazos?" data-en="💳 Prefer to pay in installments?">💳 ¿Prefieres pagarlo a plazos?</h3>
             <p class="fin-text" data-es="Financiamiento disponible: activa tu proyecto con solo el 30% de anticipo y paga el resto en 3 pagos mensuales, sin intereses." data-en="Financing available: start your project with just a 30% down payment and pay the rest in 3 monthly payments, interest-free.">Financiamiento disponible: activa tu proyecto con solo el 30% de anticipo y paga el resto en 3 pagos mensuales, sin intereses.</p>
+            <p class="hrow-hint"><span data-es="Desliza →" data-en="Swipe →">Desliza →</span></p>
             <ul class="fin-list">
               <li><b data-es="Básico · $199" data-en="Basic · $199">Básico · $199</b><span class="fin-arrow" aria-hidden="true">→</span><span data-es="anticipo de $59.70 y 3 pagos mensuales de $46.43" data-en="$59.70 down and 3 monthly payments of $46.43">anticipo de $59.70 y 3 pagos mensuales de $46.43</span></li>
               <li><b data-es="Completo · $299" data-en="Complete · $299">Completo · $299</b><span class="fin-arrow" aria-hidden="true">→</span><span data-es="anticipo de $89.70 y 3 pagos mensuales de $69.77" data-en="$89.70 down and 3 monthly payments of $69.77">anticipo de $89.70 y 3 pagos mensuales de $69.77</span></li>
@@ -1038,7 +1043,8 @@
               <h2><span data-es="También hacemos" data-en="We also build">También hacemos</span> <span class="grad" data-es="Apps Web para tu negocio" data-en="Web Apps for your business">Apps Web para tu negocio</span></h2>
               <p data-es="Además de páginas web, construimos aplicaciones web (apps) y sistemas a la medida: no una página de presentación, sino una herramienta que trabaja dentro de tu negocio, con su panel para que lo manejes desde tu teléfono. Cada proyecto se cotiza según lo que necesitas." data-en="Besides websites, we build custom web applications (apps) and systems: not a brochure page, but a tool that works inside your business, with your own panel to run it from your phone. Every project is quoted based on what you need.">Además de páginas web, construimos aplicaciones web (apps) y sistemas a la medida: no una página de presentación, sino una herramienta que trabaja dentro de tu negocio, con su panel para que lo manejes desde tu teléfono. Cada proyecto se cotiza según lo que necesitas.</p>
             </div>
-            <div class="svc-grid">
+            <p class="hrow-hint"><span data-es="Desliza →" data-en="Swipe →">Desliza →</span></p>
+            <div class="svc-grid hrow">
               <article class="svc">
                 <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div>
                 <h3 data-es="Tienda en línea completa, con pagos reales" data-en="Full online store with real payments">Tienda en línea completa, con pagos reales</h3>
@@ -1203,7 +1209,8 @@
             <h2><span data-es="La prueba no es lo que decimos:" data-en="The proof is not what we say:">La prueba no es lo que decimos:</span> <span class="grad" data-es="es lo que puedes visitar" data-en="it's what you can visit">es lo que puedes visitar</span></h2>
             <p data-es="Sin reseñas inventadas: cuando un cliente nos lo autorice, aquí irá su testimonio con su nombre. Mientras tanto, todo lo que afirmamos se puede comprobar visitándolo." data-en="No invented reviews: when a client authorizes it, their testimonial will appear here with their name. In the meantime, everything we claim can be checked by visiting it.">Sin reseñas inventadas: cuando un cliente nos lo autorice, aquí irá su testimonio con su nombre. Mientras tanto, todo lo que afirmamos se puede comprobar visitándolo.</p>
           </div>
-          <div class="sample-grid">
+          <p class="hrow-hint"><span data-es="Desliza →" data-en="Swipe →">Desliza →</span></p>
+          <div class="sample-grid hrow">
             <article class="sample rv">
               <div class="s-body">
                 <span class="s-cat" data-es="Proyectos reales en vivo" data-en="Real projects live">Proyectos reales en vivo</span>
