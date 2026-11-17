@@ -6,6 +6,12 @@
     <meta name="color-scheme" content="dark" />
     <meta name="description" content="BuilderWeb Pro — Construimos tu página web profesional para tu negocio, en cualquier lugar. Paquetes en oferta desde $199, pago único, sin mensualidades de hosting." />
     <link rel="icon" href="data:," />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#05070f" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="BuilderWeb Pro" />
     <title>BuilderWeb Pro — Páginas Web para Negocios | builderwebpro.com</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -2339,6 +2345,9 @@
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && planOverlay.classList.contains('open')) closePlan(); });
 
       renderCompare();
+    </script>
+    <script>
+      if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/sw.js'); }
     </script>
   </body>
 </html>
