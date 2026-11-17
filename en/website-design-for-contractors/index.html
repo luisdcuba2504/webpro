@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web Design for Contractors and Remodelers | BuilderWeb Pro</title>
+<meta name="description" content="Websites for contractors and remodeling companies: a gallery of your work, WhatsApp and tap-to-call buttons for estimate requests. Plans from $199, no monthly hosting fees.">
+<link rel="manifest" href="/manifest.webmanifest" />
+<link rel="canonical" href="https://builderwebpro.com/en/website-design-for-contractors/">
+<link rel="alternate" hreflang="es" href="https://builderwebpro.com/es/paginas-web-para-contratistas/">
+<link rel="alternate" hreflang="en" href="https://builderwebpro.com/en/website-design-for-contractors/">
+<link rel="alternate" hreflang="x-default" href="https://builderwebpro.com/es/paginas-web-para-contratistas/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BuilderWeb Pro">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Web Design for Contractors and Remodelers | BuilderWeb Pro">
+<meta property="og:description" content="Websites for contractors and remodeling companies: a gallery of your work, WhatsApp and tap-to-call buttons for estimate requests. Plans from $199, no monthly hosting fees.">
+<meta property="og:url" content="https://builderwebpro.com/en/website-design-for-contractors/">
+<meta property="og:image" content="https://builderwebpro.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Web Design for Contractors and Remodelers | BuilderWeb Pro">
+<meta name="twitter:description" content="Websites for contractors and remodeling companies: a gallery of your work, WhatsApp and tap-to-call buttons for estimate requests. Plans from $199, no monthly hosting fees.">
+<meta name="twitter:image" content="https://builderwebpro.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://builderwebpro.com/#organization",
+      "name": "BuilderWeb Pro",
+      "url": "https://builderwebpro.com/",
+      "email": "info@builderwebpro.com",
+      "telephone": "+1-346-479-3662",
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=61596156106791",
+        "https://www.instagram.com/builderwebpro.tx/"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://builderwebpro.com/#service",
+      "name": "BuilderWeb Pro",
+      "url": "https://builderwebpro.com/en/website-design-for-contractors/",
+      "provider": {
+        "@id": "https://builderwebpro.com/#organization"
+      },
+      "telephone": "+1-346-479-3662",
+      "email": "info@builderwebpro.com",
+      "priceRange": "$199 - $599",
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "serviceType": "Website design for small businesses",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Website plans",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Basic Plan",
+            "price": "199",
+            "priceCurrency": "USD"
+          },
+          {
+            "@type": "Offer",
+            "name": "Complete Plan",
+            "price": "299",
+            "priceCurrency": "USD"
+          },
+          {
+            "@type": "Offer",
+            "name": "Plan Premium",
+            "price": "599",
+            "priceCurrency": "USD"
+          },
+          {
+            "@type": "Offer",
+            "name": "Homepage Sample",
+            "price": "10",
+            "priceCurrency": "USD"
+          }
+        ]
+      },
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=61596156106791",
+        "https://www.instagram.com/builderwebpro.tx/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://builderwebpro.com/#website",
+      "url": "https://builderwebpro.com/",
+      "name": "BuilderWeb Pro",
+      "publisher": {
+        "@id": "https://builderwebpro.com/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://builderwebpro.com/en/website-design-for-contractors/#service",
+      "name": "Web design for contractors and remodelers",
+      "serviceType": "Website design for contractors",
+      "provider": {
+        "@id": "https://builderwebpro.com/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "url": "https://builderwebpro.com/en/website-design-for-contractors/"
+    }
+  ]
+}
+</script>
+    <!-- BWP-UTM v1 (P2, 2026-11-17) — captura de atribución por canal.
+         Lee los UTM de la URL al cargar, los guarda (último toque en
+         sessionStorage, primer toque en localStorage) y rellena los campos
+         ocultos del cuestionario. Sin UTM, origen_canal = web_directo.
+         No envía nada por sí solo: los valores viajan solo si el visitante
+         envía el cuestionario. -->
+    <script>
+      (function () {
+        var KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'];
+        var SOURCE_TO_CANAL = {
+          facebook: 'facebook', instagram: 'instagram', tiktok: 'tiktok',
+          youtube: 'youtube', google: 'google'
+        };
+        function clean(v) {
+          return String(v || '').trim().toLowerCase()
+            .replace(/[^a-z0-9_\-\.]/g, '').slice(0, 80);
+        }
+        function readFromUrl() {
+          var out = {};
+          try {
+            var q = new URLSearchParams(window.location.search);
+            KEYS.forEach(function (k) { var v = clean(q.get(k)); if (v) out[k] = v; });
+          } catch (e) {}
+          return out;
+        }
+        function load(key) {
+          try { return JSON.parse(window.localStorage.getItem(key) || 'null') ||
+                     JSON.parse(window.sessionStorage.getItem(key) || 'null'); }
+          catch (e) { return null; }
+        }
+        function save(store, key, val) {
+          try { window[store].setItem(key, JSON.stringify(val)); } catch (e) {}
+        }
+        var fromUrl = readFromUrl();
+        var hasUtm = KEYS.some(function (k) { return fromUrl[k]; });
+        var attribution = null;
+        if (hasUtm) {
+          attribution = fromUrl;
+          attribution.captured_at = new Date().toISOString();
+          save('sessionStorage', 'bwp_attribution_last', attribution);
+          if (!load('bwp_attribution_first')) {
+            save('localStorage', 'bwp_attribution_first', attribution);
+          }
+        } else {
+          attribution = load('bwp_attribution_last') || load('bwp_attribution_first') || {};
+        }
+        function canalDe(attr) {
+          var s = clean(attr.utm_source || '');
+          return SOURCE_TO_CANAL[s] || (s ? 'otro' : 'web_directo');
+        }
+        function fill() {
+          KEYS.forEach(function (k) {
+            var el = document.getElementById(k);
+            if (el) el.value = clean(attribution[k] || '');
+          });
+          var oc = document.getElementById('origen_canal');
+          if (oc) oc.value = canalDe(attribution);
+        }
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', fill);
+        } else { fill(); }
+        window.BWP_UTM = { get: function () {
+          var out = {};
+          KEYS.forEach(function (k) { out[k] = clean(attribution[k] || ''); });
+          out.origen_canal = canalDe(attribution);
+          return out;
+        } };
+      })();
+    </script>
+<style>body{font-family:system-ui,Arial,sans-serif;margin:0;background:#05070f;color:#eef1fb;line-height:1.6}
+.wrap{max-width:1000px;margin:0 auto;padding:24px 20px} a{color:#22d3ee}
+h1{font-size:2rem;line-height:1.25} .btn{display:inline-block;background:#4f46e5;color:#fff;padding:12px 22px;border-radius:12px;text-decoration:none;font-weight:700;margin:6px 8px 6px 0}
+.btn-wa{background:#128c4b} .card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:18px;margin:14px 0}
+header,footer{border-bottom:1px solid rgba(255,255,255,.1);padding:14px 20px} footer{border-top:1px solid rgba(255,255,255,.1);border-bottom:0}
+nav a{margin-right:14px} .price{font-size:1.6rem;font-weight:800}</style>
+<style>
+
+      :root{
+        --bg:#05070f;
+        --bg-2:#090d1a;
+        --panel:rgba(255,255,255,.045);
+        --panel-strong:rgba(255,255,255,.07);
+        --line:rgba(255,255,255,.10);
+        --text:#eef1fb;
+        --muted:#a3adc9;
+        --muted-2:#7c86a5;
+        --violet:#8b5cf6;
+        --cyan:#22d3ee;
+        --grad:linear-gradient(120deg,#a78bfa 0%,#818cf8 45%,#22d3ee 100%);
+        --grad-btn:linear-gradient(120deg,#7c3aed,#4f46e5 55%,#0891b2);
+        --wa:#22c55e;
+        --wa-dark:#16a34a;
+        --radius:20px;
+        --font-d:'Sora',system-ui,sans-serif;
+        --font-b:'Manrope',system-ui,sans-serif;
+      }
+
+      button,[role="button"],a.btn,a.chip-link{min-height:2.75rem}
+
+
+      /* ---------- buttons ---------- */
+      .btn{
+        display:inline-flex;align-items:center;justify-content:center;gap:9px;
+        font-family:var(--font-d);font-weight:700;font-size:1rem;text-decoration:none;
+        padding:13px 24px;border-radius:14px;border:1px solid transparent;
+        transition:transform .18s,box-shadow .18s,background .18s;min-height:3.25rem;
+      }
+
+      .btn:active{transform:scale(.97)}
+
+      .btn svg{width:20px;height:20px;flex:none}
+
+      .btn-wa{background:linear-gradient(135deg,#25d366,#128c4b);color:#fff;box-shadow:0 10px 28px rgba(34,197,94,.35)}
+
+      .btn-wa:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(34,197,94,.42)}
+
+      .btn-grad{background:var(--grad-btn);color:#fff;box-shadow:0 10px 28px rgba(99,102,241,.4)}
+
+      .btn-grad:hover{transform:translateY(-2px)}
+
+      .btn-ghost{background:rgba(255,255,255,.05);border-color:var(--line);color:var(--text)}
+
+      .btn-ghost:hover{background:rgba(255,255,255,.1);transform:translateY(-2px)}
+
+      .btn-sm{padding:9px 18px;font-size:.9rem;min-height:2.75rem;border-radius:11px}
+
+      h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+      .sec-head h2 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+      .btn-details{
+        background:rgba(139,92,246,.1);border:1px solid rgba(167,139,250,.38);color:#ddd0ff;
+        font-size:.95rem;
+      }
+
+      .btn-details:hover{background:rgba(139,92,246,.2);transform:translateY(-2px)}
+
+      .btn-details svg{width:18px;height:18px}
+
+      .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+      .sample .btn{align-self:flex-start}
+
+      body.locked{overflow:hidden}
+
+
+      /* ---------- questionnaire ---------- */
+      #quizOverlay{position:fixed;inset:0;z-index:120;background:#04060d;display:none;overflow-y:auto;-webkit-overflow-scrolling:touch}
+
+      #quizOverlay.open{display:block}
+
+      .quiz-topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:12px;background:rgba(4,6,13,.92);backdrop-filter:blur(12px);padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.12)}
+
+      .quiz-back{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.2);border-radius:11px;padding:9px 16px;font-weight:700;font-size:.9rem;min-height:2.75rem}
+
+      .quiz-back svg{width:17px;height:17px}
+
+      .quiz-topbar .qt-label{color:#aab3cc;font-size:.85rem;font-weight:600;margin-left:auto;text-align:right}
+
+      .quiz-wrap{max-width:780px;margin:0 auto;padding:28px 18px 60px}
+
+      .quiz-head h2{font-family:var(--font-d);font-weight:800;font-size:clamp(1.6rem,4.5vw,2.3rem);letter-spacing:-.02em;line-height:1.18;margin:0 0 10px}
+
+      .quiz-head h2 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+      .quiz-head p{color:var(--muted);margin:0 0 8px;font-size:1rem}
+
+      .quiz-sec{margin-top:30px}
+
+      .quiz-sec-title{font-family:var(--font-d);font-weight:800;font-size:1.08rem;letter-spacing:.02em;margin:0 0 4px;display:flex;align-items:center;gap:10px}
+
+      .quiz-sec-title::after{content:"";flex:1;height:1px;background:var(--line)}
+
+      .quiz-sec-sub{color:var(--muted-2);font-size:.88rem;margin:0 0 16px}
+
+      .q-field{margin-bottom:18px}
+
+      .q-field label.q-label,.q-field legend.q-label{display:block;font-weight:700;font-size:.96rem;margin:0 0 8px;color:var(--text);padding:0}
+
+      .q-field label.q-label .req{color:#f87171}
+
+      .q-field label.q-label .opt{color:var(--muted-2);font-weight:600;font-size:.84rem}
+
+      .q-field .q-hint{color:var(--muted-2);font-size:.85rem;margin:6px 0 0}
+
+      .q-input,.q-select,.q-textarea{
+        width:100%;background:rgba(255,255,255,.055);border:1px solid var(--line);border-radius:12px;
+        color:var(--text);font-family:var(--font-b);font-size:16px;line-height:1.5;padding:12px 14px;min-height:3rem;
+      }
+
+      .q-textarea{min-height:6.5rem;resize:vertical}
+
+      .q-textarea.tall{min-height:10rem}
+
+      .q-select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23a3adc9' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:42px}
+
+      .q-select option{background:#0b1020;color:#eef1fb}
+
+      .q-input:focus,.q-select:focus,.q-textarea:focus{outline:2px solid rgba(139,92,246,.7);outline-offset:1px;border-color:rgba(139,92,246,.6)}
+
+      .q-input.invalid,.q-select.invalid{border-color:#f87171;outline:2px solid rgba(248,113,113,.35)}
+
+      .q-grid2{display:grid;gap:0 16px;grid-template-columns:1fr}
+
+      @media(min-width:640px){.q-grid2{grid-template-columns:1fr 1fr}}
+
+      .q-choices{display:grid;gap:9px}
+
+      @media(min-width:560px){.q-choices.cols2{grid-template-columns:1fr 1fr}}
+
+      .q-choice{
+        display:flex;align-items:flex-start;gap:11px;background:rgba(255,255,255,.045);border:1px solid var(--line);
+        border-radius:12px;padding:12px 14px;cursor:pointer;font-size:.95rem;line-height:1.45;min-height:3rem;
+      }
+
+      .q-choice:hover{border-color:rgba(139,92,246,.45)}
+
+      .q-choice input{width:20px;height:20px;flex:none;margin:1px 0 0;accent-color:#7c3aed;cursor:pointer}
+
+      .q-inline-check{display:flex;align-items:center;gap:10px;margin-top:10px;font-size:.92rem;color:var(--muted);cursor:pointer}
+
+      .q-inline-check input{width:20px;height:20px;accent-color:#7c3aed;cursor:pointer;flex:none}
+
+      fieldset.q-field{border:0;padding:0;margin:0 0 18px;min-width:0}
+
+      .quiz-error{display:none;background:rgba(220,38,38,.14);border:1px solid rgba(248,113,113,.5);color:#fecaca;border-radius:12px;padding:13px 16px;font-size:.93rem;font-weight:600;margin:22px 0 0}
+
+      .quiz-error.show{display:block}
+
+      .quiz-notice{display:flex;gap:10px;align-items:flex-start;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.3);color:#c9eefb;border-radius:12px;padding:13px 16px;font-size:.92rem;line-height:1.55;margin:26px 0 16px}
+
+      .quiz-notice svg{width:19px;height:19px;flex:none;margin-top:2px;color:var(--cyan)}
+
+      .quiz-submit{width:100%;font-size:1.05rem;padding:15px 24px}
+
+      @media(min-width:560px){.quiz-submit{width:auto;min-width:280px}}
+
+      .quiz-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+
+
+      .quiz-success{text-align:center;padding:44px 8px 10px}
+
+      .quiz-success .qs-msg{font-size:1.14rem;line-height:1.6;color:var(--text);max-width:32rem;margin:0 auto 10px}
+
+      .quiz-success .qs-note{color:var(--muted);font-size:.97rem;margin:0 auto 26px}
+</style>
+</head>
+<body>
+<header><nav><strong>BuilderWeb Pro</strong> <a href="https://builderwebpro.com/en/">Home</a> <a href="https://builderwebpro.com/es/paginas-web-para-contratistas/" hreflang="es">Español</a> <a href="https://wa.me/13464793662">WhatsApp</a></nav></header>
+<main class="wrap">
+<h1>Web design for contractors and remodelers</h1>
+<p>If your remodeling or construction company can only be seen on Facebook, the customer searching on Google cannot find you. Your own page, on your own domain, shows your work and turns visits into estimate requests.</p>
+<h2>What a website built for contractors includes</h2>
+<div class="card"><h3>A gallery of your work</h3><p>Photos of your remodeling, painting or construction projects, organized so customers can see what you can do.</p></div>
+<div class="card"><h3>WhatsApp and tap-to-call buttons</h3><p>Visitors request their estimate in one tap, from their phone: WhatsApp and call buttons always visible.</p></div>
+<div class="card"><h3>Your services and service area</h3><p>A clear list of services and the areas where you work, so people in your area are the ones who contact you.</p></div>
+<div class="card"><h3>Google Business Profile</h3><p>With the Complete plan we set up your profile so you show up on Google Maps with your phone, photos, hours and services.</p></div>
+<h2>A real example you can visit</h2>
+<p><a href="https://buildermaxtexas.com">BuilderMax Texas LLC</a> is a real remodeling company in Katy, Texas, with its live website at buildermaxtexas.com: remodeling, painting and construction services, a gallery of work, and WhatsApp contact. It is the kind of website BuilderWeb Pro builds for contractors.</p>
+<h2>Prices, with no fine print</h2>
+<p>Basic $199 · Complete $299 · Premium $599 — one-time payment, no monthly hosting fees. Financing available: 30% down and the rest in 3 monthly interest-free payments. The domain is paid separately by the client, at a variable price.</p>
+<h2>Start with the $10 sample</h2>
+<p>First you see your homepage, made with your business, in 24–48 h. If you like it and buy a plan within 15 days, the $10 is credited toward your first payment. Includes 1 round of adjustments.</p>
+<p><a class="btn btn-wa" href="https://wa.me/13464793662">Request my sample on WhatsApp</a> <a class="btn" href="mailto:info@builderwebpro.com">info@builderwebpro.com</a></p>
+<p><a href="https://builderwebpro.com/en/">← Back to the BuilderWeb Pro home page</a></p>
+<p><button type="button" class="btn" data-open-quiz>Fill out the online questionnaire</button></p>
+</main>
+<footer><p>BuilderWeb Pro — Website design for businesses · Email: <a href="mailto:info@builderwebpro.com">info@builderwebpro.com</a> · Tel. <a href="tel:+13464793662">(346) 479-3662</a> · <a href="https://wa.me/13464793662">WhatsApp</a> · <a href="https://www.facebook.com/profile.php?id=61596156106791">Facebook</a> · <a href="https://www.instagram.com/builderwebpro.tx/">Instagram</a></p><p>Prices: Basic $199 · Complete $299 · Premium $599. The domain is paid separately by the client, at a variable price. No monthly hosting fees.</p></footer>
+<div id="quizOverlay" role="dialog" aria-modal="true" aria-label="Questionnaire for your website">
+      <div class="quiz-topbar">
+        <button type="button" class="quiz-back" id="quizBack">
+          <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"></path></svg>
+          <span data-es="Volver" data-en="Back">Back</span>
+        </button>
+        <span class="qt-label" data-es="Cuestionario · BuilderWeb Pro" data-en="Questionnaire · BuilderWeb Pro">Questionnaire · BuilderWeb Pro</span>
+      </div>
+      <div class="quiz-wrap" id="cuestionario">
+        <div class="quiz-head">
+          <h2><span data-es="Cuéntanos de tu negocio y" data-en="Tell us about your business and">Tell us about your business and</span> <span class="grad" data-es="creamos tu página" data-en="we'll build your page">we'll build your page</span></h2>
+          <p data-es="Responde estas preguntas — son justo las que necesitamos para crear tu página web. No tienes que saber de tecnología: escribe como puedas y nosotros nos encargamos del resto." data-en="Answer these questions — they are exactly what we need to build your website. No tech knowledge needed: write it your way and we'll handle the rest.">Answer these questions — they are exactly what we need to build your website. No tech knowledge needed: write it your way and we'll handle the rest.</p>
+          <p data-es="Son obligatorios el nombre de tu negocio, tu teléfono/WhatsApp y tu correo — a ese correo te enviaremos la propuesta." data-en="Your business name, your phone/WhatsApp and your email are required — we will send the proposal to that email.">Your business name, your phone/WhatsApp and your email are required — we will send the proposal to that email.</p>
+        </div>
+
+        <form id="quizForm" novalidate>
+          <!-- BWP-UTM v1 (P2, 2026-11-17): campos ocultos de atribución por canal.
+               Los rellena el script BWP-UTM al cargar la página; viajan en el payload
+               como claves utm_* / origen_canal (fuera de las 18 preguntas). -->
+          <input type="hidden" id="utm_source" name="utm_source" value="" />
+          <input type="hidden" id="utm_medium" name="utm_medium" value="" />
+          <input type="hidden" id="utm_campaign" name="utm_campaign" value="" />
+          <input type="hidden" id="utm_content" name="utm_content" value="" />
+          <input type="hidden" id="origen_canal" name="origen_canal" value="web_directo" />
+          <!-- Datos del negocio -->
+          <div class="quiz-sec">
+            <h3 class="quiz-sec-title" data-es="Datos de tu negocio" data-en="Your business details">Your business details</h3>
+            <p class="quiz-sec-sub" data-es="Lo básico para que tus clientes te encuentren y te contacten." data-en="The basics so customers can find you and reach you.">The basics so customers can find you and reach you.</p>
+
+            <div class="q-field">
+              <label class="q-label" for="qName"><span data-es="1. Nombre de tu negocio" data-en="1. Your business name">1. Your business name</span> <span class="req" aria-hidden="true">*</span></label>
+              <input class="q-input" id="qName" type="text" autocomplete="organization" data-es-ph="Ej.: Barbería Corte Fino" data-en-ph="E.g.: Corte Fino Barbershop" placeholder="E.g.: Corte Fino Barbershop">
+            </div>
+
+            <div class="q-grid2">
+              <div class="q-field">
+                <label class="q-label" for="qType" data-es="2. Tipo de negocio / giro" data-en="2. Type of business">2. Type of business</label>
+                <select class="q-select" id="qType">
+                  <option value="" data-es="Selecciona una opción" data-en="Choose one">Choose one</option>
+                  <option value="Restaurante" data-es="Restaurante" data-en="Restaurant">Restaurant</option>
+                  <option value="Barbería / salón de belleza" data-es="Barbería / salón de belleza" data-en="Barbershop / beauty salon">Barbershop / beauty salon</option>
+                  <option value="Taller mecánico" data-es="Taller mecánico" data-en="Auto repair shop">Auto repair shop</option>
+                  <option value="Tienda / boutique" data-es="Tienda / boutique" data-en="Store / boutique">Store / boutique</option>
+                  <option value="Contratista / remodelación" data-es="Contratista / remodelación" data-en="Contractor / remodeling">Contractor / remodeling</option>
+                  <option value="Cafetería" data-es="Cafetería" data-en="Coffee shop">Coffee shop</option>
+                  <option value="Otro" data-es="Otro" data-en="Other">Other</option>
+                </select>
+              </div>
+              <div class="q-field">
+                <label class="q-label" for="qCity" data-es="3. ¿Dónde está tu negocio?" data-en="3. Where is your business located?">3. Where is your business located?</label>
+                <input class="q-input" id="qCity" type="text" autocomplete="address-level2" data-es-ph="Ciudad, estado o país" data-en-ph="City, state or country" placeholder="City, state or country">
+              </div>
+            </div>
+
+            <div class="q-grid2">
+              <div class="q-field">
+                <label class="q-label" for="qPhone"><span data-es="4. Teléfono / WhatsApp que verá el público" data-en="4. Phone / WhatsApp customers will see">4. Phone / WhatsApp customers will see</span> <span class="req" aria-hidden="true">*</span></label>
+                <input class="q-input" id="qPhone" type="tel" autocomplete="tel" data-es-ph="Ej.: (713) 555-0123" data-en-ph="E.g.: (713) 555-0123" placeholder="E.g.: (713) 555-0123">
+              </div>
+              <div class="q-field">
+                <label class="q-label" for="qEmail"><span data-es="5. Tu correo (a ese correo te responderemos)" data-en="5. Your email (we will reply to this email)">5. Your email (we will reply to this email)</span> <span class="req" aria-hidden="true">*</span></label>
+                <input class="q-input" id="qEmail" type="email" autocomplete="email" placeholder="tunegocio@correo.com">
+              </div>
+            </div>
+
+            <div class="q-field">
+              <label class="q-label" for="qAddress" data-es="6. Dirección del local" data-en="6. Business address">6. Business address</label>
+              <input class="q-input" id="qAddress" type="text" autocomplete="street-address" data-es-ph="Calle, número, ciudad" data-en-ph="Street, number, city" placeholder="Street, number, city">
+              <label class="q-inline-check"><input type="checkbox" id="qNoLocal"> <span data-es="No tengo local / trabajo a domicilio" data-en="I have no storefront / I work at clients' homes">I have no storefront / I work at clients' homes</span></label>
+            </div>
+
+            <div class="q-field">
+              <label class="q-label" for="qHours" data-es="7. Horario de atención" data-en="7. Business hours">7. Business hours</label>
+              <input class="q-input" id="qHours" type="text" data-es-ph="Ej.: Lun a Sáb · 9 a.m. – 8 p.m." data-en-ph="E.g.: Mon to Sat · 9 a.m. – 8 p.m." placeholder="E.g.: Mon to Sat · 9 a.m. – 8 p.m.">
+            </div>
+          </div>
+
+          <!-- Contenido y estilo -->
+          <div class="quiz-sec">
+            <h3 class="quiz-sec-title" data-es="Contenido y estilo de tu página" data-en="Your page's content &amp; style">Your page's content & style</h3>
+            <p class="quiz-sec-sub" data-es="Qué ofreces, qué quieres lograr y cómo quieres que se vea." data-en="What you offer, what you want to achieve and how you want it to look.">What you offer, what you want to achieve and how you want it to look.</p>
+
+            <div class="q-field">
+              <label class="q-label" for="qServices" data-es="8. Servicios que ofreces" data-en="8. Services you offer">8. Services you offer</label>
+              <textarea class="q-textarea" id="qServices" data-es-ph="Escribe tus servicios, uno por línea. Si tienes precios, ponlos al lado." data-en-ph="Write your services, one per line. Add prices next to them if you have them." placeholder="Write your services, one per line. Add prices next to them if you have them."></textarea>
+            </div>
+
+            <fieldset class="q-field">
+              <legend class="q-label" data-es="9. ¿Qué quieres lograr con tu página?" data-en="9. What do you want your page to do?">9. What do you want your page to do?</legend>
+              <div class="q-choices cols2" id="qGoals">
+                <label class="q-choice"><input type="checkbox" value="Recibir llamadas" data-en-val="Get phone calls"> <span data-es="Recibir llamadas" data-en="Get phone calls">Get phone calls</span></label>
+                <label class="q-choice"><input type="checkbox" value="Recibir mensajes de WhatsApp" data-en-val="Get WhatsApp messages"> <span data-es="Recibir mensajes de WhatsApp" data-en="Get WhatsApp messages">Get WhatsApp messages</span></label>
+                <label class="q-choice"><input type="checkbox" value="Mostrar mis trabajos" data-en-val="Show my work"> <span data-es="Mostrar mis trabajos" data-en="Show my work">Show my work</span></label>
+                <label class="q-choice"><input type="checkbox" value="Vender productos" data-en-val="Sell products"> <span data-es="Vender productos" data-en="Sell products">Sell products</span></label>
+                <label class="q-choice"><input type="checkbox" value="Que me encuentren en Google" data-en-val="Be found on Google"> <span data-es="Que me encuentren en Google" data-en="Be found on Google">Be found on Google</span></label>
+              </div>
+            </fieldset>
+
+            <div class="q-grid2">
+              <fieldset class="q-field">
+                <legend class="q-label" data-es="10. ¿Ya tienes logo?" data-en="10. Do you already have a logo?">10. Do you already have a logo?</legend>
+                <div class="q-choices">
+                  <label class="q-choice"><input type="radio" name="qLogo" value="Sí" data-en-val="Yes"> <span data-es="Sí, ya tengo" data-en="Yes, I have one">Yes, I have one</span></label>
+                  <label class="q-choice"><input type="radio" name="qLogo" value="No — te lo diseñamos" data-en-val="No — design one for me"> <span data-es="No — quiero que me lo diseñen" data-en="No — I want you to design one">No — I want you to design one</span></label>
+                </div>
+              </fieldset>
+              <fieldset class="q-field">
+                <legend class="q-label" data-es="11. ¿Tienes fotos de tu negocio o trabajos?" data-en="11. Do you have photos of your business or work?">11. Do you have photos of your business or work?</legend>
+                <div class="q-choices">
+                  <label class="q-choice"><input type="radio" name="qPhotos" value="Sí, las envío por WhatsApp" data-en-val="Yes, I'll send them on WhatsApp"> <span data-es="Sí, las envío por WhatsApp" data-en="Yes, I'll send them on WhatsApp">Yes, I'll send them on WhatsApp</span></label>
+                  <label class="q-choice"><input type="radio" name="qPhotos" value="No tengo" data-en-val="I don't have any"> <span data-es="No tengo" data-en="I don't have any">I don't have any</span></label>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="q-grid2">
+              <div class="q-field">
+                <label class="q-label" for="qStyle" data-es="12. Estilo que te gusta" data-en="12. Style you like">12. Style you like</label>
+                <select class="q-select" id="qStyle">
+                  <option value="" data-es="Selecciona una opción" data-en="Choose one">Choose one</option>
+                  <option value="Moderno" data-es="Moderno" data-en="Modern">Modern</option>
+                  <option value="Elegante" data-es="Elegante" data-en="Elegant">Elegant</option>
+                  <option value="Llamativo" data-es="Llamativo" data-en="Bold &amp; eye-catching">Bold & eye-catching</option>
+                  <option value="Clásico" data-es="Clásico" data-en="Classic">Classic</option>
+                </select>
+                <p class="q-hint" data-es="¿No sabes? Mira las páginas de muestra de esta misma página: cada una tiene un estilo distinto." data-en="Not sure? Check the sample pages on this site: each one has a different style.">Not sure? Check the sample pages on this site: each one has a different style.</p>
+              </div>
+              <div class="q-field">
+                <label class="q-label" for="qColors" data-es="Colores que te gustan" data-en="Colors you like">Colors you like</label>
+                <input class="q-input" id="qColors" type="text" data-es-ph="Ej.: negro y dorado, azul…" data-en-ph="E.g.: black and gold, blue…" placeholder="E.g.: black and gold, blue…">
+              </div>
+            </div>
+
+            <div class="q-grid2">
+              <div class="q-field">
+                <label class="q-label" for="qLang" data-es="13. Idioma de tu página" data-en="13. Your page's language">13. Your page's language</label>
+                <select class="q-select" id="qLang">
+                  <option value="Español" data-es="Español" data-en="Spanish">Spanish</option>
+                  <option value="Inglés" data-es="Inglés" data-en="English">English</option>
+                  <option value="Ambos (español e inglés)" data-es="Ambos (español e inglés)" data-en="Both (Spanish &amp; English)">Both (Spanish & English)</option>
+                </select>
+              </div>
+              <div class="q-field">
+                <label class="q-label" for="qPackage" data-es="15. Paquete que te interesa" data-en="15. Package you're interested in">15. Package you're interested in</label>
+                <select class="q-select" id="qPackage">
+                  <option value="No sé, quiero asesoría" data-es="No sé, quiero asesoría" data-en="Not sure, I want advice">Not sure, I want advice</option>
+                  <option value="Muestra personalizada $10" data-es="Muestra personalizada — $10 (se descuenta de mi plan)" data-en="Personalized preview — $10 (credited toward my plan)">Personalized preview — $10 (credited toward my plan)</option>
+                  <option value="Básico $199" data-es="Básico $199" data-en="Basic $199">Basic $199</option>
+                  <option value="Completo $299" data-es="Completo $299" data-en="Complete $299">Complete $299</option>
+                  <option value="Premium $599" data-es="Premium $599" data-en="Premium $599">Premium $599</option>
+                  <option value="Proyecto a la medida / cotización" data-es="App web / proyecto a la medida" data-en="Web app / custom project">Web app / custom project</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="q-field">
+              <label class="q-label" for="qExisting"><span data-es="14. ¿Ya tienes dominio, página web o Facebook?" data-en="14. Do you already have a domain, website or Facebook page?">14. Do you already have a domain, website or Facebook page?</span> <span class="opt" data-es="(opcional — pega los enlaces que tengas)" data-en="(optional — paste any links you have)">(optional — paste any links you have)</span></label>
+              <input class="q-input" id="qExisting" type="text" data-es-ph="Ej.: facebook.com/minegocio, minegocio.com…" data-en-ph="E.g.: facebook.com/mybusiness, mybusiness.com…" placeholder="E.g.: facebook.com/mybusiness, mybusiness.com…">
+            </div>
+            <div class="q-grid2">
+              <div class="q-field">
+                <label class="q-label" for="qUpdates" data-es="17. ¿Qué tan seguido cambian tus precios o se te acaban los productos?" data-en="17. How often do your prices change or products run out?">17. How often do your prices change or products run out?</label>
+                <select class="q-select" id="qUpdates">
+                  <option value="Casi nunca" data-es="Casi nunca" data-en="Hardly ever">Hardly ever</option>
+                  <option value="Cada mes" data-es="Cada mes" data-en="Every month">Every month</option>
+                  <option value="Cada semana" data-es="Cada semana" data-en="Every week">Every week</option>
+                  <option value="A diario / muy seguido" data-es="A diario / muy seguido" data-en="Daily / very often">Daily / very often</option>
+                  <option value="No vendo productos, es un servicio" data-es="No vendo productos, es un servicio" data-en="I don't sell products, it's a service">I don't sell products, it's a service</option>
+                </select>
+              </div>
+              <div class="q-field">
+                <label class="q-label" for="qSelfControl" data-es="18. ¿Quieres poder cambiar precios, productos y disponibilidad tú mismo, desde tu teléfono?" data-en="18. Do you want to change prices, products and availability yourself, from your phone?">18. Do you want to change prices, products and availability yourself, from your phone?</label>
+                <select class="q-select" id="qSelfControl">
+                  <option value="Sí, quiero ese control (servicio aparte, con su precio)" data-es="Sí, quiero ese control" data-en="Yes, I want that control">Yes, I want that control</option>
+                  <option value="No, prefiero que lo hagan ustedes" data-es="No, prefiero que lo hagan ustedes" data-en="No, I'd rather you do it">No, I'd rather you do it</option>
+                  <option value="No sé, quiero que me lo expliquen" data-es="No sé, quiero que me lo expliquen" data-en="Not sure, explain it to me">Not sure, explain it to me</option>
+                </select>
+                <p class="q-hint" data-es="Ese control es un panel sencillo para tu tienda o negocio. Es un servicio aparte, con su propio precio: en tu propuesta te lo cotizamos." data-en="That control is a simple panel for your store or business. It's a separate service with its own price: we'll quote it in your proposal.">That control is a simple panel for your store or business. It's a separate service with its own price: we'll quote it in your proposal.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Detalles específicos -->
+          <div class="quiz-sec">
+            <h3 class="quiz-sec-title" data-es="Detalles específicos" data-en="Specific details">Specific details</h3>
+            <p class="quiz-sec-sub" data-es="Este espacio es tuyo: explícanos con tus palabras todo lo especial de tu proyecto." data-en="This space is yours: explain in your own words everything special about your project.">This space is yours: explain in your own words everything special about your project.</p>
+            <div class="q-field">
+              <label class="q-label" for="qDetails" data-es="16. Cuéntanos los detalles específicos de tu proyecto" data-en="16. Tell us the specific details of your project">16. Tell us the specific details of your project</label>
+              <textarea class="q-textarea tall" id="qDetails" data-es-ph="Ej.: quiero una sección para reservar citas, que se parezca a cierta página que vi, tengo una fecha límite, vendo desde casa, atiendo en dos ciudades… Todo lo que se te ocurra, escríbelo aquí." data-en-ph="E.g.: I want a section to book appointments, I'd like it to look like a page I saw, I have a deadline, I sell from home, I serve two cities… Anything that comes to mind, write it here." placeholder="E.g.: I want a section to book appointments, I'd like it to look like a page I saw, I have a deadline, I sell from home, I serve two cities… Anything that comes to mind, write it here."></textarea>
+            </div>
+          </div>
+
+          <div class="quiz-error" id="quizError" role="alert"></div>
+
+          <div class="quiz-notice">
+            <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 6L2 7"></path></svg>
+            <span data-es="Al enviar, tus respuestas llegan directo a nuestro equipo por correo. Revisamos tu solicitud y te escribimos a tu correo con la propuesta de tu página, sin compromiso." data-en="When you submit, your answers go straight to our team by email. We review your request and email you the proposal for your page, with no obligation.">When you submit, your answers go straight to our team by email. We review your request and email you the proposal for your page, with no obligation.</span>
+          </div>
+          <div class="quiz-actions">
+            <button type="submit" class="btn btn-grad quiz-submit" id="quizSubmitBtn">
+              <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4z"></path><path d="M22 2 11 13"></path></svg>
+              <span data-es="Enviar cuestionario" data-en="Send questionnaire">Send questionnaire</span>
+            </button>
+          </div>
+        </form>
+
+        <div class="quiz-success" id="quizSuccess" style="display:none">
+          <p class="qs-msg" data-es="✅ ¡Recibido! Nuestro equipo revisará tu solicitud y te escribiremos por correo con la propuesta de tu página, sin compromiso." data-en="✅ Received! Our team will review your request and email you the proposal for your page, with no obligation.">✅ Received! Our team will review your request and email you the proposal for your page, with no obligation.</p>
+          <p class="qs-note" data-es="También te enviamos una confirmación a tu correo." data-en="We also sent a confirmation to your email.">We also sent a confirmation to your email.</p>
+          <button type="button" class="btn btn-grad" id="quizSuccessClose"><span data-es="Cerrar" data-en="Close">Close</span></button>
+        </div>
+      </div>
+    </div>
+<script>      var currentLang = 'en';
+      /* ================= questionnaire ================= */
+      var quizOverlay = document.getElementById('quizOverlay');
+      var quizForm = document.getElementById('quizForm');
+      var quizError = document.getElementById('quizError');
+
+      function openQuiz(pkg) {
+        if (pkg) {
+          var sel = document.getElementById('qPackage');
+          for (var i = 0; i < sel.options.length; i++) {
+            if (sel.options[i].value === pkg) { sel.selectedIndex = i; break; }
+          }
+        }
+        document.getElementById('quizSuccess').style.display = 'none';
+        quizForm.style.display = '';
+        quizOverlay.classList.add('open');
+        document.body.classList.add('locked');
+        quizOverlay.scrollTop = 0;
+        document.getElementById('quizBack').focus();
+      }
+      function closeQuiz() {
+        quizOverlay.classList.remove('open');
+        document.body.classList.remove('locked');
+      }
+      document.querySelectorAll('[data-open-quiz]').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          openQuiz(btn.getAttribute('data-pkg'));
+        });
+      });
+      document.getElementById('quizBack').addEventListener('click', closeQuiz);
+      document.getElementById('quizSuccessClose').addEventListener('click', closeQuiz);
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && quizOverlay.classList.contains('open')) closeQuiz(); });
+
+      function qVal(id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; }
+      function qRadio(name) {
+        var el = quizForm.querySelector('input[name="' + name + '"]:checked');
+        if (!el) return '';
+        return currentLang === 'en' ? (el.getAttribute('data-en-val') || el.value) : el.value;
+      }
+      function qSelectText(id) {
+        var el = document.getElementById(id);
+        if (!el || !el.value) return '';
+        var opt = el.options[el.selectedIndex];
+        return currentLang === 'en' ? (opt.getAttribute('data-en') || opt.value) : opt.value;
+      }
+
+      quizForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var en = currentLang === 'en';
+        var nameEl = document.getElementById('qName');
+        var phoneEl = document.getElementById('qPhone');
+        var emailEl = document.getElementById('qEmail');
+        var missing = [];
+        nameEl.classList.remove('invalid');
+        phoneEl.classList.remove('invalid');
+        emailEl.classList.remove('invalid');
+        if (!nameEl.value.trim()) { missing.push(en ? 'your business name' : 'el nombre de tu negocio'); nameEl.classList.add('invalid'); }
+        if (!phoneEl.value.trim()) { missing.push(en ? 'a contact phone/WhatsApp' : 'un teléfono/WhatsApp de contacto'); phoneEl.classList.add('invalid'); }
+        var emailVal = emailEl.value.trim();
+        if (!emailVal || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) { missing.push(en ? 'a valid email (so we can reply to you)' : 'un correo válido (para poder responderte)'); emailEl.classList.add('invalid'); }
+        if (missing.length) {
+          quizError.textContent = en
+            ? 'Almost there: please fill in ' + missing.join(', ') + ' so we can identify your business and contact you.'
+            : 'Ya casi: por favor llena ' + missing.join(', ') + ', para saber de qué negocio se trata y poder contactarte.';
+          quizError.classList.add('show');
+          quizError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          (nameEl.classList.contains('invalid') ? nameEl : (phoneEl.classList.contains('invalid') ? phoneEl : emailEl)).focus();
+          return;
+        }
+        quizError.classList.remove('show');
+
+        var dash = '—';
+        var goals = [];
+        quizForm.querySelectorAll('#qGoals input[type="checkbox"]:checked').forEach(function (cb) {
+          goals.push(en ? (cb.getAttribute('data-en-val') || cb.value) : cb.value);
+        });
+        var noLocal = document.getElementById('qNoLocal').checked;
+        var address = qVal('qAddress');
+        if (noLocal) address = (address ? address + ' · ' : '') + (en ? 'No storefront / works at clients\' homes' : 'Sin local / trabajo a domicilio');
+        var styleTxt = qSelectText('qStyle');
+        var colors = qVal('qColors');
+        if (colors) styleTxt = (styleTxt ? styleTxt + ' · ' : '') + (en ? 'Colors: ' : 'Colores: ') + colors;
+
+        var payload = {};
+        payload['1. Nombre del negocio'] = nameEl.value.trim();
+        payload['2. Tipo de negocio'] = qSelectText('qType') || dash;
+        payload['3. ¿Dónde está el negocio?'] = qVal('qCity') || dash;
+        payload['4. Teléfono/WhatsApp público'] = phoneEl.value.trim();
+        payload['5. Correo del cliente'] = emailVal;
+        payload['6. Dirección'] = address || dash;
+        payload['7. Horario'] = qVal('qHours') || dash;
+        payload['8. Servicios'] = qVal('qServices') || dash;
+        payload['9. Qué quiere lograr con su página'] = goals.length ? goals.join(', ') : dash;
+        payload['10. ¿Ya tiene logo?'] = qRadio('qLogo') || dash;
+        payload['11. ¿Tiene fotos?'] = qRadio('qPhotos') || dash;
+        payload['12. Estilo y colores'] = styleTxt || dash;
+        payload['13. Idioma de la página'] = qSelectText('qLang') || dash;
+        payload['14. Dominio, web o Facebook que ya tiene'] = qVal('qExisting') || dash;
+        payload['15. Paquete que le interesa'] = qSelectText('qPackage') || qVal('qPackage') || dash;
+        payload['16. Detalles específicos del proyecto'] = qVal('qDetails') || dash;
+        payload['17. Frecuencia de cambios de precios/productos'] = qSelectText('qUpdates') || dash;
+        payload['18. ¿Quiere control propio? (panel, precio aparte)'] = qSelectText('qSelfControl') || dash;
+        /* BWP-UTM v1 (P2, 2026-11-17): atribución por canal. Claves planas
+           utm_* / origen_canal, fuera de las 18 preguntas numeradas, para que
+           el CRM las guarde en sus columnas de origen sin tocar el cuestionario. */
+        var bwpUtm = (window.BWP_UTM && window.BWP_UTM.get()) || {};
+        payload['utm_source'] = bwpUtm.utm_source || '';
+        payload['utm_medium'] = bwpUtm.utm_medium || '';
+        payload['utm_campaign'] = bwpUtm.utm_campaign || '';
+        payload['utm_content'] = bwpUtm.utm_content || '';
+        payload['origen_canal'] = bwpUtm.origen_canal || 'web_directo';
+        payload['_subject'] = 'Nuevo cuestionario BuilderWeb Pro — ' + nameEl.value.trim();
+        payload['_template'] = 'table';
+        payload['_replyto'] = emailVal;
+        payload['_autoresponse'] = '¡Gracias por tu solicitud a BuilderWeb Pro! Recibimos tu cuestionario y nuestro equipo ya lo está revisando. En menos de 24 horas te escribiremos a este correo con la propuesta de tu página: qué construiremos para ti, el precio final y los próximos pasos. — Equipo BuilderWeb Pro';
+        payload['_captcha'] = 'true';
+
+        var submitBtn = document.getElementById('quizSubmitBtn');
+        var submitLabel = submitBtn.querySelector('span');
+        var labelWas = submitLabel.textContent;
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '.65';
+        submitLabel.textContent = en ? 'Sending…' : 'Enviando…';
+
+        fetch('https://formsubmit.co/ajax/e00ca9d6043fc13354ccda2653e5954d', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(payload)
+        }).then(function (resp) {
+          if (!resp.ok) throw new Error('send failed');
+          return resp.json().catch(function () { return {}; });
+        }).then(function () {
+          quizForm.style.display = 'none';
+          document.getElementById('quizSuccess').style.display = 'block';
+          quizOverlay.scrollTop = 0;
+        }).catch(function () {
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = '';
+          submitLabel.textContent = labelWas;
+          quizError.textContent = en
+            ? 'We could not send it. Please email us at info@builderwebpro.com'
+            : 'No se pudo enviar. Escríbenos a info@builderwebpro.com';
+          quizError.classList.add('show');
+          quizError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+      });
+</script>
+    <script>
+      if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/sw.js'); }
+    </script>
+</body>
+</html>
