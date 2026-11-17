@@ -3,18 +3,42 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+    /* BWP-LANG v1 (2026-11-17): puerta de idioma de BuilderWeb Pro.
+       Decide al instante, antes de que se pinte la página:
+       1) la elección guardada del visitante (localStorage «bwp-lang»);
+       2) si no hay, su idioma preferido: español -> /es/; inglés o
+          cualquier otro -> /en/ (el inglés es el idioma por defecto).
+       Sin JS no hay redirección: la página visible ofrece los dos
+       botones y cada botón guarda la elección al pulsarlo. */
+    (function () {
+      try {
+        var saved = null;
+        try { saved = localStorage.getItem('bwp-lang'); } catch (e) {}
+        var dest;
+        if (saved === 'es' || saved === 'en') {
+          dest = saved;
+        } else {
+          var pref = '';
+          if (navigator.languages && navigator.languages.length) pref = navigator.languages[0];
+          else if (navigator.language) pref = navigator.language;
+          dest = (String(pref).toLowerCase().indexOf('es') === 0) ? 'es' : 'en';
+        }
+        location.replace('https://builderwebpro.com/' + dest + '/');
+      } catch (e) {}
+    })();
+    </script>
 <title>BuilderWeb Pro — Páginas Web para Negocios | Websites for Businesses</title>
 <meta name="description" content="BuilderWeb Pro — Páginas web profesionales para negocios desde $199, sin mensualidades de hosting. Elige tu idioma: español o inglés.">
-<meta http-equiv="refresh" content="0; url=https://builderwebpro.com/es/">
-<link rel="canonical" href="https://builderwebpro.com/es/">
+<link rel="canonical" href="https://builderwebpro.com/en/">
 <link rel="alternate" hreflang="es" href="https://builderwebpro.com/es/">
 <link rel="alternate" hreflang="en" href="https://builderwebpro.com/en/">
-<link rel="alternate" hreflang="x-default" href="https://builderwebpro.com/es/">
+<link rel="alternate" hreflang="x-default" href="https://builderwebpro.com/en/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="BuilderWeb Pro">
 <meta property="og:title" content="BuilderWeb Pro — Páginas Web para Negocios">
 <meta property="og:description" content="Páginas web profesionales para negocios desde $199, sin mensualidades de hosting.">
-<meta property="og:url" content="https://builderwebpro.com/es/">
+<meta property="og:url" content="https://builderwebpro.com/en/">
 <meta property="og:image" content="https://builderwebpro.com/og-image.png">
 <style>body{font-family:system-ui,Arial,sans-serif;margin:0;background:#05070f;color:#eef1fb;line-height:1.6}
 .wrap{max-width:1000px;margin:0 auto;padding:24px 20px} a{color:#22d3ee}
@@ -26,8 +50,8 @@ nav a{margin-right:14px} .price{font-size:1.6rem;font-weight:800}</style>
 <body>
 <main class="wrap">
 <h1>BuilderWeb Pro</h1>
-<p>Estás siendo redirigido a la versión en español. You are being redirected to the English version if you choose it below.</p>
-<p><a class="btn" href="https://builderwebpro.com/es/">Continuar en español</a> <a class="btn" href="https://builderwebpro.com/en/">Continue in English</a></p>
+<p>Elige tu idioma · Choose your language</p>
+<p><a class="btn" href="https://builderwebpro.com/es/" onclick="try{localStorage.setItem('bwp-lang','es')}catch(e){}">Continuar en español</a> <a class="btn" href="https://builderwebpro.com/en/" onclick="try{localStorage.setItem('bwp-lang','en')}catch(e){}">Continue in English</a></p>
 </main>
 </body>
 </html>
