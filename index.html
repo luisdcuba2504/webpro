@@ -754,6 +754,22 @@
       .fold-toggle .fold-chev{width:17px;height:17px;transition:transform .2s}
       .fold-toggle.open .fold-chev{transform:rotate(180deg)}
       .fold-panel{margin-top:10px}
+
+      /* ===== Filas horizontales (solo presentación): en pantallas de
+         menos de 900px, servicios, muestras y pasos dejan de apilarse en
+         vertical y se deslizan hacia el lado con el dedo (scroll-snap
+         nativo, sin librerías). En escritorio queda la rejilla normal. ===== */
+      .hrow-hint{display:none}
+      @media(max-width:899px){
+        .hrow-hint{display:block;margin:0 0 10px;color:var(--muted);font-size:.85rem;font-weight:700;letter-spacing:.04em}
+        .svc-grid.hrow,.sample-grid.hrow,.steps.hrow{
+          display:flex;flex-wrap:nowrap;overflow-x:auto;
+          scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+          scrollbar-width:none;padding-bottom:8px;
+        }
+        .svc-grid.hrow::-webkit-scrollbar,.sample-grid.hrow::-webkit-scrollbar,.steps.hrow::-webkit-scrollbar{display:none}
+        .svc-grid.hrow>*,.sample-grid.hrow>*,.steps.hrow>*{flex:0 0 82%;scroll-snap-align:start}
+      }
     </style>
   
     <meta name="description" content="BuilderWeb Pro — Páginas web profesionales para negocios en cualquier lugar. Planes desde $199 con financiamiento. Tu negocio en Google, Facebook y WhatsApp.">
@@ -849,7 +865,8 @@
             <h2><span data-es="Todo lo que tu negocio necesita para" data-en="Everything your business needs to">Todo lo que tu negocio necesita para</span> <span class="grad" data-es="verse profesional" data-en="look professional">verse profesional</span></h2>
             <p data-es="No solo la página: montamos tu presencia completa en internet para que tus clientes te encuentren, te escriban y te recomienden." data-en="Not just the website: we build your complete online presence so customers can find you, message you and recommend you.">No solo la página: montamos tu presencia completa en internet para que tus clientes te encuentren, te escriban y te recomienden.</p>
           </div>
-          <div class="svc-grid">
+          <p class="hrow-hint"><span data-es="Desliza →" data-en="Swipe →">Desliza →</span></p>
+          <div class="svc-grid hrow">
             <article class="svc rv">
               <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
               <h3 data-es="Página web con dominio propio" data-en="Website with your own domain">Página web con dominio propio</h3>
@@ -1070,7 +1087,8 @@
             <h2><span data-es="Mira lo que" data-en="See what">Mira lo que</span> <span class="grad" data-es="podemos hacer por ti" data-en="we can build for you">podemos hacer por ti</span></h2>
             <p data-es="Estas son páginas de muestra con negocios de ejemplo, cada una con su propio estilo y colores — y al final, dos trabajos reales ya publicados: una página de servicios y una tienda en línea. Toca «Ver muestra» y navega la página completa, como la verían tus clientes." data-en="These are sample pages for example businesses, each with its own style and colors — plus, at the end, two real published projects: a services website and an online store. Tap “View sample” and browse the full page, just like your customers would.">Estas son páginas de muestra con negocios de ejemplo, cada una con su propio estilo y colores — y al final, dos trabajos reales ya publicados: una página de servicios y una tienda en línea. Toca «Ver muestra» y navega la página completa, como la verían tus clientes.</p>
           </div>
-          <div class="sample-grid">
+          <p class="hrow-hint"><span data-es="Desliza →" data-en="Swipe →">Desliza →</span></p>
+          <div class="sample-grid hrow">
             <article class="sample rv">
               <div class="thumb">
                 <img src="img/img-de18860280.webp" alt="Plato de comida caribeña con arroz, carne guisada y plátanos fritos" />
@@ -1225,7 +1243,8 @@
             <h2><span data-es="Así de" data-en="It's this">Así de</span> <span class="grad" data-es="fácil" data-en="simple">fácil</span></h2>
             <p data-es="Tú no tienes que saber nada de tecnología. Nosotros nos encargamos de todo." data-en="You don't need to know anything about technology. We take care of everything.">Tú no tienes que saber nada de tecnología. Nosotros nos encargamos de todo.</p>
           </div>
-          <div class="steps">
+          <p class="hrow-hint"><span data-es="Desliza →" data-en="Swipe →">Desliza →</span></p>
+          <div class="steps hrow">
             <article class="step rv">
               <span class="num">01</span>
               <h3 data-es="Llenas el cuestionario" data-en="You fill out the questionnaire">Llenas el cuestionario</h3>
