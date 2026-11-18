@@ -132,11 +132,25 @@
           return String(v || '').trim().toLowerCase()
             .replace(/[^a-z0-9_\-\.]/g, '').slice(0, 80);
         }
+        /* RONDA 8 (2026-11-17): utm_campaign (ID de pieza: «FB-01»,
+           «IG-01»…) y utm_content (formato) son identificadores, no
+           taxonomía: se conservan VERBATIM, con su caso original. Solo
+           se recortan, se filtran los caracteres no permitidos (aquí
+           sí se admiten mayúsculas) y se acotan a 80 caracteres.
+           utm_source y utm_medium siguen con clean() (minúsculas). */
+        function cleanVerbatim(v) {
+          return String(v || '').trim()
+            .replace(/[^a-zA-Z0-9_\-\.]/g, '').slice(0, 80);
+        }
+        function cleanKey(k, v) {
+          return (k === 'utm_campaign' || k === 'utm_content')
+            ? cleanVerbatim(v) : clean(v);
+        }
         function readFromUrl() {
           var out = {};
           try {
             var q = new URLSearchParams(window.location.search);
-            KEYS.forEach(function (k) { var v = clean(q.get(k)); if (v) out[k] = v; });
+            KEYS.forEach(function (k) { var v = cleanKey(k, q.get(k)); if (v) out[k] = v; });
           } catch (e) {}
           return out;
         }
@@ -168,7 +182,7 @@
         function fill() {
           KEYS.forEach(function (k) {
             var el = document.getElementById(k);
-            if (el) el.value = clean(attribution[k] || '');
+            if (el) el.value = cleanKey(k, attribution[k] || '');
           });
           var oc = document.getElementById('origen_canal');
           if (oc) oc.value = canalDe(attribution);
@@ -178,7 +192,7 @@
         } else { fill(); }
         window.BWP_UTM = { get: function () {
           var out = {};
-          KEYS.forEach(function (k) { out[k] = clean(attribution[k] || ''); });
+          KEYS.forEach(function (k) { out[k] = cleanKey(k, attribution[k] || ''); });
           out.origen_canal = canalDe(attribution);
           return out;
         } };
