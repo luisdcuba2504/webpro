@@ -582,6 +582,7 @@ nav a{margin-right:14px} .price{font-size:1.6rem;font-weight:800}</style>
             <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 6L2 7"></path></svg>
             <span data-es="Al enviar, tus respuestas llegan directo a nuestro equipo por correo. Revisamos tu solicitud y te escribimos a tu correo con la propuesta de tu página, sin compromiso." data-en="When you submit, your answers go straight to our team by email. We review your request and email you the proposal for your page, with no obligation.">When you submit, your answers go straight to our team by email. We review your request and email you the proposal for your page, with no obligation.</span>
           </div>
+          <div id="bwpQuizTurnstileWrap" style="display:none;margin:14px 0;"><div id="bwpQuizTurnstile"></div></div>
           <div class="quiz-actions">
             <button type="submit" class="btn btn-grad quiz-submit" id="quizSubmitBtn">
               <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4z"></path><path d="M22 2 11 13"></path></svg>
@@ -714,6 +715,12 @@ nav a{margin-right:14px} .price{font-size:1.6rem;font-weight:800}</style>
         payload['_replyto'] = emailVal;
         payload['_autoresponse'] = 'Thank you for your request to BuilderWeb Pro! We received your questionnaire and our team is already reviewing it. Within 24 hours we will write to this email with your website proposal: what we will build for you, the final price and the next steps. — BuilderWeb Pro Team';
         payload['_captcha'] = 'true';
+        /* BWP-CAPTACION v1 (2026-11-17): identificador único del envío.
+           Se genera una vez y se conserva si el visitante reintenta el
+           MISMO envío tras un error: el CRM lo recibe como submission_id
+           y puede reconocer el reintento como duplicado. */
+        payload['submission_id'] = quizGetSubmissionId();
+        payload['submittedAt'] = new Date().toISOString();
 
         var submitBtn = document.getElementById('quizSubmitBtn');
         var submitLabel = submitBtn.querySelector('span');
@@ -722,28 +729,112 @@ nav a{margin-right:14px} .price{font-size:1.6rem;font-weight:800}</style>
         submitBtn.style.opacity = '.65';
         submitLabel.textContent = en ? 'Sending…' : 'Enviando…';
 
-        fetch('https://formsubmit.co/ajax/e00ca9d6043fc13354ccda2653e5954d', {
+        var useWorkerQ = bwpUseWorker();
+        if (useWorkerQ) {
+          var qToken = window.turnstile && quizWidgetId !== null ? window.turnstile.getResponse(quizWidgetId) : '';
+          if (!qToken) {
+            quizPrepareTurnstile();
+            submitBtn.disabled = false;
+            submitBtn.style.opacity = '';
+            submitLabel.textContent = labelWas;
+            quizError.textContent = en
+              ? 'Please complete the security verification and press Send again.'
+              : 'Completa la verificación de seguridad y pulsa Enviar otra vez.';
+            quizError.classList.add('show');
+            quizError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            return;
+          }
+          payload['cf-turnstile-response'] = qToken;
+        }
+        fetch(useWorkerQ ? BWP_WORKER_URL : 'https://formsubmit.co/ajax/e00ca9d6043fc13354ccda2653e5954d', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify(payload)
         }).then(function (resp) {
           if (!resp.ok) throw new Error('send failed');
           return resp.json().catch(function () { return {}; });
-        }).then(function () {
+        }).then(function (result) {
+          /* Confirmación verdadera: por el Worker solo vale el registro si
+             n8n confirmó ({ ok: true }); por FormSubmit (plan B, con el
+             Worker desactivado) vale su propia confirmación de éxito. */
+          if (useWorkerQ && result.ok !== true) throw new Error('not confirmed');
+          if (!useWorkerQ && (result.success === false || result.success === 'false')) throw new Error('failed');
+          quizSubmissionId = null;
           quizForm.style.display = 'none';
           document.getElementById('quizSuccess').style.display = 'block';
           quizOverlay.scrollTop = 0;
         }).catch(function () {
+          if (window.turnstile && quizWidgetId !== null) window.turnstile.reset(quizWidgetId);
           submitBtn.disabled = false;
           submitBtn.style.opacity = '';
           submitLabel.textContent = labelWas;
           quizError.textContent = en
-            ? 'We could not send it. Please email us at info@builderwebpro.com'
-            : 'No se pudo enviar. Escríbenos a info@builderwebpro.com';
+            ? 'We could not register your request. Your answers are still here — please press Send again to retry. If it keeps failing, email us at info@builderwebpro.com'
+            : 'No pudimos registrar tu solicitud. Tus respuestas siguen aquí: pulsa Enviar de nuevo para reintentar. Si sigue fallando, escríbenos a info@builderwebpro.com';
           quizError.classList.add('show');
           quizError.scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
       });
+      /* BWP_INTEGRACION_N8N_V1: solo configuración PÚBLICA; no poner secretos aquí. */
+      var BWP_WORKER_ENABLED = true; // Cambiar a true SOLO tras verificar Worker+n8n desde el sitio real.
+      var BWP_WORKER_URL = 'https://builderwebpro-contacto.builderwebpro-tx-a50.workers.dev/';
+      var BWP_TURNSTILE_SITE_KEY = '0x4AAAAAAGCaPJ8EI69Z1fnQ';
+      var bwpScriptLoading = false;
+      function bwpUseWorker() {
+        return BWP_WORKER_ENABLED === true &&
+          /^https:\/\/[^\s]+$/.test(BWP_WORKER_URL) && !!BWP_TURNSTILE_SITE_KEY;
+      }
+
+      /* ================= captación verificada (BWP-CAPTACION v1): Turnstile
+         e identificador del cuestionario =================
+         El cuestionario viaja por el Worker, que SOLO confirma cuando n8n
+         ha guardado la solicitud en el CRM ({ ok: true }); si no, el
+         visitante ve el error y puede reintentar sin perder sus respuestas.
+         El identificador del envío se genera una vez y se conserva en los
+         reintentos del MISMO envío: viaja como submission_id y permite al
+         CRM reconocer el reintento como duplicado, no como cliente nuevo. */
+      var quizWidgetId = null;
+      var quizSubmissionId = null;
+      function quizGetSubmissionId() {
+        if (!quizSubmissionId) {
+          quizSubmissionId = (window.crypto && window.crypto.randomUUID) ? window.crypto.randomUUID()
+            : 'sid-' + Date.now() + '-' + Math.random().toString(36).slice(2, 10);
+        }
+        return quizSubmissionId;
+      }
+      function quizRenderTurnstile() {
+        if (!bwpUseWorker() || !window.turnstile) return;
+        try {
+          if (quizWidgetId === null) {
+            document.getElementById('bwpQuizTurnstileWrap').style.display = 'block';
+            quizWidgetId = window.turnstile.render('#bwpQuizTurnstile', {
+              sitekey: BWP_TURNSTILE_SITE_KEY, theme: 'dark', appearance: 'always'
+            });
+          }
+        } catch (_) { /* el envío mostrará el error correspondiente */ }
+      }
+      function quizPrepareTurnstile() {
+        if (!bwpUseWorker()) return;
+        if (window.turnstile) { quizRenderTurnstile(); return; }
+        if (bwpScriptLoading) { setTimeout(quizPrepareTurnstile, 600); return; }
+        bwpScriptLoading = true;
+        var script = document.createElement('script');
+        script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+        script.async = true;
+        script.onload = function () { bwpScriptLoading = false; quizRenderTurnstile(); };
+        script.onerror = function () { bwpScriptLoading = false; };
+        document.head.appendChild(script);
+      }
+      /* Al abrir el cuestionario se prepara la verificación de seguridad,
+         para que el token ya exista cuando el visitante pulse Enviar. */
+      if (typeof openQuiz === 'function') {
+        var bwpOpenQuizOriginal = openQuiz;
+        openQuiz = function () {
+          var resultado = bwpOpenQuizOriginal.apply(this, arguments);
+          quizPrepareTurnstile();
+          return resultado;
+        };
+      }
 </script>
     <script>
       if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/sw.js'); }
