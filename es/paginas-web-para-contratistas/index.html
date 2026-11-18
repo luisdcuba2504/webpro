@@ -721,6 +721,25 @@ nav a{margin-right:14px} .price{font-size:1.6rem;font-weight:800}</style>
            y puede reconocer el reintento como duplicado. */
         payload['submission_id'] = quizGetSubmissionId();
         payload['submittedAt'] = new Date().toISOString();
+        /* BWP-CRM-ESPEJO v1 (RONDA 7, 2026-11-17): campos planos espejo.
+           El CRM valida y normaliza los campos planos — nombre, teléfono,
+           correo, servicio, idioma y origen: los mismos que envía el
+           formulario rápido — y sin ellos rechazaba el cuestionario con
+           400 «Datos invalidos»: las 18 claves numeradas se guardan en
+           cuestionario_json, pero los campos principales quedaban vacíos.
+           Los valores salen de las propias respuestas ya volcadas arriba;
+           ninguna clave numerada se toca. */
+        payload.nombre = payload['1. Nombre del negocio'];
+        payload.name = payload['1. Nombre del negocio'];
+        payload.telefono = payload['4. Teléfono/WhatsApp público'];
+        payload.phone = payload['4. Teléfono/WhatsApp público'];
+        payload.correo = payload['5. Correo del cliente'];
+        payload.email = payload['5. Correo del cliente'];
+        payload.servicio = payload['15. Paquete que le interesa'] !== dash
+          ? payload['15. Paquete que le interesa']
+          : payload['2. Tipo de negocio'];
+        payload.language = 'es';
+        payload.source = 'builderwebpro.com';
 
         var submitBtn = document.getElementById('quizSubmitBtn');
         var submitLabel = submitBtn.querySelector('span');
