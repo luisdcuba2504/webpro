@@ -75,12 +75,6 @@
             "name": "Plan Premium",
             "price": "599",
             "priceCurrency": "USD"
-          },
-          {
-            "@type": "Offer",
-            "name": "Homepage Sample",
-            "price": "10",
-            "priceCurrency": "USD"
           }
         ]
       },
@@ -492,7 +486,7 @@
       }
       .cuba-note b{color:#fff}
 
-      /* financiamiento */
+      /* pago 50/50 */
       .finance{
         margin-top:22px;border-radius:20px;padding:26px 26px;
         background:linear-gradient(120deg,rgba(34,197,94,.13),rgba(34,211,238,.07)),var(--bg-2);
@@ -932,7 +926,7 @@
 
       /* ===== Filas horizontales (solo presentación): en pantallas de
          menos de 900px, todo grupo de tarjetas iguales (servicios,
-         paquetes, pasos de la muestra, financiamiento, apps web,
+         paquetes, pasos de la muestra, pago 50/50, apps web,
          muestras y prueba real) deja de apilarse en vertical y se
          desliza hacia el lado con el dedo (scroll-snap nativo, sin
          librerías). En escritorio queda la rejilla normal. ===== */
@@ -979,19 +973,12 @@
             <h1><span data-es="Tu negocio merece una página web" data-en="Your business deserves a website">Your business deserves a website</span> <span class="grad" data-es="que venda por ti" data-en="that sells for you">that sells for you</span></h1>
             <p class="hero-sub" data-es="Páginas web profesionales con tu propio dominio, botón de WhatsApp y llamadas directas — pago único, sin mensualidades de hosting." data-en="Professional websites with your own domain, WhatsApp button and click-to-call — one-time payment, no monthly hosting fees.">Professional websites with your own domain, WhatsApp button and click-to-call — one-time payment, no monthly hosting fees.</p>
             <div class="hero-ctas">
-              <a class="btn btn-grad" href="#cuestionario" data-open-quiz data-pkg="Muestra personalizada $10">
-                <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                <span data-es="Quiero mi muestra por $10" data-en="I want my $10 preview">I want my $10 preview</span>
-              </a>
               <a class="btn btn-ghost" href="#paquetes">
                 <span data-es="Ver paquetes y ejemplos" data-en="See plans &amp; samples">See plans & samples</span>
                 <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"></path></svg>
               </a>
             </div>
             <div class="hero-points">
-              <span><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg><span data-es="Pago único (desde $199)" data-en="One-time payment (from $199)">One-time payment (from $199)</span></span>
-              <span><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg><span data-es="Sin mensualidades de hosting" data-en="No monthly hosting fees">No monthly hosting fees</span></span>
-              <span><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg><span data-es="Muestra en 24–48 h desde que se verifica tu pago · atención en español" data-en="Preview in 24–48 h after your payment is verified · service in Spanish &amp; English">Preview in 24–48 h after your payment is verified · service in Spanish & English</span></span>
             </div>
             <a class="real-chip" href="https://buildermaxtexas.com" target="_blank" rel="noopener">
               <span class="live" aria-hidden="true"></span>
@@ -1144,32 +1131,17 @@
               <div class="cmp-wrap" id="compareTable"></div>
             </div>
           </div>
-
-          <div class="finance rv" id="muestra10">
-            <h3 class="fin-title" data-es="👀 Mira tu página antes de pagarla — Muestra por $10" data-en="👀 See your page before you pay for it — $10 preview">👀 See your page before you pay for it — $10 preview</h3>
-            <p class="fin-text" data-es="Sin arriesgar los $199: primero ves tu página hecha con tu negocio, tus colores y tus servicios. Incluye 1 ronda de ajustes." data-en="No need to risk the $199: first you see your page built with your business, your colors and your services. Includes 1 round of adjustments.">No need to risk the $199: first you see your page built with your business, your colors and your services. Includes 1 round of adjustments.</p>
-            <p class="hrow-hint"><span data-es="Desliza →" data-en="Swipe →">Swipe →</span></p>
-            <ul class="fin-list hrow">
-              <li><b>1</b><span class="fin-arrow" aria-hidden="true">→</span><span data-es="Llena el cuestionario y paga $10 + impuestos por Zelle." data-en="Fill out the questionnaire and pay $10 plus tax by Zelle.">Fill out the questionnaire and pay $10 plus tax by Zelle.</span></li>
-              <li><b>2</b><span class="fin-arrow" aria-hidden="true">→</span><span data-es="En 24–48 h desde que se verifica tu pago recibes tu enlace privado con la portada de TU página ya diseñada." data-en="Within 24–48 hours after your payment is verified, you receive your private link with YOUR page's homepage already designed.">Within 24–48 hours after your payment is verified, you receive your private link with YOUR page's homepage already designed.</span></li>
-              <li><b>3</b><span class="fin-arrow" aria-hidden="true">→</span><span data-es="Si te gusta, eliges tu plan y los $10 se descuentan de tu primer pago." data-en="If you love it, pick your plan and the $10 is credited toward your first payment.">If you love it, pick your plan and the $10 is credited toward your first payment.</span></li>
-            </ul>
-            <p class="fin-text" data-es="💡 Tus $10 son 100% crédito a tu favor: úsalos como descuento directo al activar cualquiera de nuestros planes dentro de los primeros 15 días. Recibirás una vista previa privada con el diseño real de tu portada (los botones interactivos y el dominio se activan al entregar tu página final). No se devuelven en efectivo: se convierten en crédito a tu favor." data-en="💡 Your $10 is 100% credit in your favor: use it as a direct discount when you activate any of our plans within the first 15 days. You will receive a private preview with the real design of your homepage (the interactive buttons and the domain are activated when your final page is delivered). It is not refunded in cash: it becomes credit in your favor.">💡 Your $10 is 100% credit in your favor: use it as a direct discount when you activate any of our plans within the first 15 days. You will receive a private preview with the real design of your homepage (the interactive buttons and the domain are activated when your final page is delivered). It is not refunded in cash: it becomes credit in your favor.</p>
-            <a class="btn btn-grad" href="#cuestionario" data-open-quiz data-pkg="Muestra personalizada $10"><span data-es="Quiero mi muestra por $10" data-en="I want my $10 preview">I want my $10 preview</span></a>
-            <p class="care-hint" data-es="🔒 Pago seguro · Entrega en 24–48 horas desde que se verifica tu pago · Sin compromisos forzosos" data-en="🔒 Secure payment · Delivered in 24–48 hours after your payment is verified · No forced commitments">🔒 Secure payment · Delivered in 24–48 hours after your payment is verified · No forced commitments</p>
-          </div>
-
           <div class="finance rv finrow">
-            <h3 class="fin-title" data-es="💳 ¿Prefieres pagarlo a plazos?" data-en="💳 Prefer to pay in installments?">💳 Prefer to pay in installments?</h3>
-            <p class="fin-text" data-es="Financiamiento disponible: activa tu proyecto con solo el 30% de anticipo y paga el resto en 3 pagos mensuales, sin intereses." data-en="Financing available: start your project with just a 30% down payment and pay the rest in 3 monthly payments, interest-free.">Financing available: start your project with just a 30% down payment and pay the rest in 3 monthly payments, interest-free.</p>
+            <h3 class="fin-title" data-es="💳 Pago sencillo: 50/50" data-en="💳 Simple payment: 50/50">💳 Simple payment: 50/50</h3>
+            <p class="fin-text" data-es="Sin financiación ni intereses: pagas el 50% para comenzar tu proyecto y el otro 50% antes de publicar tu página. Así de claro." data-en="No financing, no interest: you pay 50% to start your project and the other 50% before your page goes live. Simple and clear.">No financing, no interest: you pay 50% to start your project and the other 50% before your page goes live. Simple and clear.</p>
             <p class="hrow-hint"><span data-es="Desliza →" data-en="Swipe →">Swipe →</span></p>
             <ul class="fin-list">
-              <li><b data-es="Básico · $199" data-en="Basic · $199">Basic · $199</b><span class="fin-arrow" aria-hidden="true">→</span><span data-es="anticipo de $59.70 y 3 pagos mensuales de $46.43" data-en="$59.70 down and 3 monthly payments of $46.43">$59.70 down and 3 monthly payments of $46.43</span></li>
-              <li><b data-es="Completo · $299" data-en="Complete · $299">Complete · $299</b><span class="fin-arrow" aria-hidden="true">→</span><span data-es="anticipo de $89.70 y 3 pagos mensuales de $69.77" data-en="$89.70 down and 3 monthly payments of $69.77">$89.70 down and 3 monthly payments of $69.77</span></li>
-              <li><b>Premium · $599</b><span class="fin-arrow" aria-hidden="true">→</span><span data-es="anticipo de $179.70 y 3 pagos mensuales de $139.77" data-en="$179.70 down and 3 monthly payments of $139.77">$179.70 down and 3 monthly payments of $139.77</span></li>
+              <li><b data-es="Básico · $199" data-en="Basic · $199">Basic · $199</b><span class="fin-arrow" aria-hidden="true">→</span><span data-es="$99.50 para empezar · $99.50 antes de publicar" data-en="$99.50 to start · $99.50 before publishing">$99.50 to start · $99.50 before publishing</span></li>
+              <li><b data-es="Completo · $299" data-en="Complete · $299">Complete · $299</b><span class="fin-arrow" aria-hidden="true">→</span><span data-es="$149.50 para empezar · $149.50 antes de publicar" data-en="$149.50 to start · $149.50 before publishing">$149.50 to start · $149.50 before publishing</span></li>
+              <li><b>Premium · $599</b><span class="fin-arrow" aria-hidden="true">→</span><span data-es="$299.50 para empezar · $299.50 antes de publicar" data-en="$299.50 to start · $299.50 before publishing">$299.50 to start · $299.50 before publishing</span></li>
             </ul>
-            <p class="fin-rule"><b data-es="Tu página se activa y se te entrega en cuanto confirmamos tu pago completo o tu anticipo." data-en="Your page is activated and delivered as soon as we confirm your full payment or your down payment.">Your page is activated and delivered as soon as we confirm your full payment or your down payment.</b></p>
-            <a class="btn btn-grad" href="#cuestionario" data-open-quiz data-pkg="Completo $299"><span data-es="Solicitar plan a plazos" data-en="Request an installment plan">Request an installment plan</span></a>
+            <p class="fin-rule"><b data-es="Tu página se publica y se te entrega en cuanto confirmamos tu segundo pago — o tu pago completo, si pagas todo de una vez." data-en="Your page is published and delivered as soon as we confirm your second payment — or your full payment, if you pay in full at once.">Your page is published and delivered as soon as we confirm your second payment — or your full payment, if you pay in full at once.</b></p>
+            <a class="btn btn-grad" href="#cuestionario" data-open-quiz data-pkg="Completo $299"><span data-es="Empezar mi proyecto" data-en="Start my project">Start my project</span></a>
           </div>
 
           <div class="care rv">
@@ -1384,16 +1356,9 @@
             </article>
             <article class="sample rv">
               <div class="s-body">
-                <span class="s-cat" data-es="Tu muestra, antes de pagar el plan" data-en="Your preview, before paying for the plan">Your preview, before paying for the plan</span>
-                <h3>24–48 h</h3>
-                <p data-es="Ves la portada de tu página ya diseñada antes de comprometerte con cualquier plan: en 24–48 h desde que se verifica tu pago." data-en="You see your homepage already designed before committing to any plan: within 24–48 hours after your payment is verified.">You see your homepage already designed before committing to any plan: within 24–48 hours after your payment is verified.</p>
-              </div>
-            </article>
-            <article class="sample rv">
-              <div class="s-body">
                 <span class="s-cat" data-es="Precio publicado" data-en="Published pricing">Published pricing</span>
                 <h3>100%</h3>
-                <p data-es="Los precios y el financiamiento están en esta misma página, a la vista. Sin cotizaciones infladas ni sorpresas." data-en="Prices and financing are on this very page, in plain sight. No inflated quotes or surprises.">Prices and financing are on this very page, in plain sight. No inflated quotes or surprises.</p>
+                <p data-es="Los precios y la forma de pago están en esta misma página, a la vista. Sin cotizaciones infladas ni sorpresas." data-en="Prices and payment terms are on this very page, in plain sight. No inflated quotes or surprises.">Prices and payment terms are on this very page, in plain sight. No inflated quotes or surprises.</p>
               </div>
             </article>
           </div>
@@ -1417,12 +1382,12 @@
             <article class="step rv">
               <span class="num">02</span>
               <h3 data-es="Apruebas la propuesta y pagas" data-en="You approve the proposal and pay">You approve the proposal and pay</h3>
-              <p data-es="Te escribimos por correo qué vamos a construir y el precio final. Cuando apruebas, te enviamos los datos para pagar: el total o, si prefieres financiar, solo el 30% de anticipo. En cuanto confirmamos tu pago, construimos tu página con tus colores y tu estilo, y te la mostramos antes de publicarla." data-en="We email you what we will build and the final price. When you approve, we send you the payment details: the full amount or, if you prefer financing, just the 30% down payment. As soon as we confirm your payment, we build your page with your colors and style, and show it to you before it goes live.">We email you what we will build and the final price. When you approve, we send you the payment details: the full amount or, if you prefer financing, just the 30% down payment. As soon as we confirm your payment, we build your page with your colors and style, and show it to you before it goes live.</p>
+              <p data-es="Te escribimos por correo qué vamos a construir y el precio final. Cuando apruebas, te enviamos los datos para pagar: el 50% para comenzar, o el total si prefieres pagar de una vez. En cuanto confirmamos tu pago, construimos tu página con tus colores y tu estilo, y te la mostramos antes de publicarla." data-en="We email you what we will build and the final price. When you approve, we send you the payment details: 50% to start, or the full amount if you prefer to pay at once. As soon as we confirm your payment, we build your page with your colors and style, and show it to you before it goes live.">We email you what we will build and the final price. When you approve, we send you the payment details: 50% to start, or the full amount if you prefer to pay at once. As soon as we confirm your payment, we build your page with your colors and style, and show it to you before it goes live.</p>
             </article>
             <article class="step rv">
               <span class="num">03</span>
               <h3 data-es="Publicamos y recibes clientes" data-en="We publish and customers come">We publish and customers come</h3>
-              <p data-es="Tu página se activa y se te entrega en cuanto confirmamos tu pago completo o tu anticipo. La publicamos con tu propio dominio, sin mensualidades de hosting, con tus botones de WhatsApp y llamada listos para trabajar." data-en="Your page is activated and delivered as soon as we confirm your full payment or your down payment. We publish it on your own domain, with no monthly hosting fees, and your WhatsApp and call buttons ready to work.">Your page is activated and delivered as soon as we confirm your full payment or your down payment. We publish it on your own domain, with no monthly hosting fees, and your WhatsApp and call buttons ready to work.</p>
+              <p data-es="Tu página se publica y se te entrega en cuanto confirmamos tu pago completo (el segundo 50% o el total). La publicamos con tu propio dominio, sin mensualidades de hosting, con tus botones de WhatsApp y llamada listos para trabajar." data-en="Your page is published and delivered as soon as we confirm your full payment (the second 50% or the full amount). We publish it on your own domain, with no monthly hosting fees, and your WhatsApp and call buttons ready to work.">Your page is published and delivered as soon as we confirm your full payment (the second 50% or the full amount). We publish it on your own domain, with no monthly hosting fees, and your WhatsApp and call buttons ready to work.</p>
             </article>
           </div>
 
@@ -1639,7 +1604,6 @@
                 <label class="q-label" for="qPackage" data-es="15. Paquete que te interesa" data-en="15. Package you're interested in">15. Package you're interested in</label>
                 <select class="q-select" id="qPackage">
                   <option value="No sé, quiero asesoría" data-es="No sé, quiero asesoría" data-en="Not sure, I want advice">Not sure, I want advice</option>
-                  <option value="Muestra personalizada $10" data-es="Muestra personalizada — $10 (se descuenta de mi plan)" data-en="Personalized preview — $10 (credited toward my plan)">Personalized preview — $10 (credited toward my plan)</option>
                   <option value="Básico $199" data-es="Básico $199" data-en="Basic $199">Basic $199</option>
                   <option value="Completo $299" data-es="Completo $299" data-en="Complete $299">Complete $299</option>
                   <option value="Premium $599" data-es="Premium $599" data-en="Premium $599">Premium $599</option>
@@ -2566,11 +2530,10 @@
           '<span class="pp-now">$' + p.now + '</span><span class="pp-per">' + (en ? 'one-time payment' : 'pago único') + '</span>' +
           '<span class="offer-chip">' + (en ? 'SALE' : 'OFERTA') + ' −' + planPct(p) + '%</span></div>';
         html += '<p class="plan-save">' + (en ? 'You save $' + (p.was - p.now) + ' with this offer.' : 'Ahorras $' + (p.was - p.now) + ' con esta oferta.') + '</p>';
-        var finDown = p.now * 0.30;
-        var finMonthly = (p.now - finDown) / 3;
+        var mitad = p.now / 2;
         html += '<p class="plan-fin">' + (en
-          ? 'Or finance it: <b>$' + finDown.toFixed(2) + ' down</b> (30%) + 3 monthly payments of <b>$' + finMonthly.toFixed(2) + '</b>, interest-free. Your page is activated as soon as we confirm your down payment.'
-          : 'O fináncialo: <b>$' + finDown.toFixed(2) + ' de anticipo</b> (30%) + 3 pagos mensuales de <b>$' + finMonthly.toFixed(2) + '</b>, sin intereses. Tu página se activa en cuanto confirmamos tu anticipo.') + '</p>';
+          ? 'Or split it 50/50: <b>$' + mitad.toFixed(2) + ' to start</b> and <b>$' + mitad.toFixed(2) + ' before your page goes live</b>. No financing, no interest.'
+          : 'O págalo 50/50: <b>$' + mitad.toFixed(2) + ' para empezar</b> y <b>$' + mitad.toFixed(2) + ' antes de publicar tu página</b>. Sin financiación ni intereses.') + '</p>';
         if (p.prev >= 0) {
           var prev = PLANS[p.prev];
           var prevName = en ? prev.name.en : prev.name.es;
